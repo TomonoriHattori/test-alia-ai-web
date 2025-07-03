@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Embedded AI ｜アイリア AI Series</title>
+<meta name="description" content="">
+<!-- Open Graph protocol metadata start-->
+<meta property="og:site_name" content="あらゆるデバイスにAIを！「組み込みAI」のシーンにおいて、より手軽に、より簡単に。「ailia SDK」が既存の開発環境で使えるAIの実装をサポートします。" />
+<meta property="og:title" content="Embedded AI ｜ailia AI Series" />
+<meta property="og:description" content="あらゆるデバイスにAIを！「組み込みAI」のシーンにおいて、より手軽に、より簡単に。「ailia SDK」が既存の開発環境で使えるAIの実装をサポートします。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ailia.ai/embedded/" />
+<meta property="og:image" content="https://ailia.ai/embedded/img/ogimage.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- Open Graph protocol metadata end-->
+<link rel="shortcut icon" href="https://ailia.ai/embedded/img/favicon.ico">
+<link rel="stylesheet" property="stylesheet" href="css/common.css" media="all">
+<link rel="stylesheet" property="stylesheet" href="css/ailiasdk.css" media="all">
+<link rel="stylesheet" href="css/style_header.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.7.1.min.js"></script> 
+<script type="text/javascript" src="js/smoothScroll.js"></script> 
+<script type="text/javascript" src="js/sitemapmodal.js"></script> 
+<script type="text/javascript" src="js/fixnav.js"></script> 
+<script type="text/javascript" src="js/spnavi.js"></script> 
+<script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript" src="js/dlmodal.js"></script> 
+<script type="text/javascript" src="js/chatwindow.js"></script> 
+<script type="text/javascript" src="js/ailia_dx_chat.js"></script> 
+<script type="text/javascript" src='js/mp_config.js'></script>
+<script type="text/javascript" src='js/mp_fileio.js'></script>
+<script type="text/javascript" src="js/mp_lib.js"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5Q579RMM');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q579RMM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="header">
+	<nav>
+		<div class="navArea">
+			<div class="inner cw">
+				<h1>
+					<a class="navLogo" href="/"><img class="" src="img/common/logo.svg" alt="ailia">
+						<span class="siteTitle">アイリア</span>
+					</a>
+				</h1>
+				<ul class="navList">
+					<li>
+						<a href="https://ailia.ai/" class="">アイリアAIシリーズ</a>
+					</li>
+					<li>
+						<a href="https://ailia.ai/ai-computing/" class="ai-computing">AIコンピューティング</a>
+					</li>
+					<li>
+						<a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/">AIアプリケーション</a>
+					</li>
+					<li>
+						<a href="https://ailia.ai/company/" class="company">会社情報</a>
+					</li>
+					<li class="lang">
+						<a href="https://ailia.ai/embedded/" class="current">JP</a>
+						<a href="https://ailia.ai/en/embedded/">EN</a>
+					</li>
+					<li class="contact">
+						<a class="" href="https://ailia.ai/contact/" target="_blank">お問い合わせ</a>
+					</li>
+				</ul>
+			</div>
+			<a href="https://ailia.ai/contact/" target="_blank" class="spContact mobileOnly">お問い合わせ</a>
+			<a class="spNavBtn mobileOnly" href="javascript:void(0);"><span></span><span></span><span></span></a>
+		</div>
+	</nav>
+</div>
+<div id="ailia_wrapper" class="sdk">
+	<div id="ailia_contents">
+		
+		<nav id="head02">
+			<div class="headinner">
+				<ul class="head02nav">
+					<li class="nav0201"><a href="#hint">AI活用のお役立ちヒント</a></li>
+					<li class="navbtn0201"><span class="btntext">アイリア SDK 無料トライアル版</span><a class="btn dllink">トライアルのお申し込み</a></li>
+					<li class="navbtn0202"><span class="btntext">無料個別相談にも対応</span><a href="https://share.hsforms.com/1ICO3aeJJQpWCwvtpsZgOfQbq8vm" target="_blank" class="btn">導入のご相談</a></li>
+				</ul>
+				<div class="head02btn" id="sitemapopen"><a class="navbtn">Site map</a></div>
+			</div>
+		</nav>
+		
+		<div id="mv">
+			<div class="mvinner">
+				<div class="mvtext">
+					<div class="mvtext01">＼あらゆるデバイスにAIを！／</div>
+					<h1 class="mvlogo"><span class="logo"><img src="img/mv_logo.png" width="950" height="113" alt="ailia AI Series"/></span>が<br>
+						手軽で簡単な<br>
+						実装をサポート</h1>
+					<div class="mvtext03">さまざまな場面で活発化するAI導入の波は、<br>
+						近年、組み込み機器業界にも広がりを見せています。<br>
+						そうした「組み込みAI」のシーンにおいても、<br>
+						より手軽に、より簡単に。<br>
+						既存の開発環境で使えるAIの実装を実現します。</div>
+				</div>
+				<div class="mvcatch"><img src="img/mv_catch.png" width="381" height="381" alt="ファンレス 低消費電力"/></div>
+			</div>
+			<div class="mvbtn cpbtn">
+				<div class="btnset">
+					<div class="btnbox btn01"><span class="btntext">アイリア SDK 無料トライアル版</span><a class="btn dllink">トライアルのお申し込み</a></div>
+					<div class="btnbox btn02"><span class="btntext">無料個別相談にも対応</span><a class="btn" href="https://share.hsforms.com/1ICO3aeJJQpWCwvtpsZgOfQbq8vm" target="_blank">導入のご相談</a></div>
+				</div>
+			</div>
+		</div>
+		<div id="chatbtn">
+			<div class="chatbtnbox chatopen">
+				<div class="chatbtnwindow">ボク、あいにゃん。アイリアのことならなんでも聞いてくれにゃ。</div>
+				<div class="chara">
+					<canvas id="avatar" width="256" height="256"></canvas>
+					<img src="img/chara_sp.png" width="108" height="109" alt="あいにゃん" class="sp"/>
+				</div>
+			</div>
+			<div class="btnclose chatclose pc">閉じる</div>
+		</div>
+		<div id="chatwindow">
+			<div class="aichatinner"> 
+				<!-- チャット部分 -->
+				<div class="logarea">
+					<div class="loghead">
+						<div class="logtitle">あいにゃんチャットBOT（自動応答）</div>
+						<div id="chatclose" class="winclose">閉じる</div>
+					</div>
+					<div class="logbody" id="logbody">
+						<div class="logtext">
+							<div id="chat"></div>
+						</div>
+					</div>
+				</div>
+				<div class="chatarea">
+					<div class="chatbody">
+						<form name="chat_form" action="javascript:chat_api('https://ailia-llm-insight.uw.r.appspot.com/');">
+							<div class="chatformbox">
+								<input type="text" name="prompt" id="prompt" size="40" placeholder="※ここに質問を入力（例：アイリアについて）">
+							</div>
+							<div class="chatbutton">
+								<button type="button" onclick="chat_api('https://ailia-llm-insight.uw.r.appspot.com/')">送信</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainbody">
+			<div id="introduction">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>INTRODUCTION</h2>
+						<div class="title">こんな課題はありませんか？</div>
+					</div>
+					<div class="contentsbody">
+						<div class="intropiclist">
+							<div class="picbox">
+								<div class="pic"><img src="img/introduction_pic01.jpg" width="716" height="444" alt=""/></div>
+								<div class="text"><span class="stext">AI対応組み込みボードを買ったけど</span><br>
+									何から始めたらいいかわからない</div>
+							</div>
+							<div class="picbox">
+								<div class="pic"><img src="img/introduction_pic02.jpg" width="716" height="444" alt=""/></div>
+								<div class="text"><span class="stext">組み込み機器の</span><br>
+									マニュアルやSDKが複雑で難しい</div>
+							</div>
+							<div class="picbox">
+								<div class="pic"><img src="img/introduction_pic03.jpg" width="716" height="444" alt=""/></div>
+								<div class="text"><span class="stext">既存のシステムを変えずに</span><br>
+									AIを追加導入したい</div>
+							</div>
+						</div>
+						<div class="leadtext">「アイリア SDK」なら、<br class="sp">そうした課題をスマートに<br class="sp">解決することが可能です。<br>
+							豊富なモデルとサンプルが用意されており、<br class="sp">簡単にAIを動かすことができます。<br>
+							また、「アイリア Ready」の機器には<br class="sp">「アイリア」がプリインストールされているため、<br>
+							環境構築の手間もかかりません。<br>
+							<br>
+							クロスプラットフォームで、<br class="sp">どのような環境でも動かせる多種多様なAIを、<br>
+							簡単に試して、実際に評価をしたうえで<br class="sp">実開発に入ることができる、<br>
+							安心で快適なAI開発環境です。</div>
+					</div>
+				</div>
+			</div>
+			<div id="flow">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>FLOW</h2>
+						<div class="title">導入フロー</div>
+						<div class="lead">「アイリア SDK」 × SoCは、ワンストップで<br class="sp">取り入れることでさまざまな強みがあります。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="flowpicset">
+							<div class="picbox box01">
+								<div class="logo"><img src="img/flow01_logo.png" width="321" height="56" alt="ailia SDK"/></div>
+								<div class="pic"><img src="img/flow01_pic.jpg" width="716" height="444" alt=""/></div>
+								<div class="text">高速AI推論フレームワーク「アイリア SDK」のインストール</div>
+								<div class="note">※アイリア Ready（＝プリインストール）対応機器では不要</div>
+							</div>
+							<div class="picbox box02">
+								<div class="logo"><img src="img/flow02_logo.png" width="321" height="56" alt="ailia MODELS"/></div>
+								<div class="pic"><img src="img/flow02_pic.jpg" width="716" height="444" alt=""/></div>
+								<div class="text">300種類以上のサンプルを用意した<br>
+									「アイリア MODELS」から動かしたいモデルを選ぶ</div>
+							</div>
+							<div class="picbox box03">
+								<div class="pic"><img src="img/flow_action.png" width="716" height="444" alt="実行"/></div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="columninner">
+								<div class="pic"><img src="img/showcase_pic.jpg" width="897" height="525" alt=""/></div>
+								<div class="textbox">
+									<div class="leadtext">Androidではさらに手軽な<br>
+										「アイリアAI Showcase」も<br>
+										提供しています</div>
+									<div class="text">アイリア AI showcaseは様々なAI機能をお手軽にお試しいただけるアプリケーションです。ディープラーニング・フレームワーク「アイリア SDK」によって、CPUやGPU、NPUを最大限活用した高速な推論を実現します。</div>
+									<div class="btnset">
+										<div class="btnbox btn01"><a class="btn" target="_blank" href="https://apps.apple.com/jp/app/ailia-ai-showcase/id1522828798"><img src="img/btn_appstore.png" width="328" height="121" alt="App Store"/></a></div>
+										<div class="btnbox btn02"><a class="btn" target="_blank" href="https://play.google.com/store/apps/details?id=jp.axinc.ailia_ai_showcase"><img src="img/btn_googleplay.png" width="406" height="121" alt="Google Play"/></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="feature">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>FEATURE</h2>
+						<div class="title">アイリアはなぜ<br class="sp">組み込み機器に最適？</div>
+					</div>
+				</div>
+				<div class="contentsbody">
+					<div class="featurelist">
+						<div class="picbox box01">
+							<div class="pic"><img src="img/feature_pic01.png" width="716" height="444" alt=""/></div>
+							<div class="label">NPU対応</div>
+							<div class="text">int8により低消費電力でAIを動かすことが可能です。これにより、電力の問題で導入を諦めていた組み込み環境にもAIを搭載可能です。</div>
+						</div>
+						<div class="picbox box02">
+							<div class="pic"><img src="img/feature_pic02.png" width="716" height="444" alt=""/></div>
+							<div class="label">CPU、GPU対応</div>
+							<div class="text">組み込み機器で主流のArm NEONに最適化しています。また、cuDNNやVulkanによって組み込み機器のGPUが使用可能です。</div>
+						</div>
+						<div class="picbox box03">
+							<div class="pic"><img src="img/feature_pic03.png" width="716" height="444" alt=""/></div>
+							<div class="label">クロスプラットフォーム</div>
+							<div class="text">PCと組み込み機器で同じAPIを提供しているため、組み込み機器向けのAIの専門知識が不要で、PC上でも開発できます。</div>
+						</div>
+						<div class="picbox box04">
+							<div class="pic"><img src="img/feature_pic04.png" width="716" height="444" alt=""/></div>
+							<div class="label">豊富なモデルライブラリ</div>
+							<div class="text">お客様で再学習不要で豊富なモデルライブラリから使いたいAIを選ぶだけで使えます。</div>
+						</div>
+					</div>
+					<div class="featurepic"><img src="img/feature_pic.jpg" width="2001" height="1145" alt=""/></div>
+				</div>
+			</div>
+			<div id="casestudy">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>CASE STUDY</h2>
+						<div class="title">組み込み機器における<br class="sp">AI活用シーン</div>
+					</div>
+					<div class="contentsbody">
+						<div class="caselist">
+							<div class="picbox box01">
+								<div class="pic"><img src="img/case_pic01.jpg" width="716" height="444" alt=""/></div>
+								<div class="label">監視カメラのユースケース</div>
+								<div class="text">組み込みAIと特に親和性の高い監視カメラ市場。クラウドだと、データの送信等に時間がかかったり、サーバ代が大きくなることも。アイリアはエッジデバイスでAIを動かすので、低遅延、低コスト。また、Int8対応で発熱も抑制します。</div>
+							</div>
+							<div class="picbox box02">
+								<div class="pic"><img src="img/case_pic02.jpg" width="716" height="444" alt=""/></div>
+								<div class="label">自動車のユースケース</div>
+								<div class="text">アイリアは自動車で増える汎用SoCとAndroidに対応。脇見や速度調や、ドライバーの居眠りといった危険運転の防 止・改善をサポート。物流や交通インフラのシーンにおける日々の安心・ 安全を、より高い水準に高めることが期待されます。</div>
+							</div>
+						</div>
+						<div class="casepicbox">
+							<div class="pictitle">アイリア Ready 動作確認済みシステム</div>
+							<div class="casepic"><img src="img/case_pic.jpg" width="897" height="525" alt=""/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="followup">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>FOLLOW UP</h2>
+						<div class="title">専門のスタッフが<br class="sp">
+							一環してサポートします。</div>
+						<div class="lead">導入〜開発〜使用中のサポートは、<br class="sp">
+							メール・MTGいずれも対応可能です。<br>
+							開発拠点・本社機能ともに国内のため、<br>
+							迅速かつ手厚くフォローアップ<br class="sp">
+							させていただきます。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="followlistwrapper">
+							<div class="followwrap">
+								<div class="followbox"> <img src="img/support_pic.png" width="2714" height="646" alt=""/> </div>
+							</div>
+						</div>
+						<div class="followbtn cpbtn">
+							<div class="btnset">
+								<div class="btnbox btn01"><span class="btntext">アイリア SDK 無料トライアル版</span><a class="btn dllink">トライアルのお申し込み</a></div>
+								<div class="btnbox btn02"><span class="btntext">無料個別相談にも対応</span><a class="btn" href="https://share.hsforms.com/1ICO3aeJJQpWCwvtpsZgOfQbq8vm" target="_blank">導入のご相談</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="hint">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>WHITE PAPER</h2>
+						<div class="title">AI活用のお役立ちヒント</div>
+						<div class="lead">ビジネスのDXに役立つトピックスも満載。<br>
+							仕事に役立つAIのヒントを、<br class="sp">
+							わかりやすくご紹介します。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="wpwrapper">
+							<ul class="wplist">
+								<li class="wp">
+									<div class="wpbox">
+										<div class="date">2024.03.09</div>
+										<div class="pic"><img src="img/wp_pic05.jpg" width="633" height="894" alt=""/></div>
+										<div class="textbox">
+											<div class="textset">
+												<h3>アイリア SDKが<br>
+													「組み込みAI」の未来を変える</h3>
+												<div class="text">昨今注目を集める組み込みAIにフォーカス。その最新事情と「アイリア SDK」の優位性について、監視カメラの例をもとにご紹介します。</div>
+											</div>
+										</div>
+										<div class="wpbtn">
+											<div class="btnbox"><span class="btntext">PDF資料</span><a class="btn hs-cta-trigger-button hs-cta-trigger-button-162753075223" href="#">無料ダウンロード</a></div>
+										</div>
+									</div>
+								</li>
+								<li class="wp">
+									<div class="wpbox">
+										<div class="date">2024.02.02</div>
+										<div class="pic"><img src="img/wp_pic04.jpg" width="633" height="894" alt=""/></div>
+										<div class="textbox">
+											<div class="textset">
+												<h3>業務のためのAIがひとつに。<br>
+													DXアプリ「アイリア DX Insight」</h3>
+												<div class="text">営業職や研究職、さらにはお笑いまで？ ビジネスのDXを多角的にサポートする、最新の セキュアな“DXアプリ” 、「アイリア DX Insight」の真価と、そのご活用例について。</div>
+											</div>
+										</div>
+										<div class="wpbtn">
+											<div class="btnbox"><span class="btntext">PDF資料</span><a class="btn hs-cta-trigger-button hs-cta-trigger-button-157750252952" href="#">無料ダウンロード</a></div>
+										</div>
+									</div>
+								</li>
+								<li class="wp">
+									<div class="wpbox">
+										<div class="date">2023.10.12</div>
+										<div class="pic"><img src="img/wp_pic03.jpg" width="633" height="894" alt=""/></div>
+										<div class="textbox">
+											<div class="textset">
+												<h3>ビジネスにどう効く？AIの専門家に聞いた<br>
+													「画像生成AI」の現在地と未来</h3>
+												<div class="text">ビジネスの現場において、画像生成AIはどう活用できるのか。AIの専門家が語る画像生成AIの最新事情と、導入に際しておさえておきたいポイントにフォーカスする。</div>
+											</div>
+										</div>
+										<div class="wpbtn">
+											<div class="btnbox"><span class="btntext">PDF資料</span><a class="btn hs-cta-trigger-button hs-cta-trigger-button-157651965349" href="#">無料ダウンロード</a></div>
+										</div>
+									</div>
+								</li>
+								<li class="wp">
+									<div class="wpbox">
+										<div class="date">2023.09.13</div>
+										<div class="pic"><img src="img/wp_pic02.jpg" width="633" height="894" alt=""/></div>
+										<div class="textbox">
+											<div class="textset">
+												<h3>ビジネス用のAIアプリも手軽に作れる<br>
+													AI開発の要、「アイリア」とは？</h3>
+												<div class="text">AI開発におけるさまざまな領域で、幅広いソリューション＆サービスを展開している「アイリア」。その特性やラインナップについて、分かりやすくご紹介します。</div>
+											</div>
+										</div>
+										<div class="wpbtn">
+											<div class="btnbox"><span class="btntext">PDF資料</span><a class="btn hs-cta-trigger-button hs-cta-trigger-button-157651965360" href="#">無料ダウンロード</a></div>
+										</div>
+									</div>
+								</li>
+								<li class="wp wpmore">
+									<div class="wpbox">
+										<div class="date">2023.07.13</div>
+										<div class="pic"><img src="img/wp_pic01.jpg" width="633" height="894" alt=""/></div>
+										<div class="textbox">
+											<div class="textset">
+												<h3>Whisperを使いこなす！ エッジで使える<br>
+													安心・安全な音声認識AIの条件とは？</h3>
+												<div class="text">「AI音声認識って？」「Whisperってなにがすごい？」。音声認識AIの基礎知識と、エッジで使える安心・安全な音声認識AIの条件についてご紹介。</div>
+											</div>
+										</div>
+										<div class="wpbtn">
+											<div class="btnbox"><span class="btntext">PDF資料</span><a class="btn hs-cta-trigger-button hs-cta-trigger-button-131341753962" href="#">無料ダウンロード</a></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="morebtn"><a class="btn"><span class="ul">すべて見る</span></a></div>
+							<div class="morebtn close"><a class="btn"><span class="ul">閉じる</span></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="faq">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>FAQ</h2>
+						<div class="title">よくあるご質問</div>
+						<div class="lead">お問い合わせの多いご質問について、<br class="sp">
+							回答を掲載させていただきます。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="faqwrapper">
+							<ul class="faqlist">
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">どのような組み込みSoCに対応していますか？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">対応済みは、Qualcomm製QCS610、Mediatek製Genio1200、NXP製i.MX8M Plus、TI製TDA4ALです。<br>
+										今後も増やしていく考えです。</span></div>
+								</li>
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">どのような組み込みOSに対応していますか？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">SoCによりますが、Linux、Androidです。<br>
+										詳しくは、お問い合わせ下さい。</span></div>
+								</li>
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">学習モデルのフォーマットは何に対応していますか？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">ONNXとTFLiteに対応しています。ONNXはFloatのモデルのみ対応しており、CPUとGPUを使用可能です。<br>
+										TFLiteはFloatとInt8のモデルに対応しており、CPUとNPUを使用可能です。</span></div>
+								</li>
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">開発言語は何が使えますか？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">C++とPythonです。<br>
+										また、開発ツールとしてUnityが使えます。</span></div>
+								</li>
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">SoC搭載ボードを購入するには？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">各SoCメーカー、またはSoC搭載ボードメーカーの代理店からご購入頂くことになります。<br>
+										アクセルからご紹介することが可能ですので、お問い合わせ下さい。</span></div>
+								</li>
+								<li class="faqbox">
+									<div class="qbox"><span class="qlabel">Q</span><span class="qtext">開発をお願いしたいのですが？</span></div>
+									<div class="abox"><span class="alabel">A</span><span class="atext">アクセルグループ、またはパートナー様から提案が可能です。<br>
+										詳しくは、お問い合わせ下さい。</span></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="support">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>SUPPORT</h2>
+						<div class="title">サポート</div>
+						<div class="lead">ドキュメントやサンプルプログラム等も<br class="sp">
+							ご用意しております。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="supportwrapper">
+							<ul class="supportlist">
+								<li class="supportbox support01">
+									<div class="pic"><img src="img/support_pic01.png" width="480" height="530" alt=""/></div>
+									<div class="supportbtn">
+										<div class="btnbox"><a class="btn" href="https://github.com/axinc-ai/ailia-sdk" target="_blank">ドキュメント</a><span class="btntext02">導入方法やAPIの詳細を紹介します。</span></div>
+									</div>
+								</li>
+								<li class="supportbox support02">
+									<div class="pic"><img src="img/support_pic02.png" width="480" height="530" alt=""/></div>
+									<div class="supportbtn">
+										<div class="btnbox"><a class="btn" href="https://join.slack.com/t/axinc-ailia/shared_invite/zt-f5hboxhj-kZ~APYIHTHeSopL5NWqGtA" target="_blank">サポートSlack</a><span class="btntext02">チャットベースで質問が可能です。</span></div>
+									</div>
+								</li>
+								<li class="supportbox support03">
+									<div class="pic"><img src="img/support_pic03.png" width="480" height="530" alt=""/></div>
+									<div class="supportbtn">
+										<div class="btnbox"><span class="btntext01">無料個別相談にも対応</span><a class="btn" href="https://share.hsforms.com/1ICO3aeJJQpWCwvtpsZgOfQbq8vm" target="_blank">導入のご相談</a><span class="btntext02">サービスについての不明点や<br class="sp">
+											導入に向けた<br class="pc">
+											ご相談など<br class="sp">
+											お気軽にお問合せください。</span></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="development">
+				<div class="contentsinner">
+					<div class="contentshead">
+						<h2>DEVELOP &amp; IMPLEMENT</h2>
+						<div class="title">開発・実装支援</div>
+						<div class="lead">ライブラリのご提供だけでなく、<br class="sp">
+							コンサルティング・開発・実装も対応可能です。</div>
+					</div>
+					<div class="contentsbody">
+						<div class="devwrapper">
+							<div class="devbox">
+								<div class="devlogo"><img src="img/dev_works_logo.png" width="209" height="172" alt="ailia WORKS"/></div>
+								<h3>AI開発支援サービス<br class="sp">
+									「アイリア WORKS」</h3>
+								<div class="text">AI技術の提供だけでなく、様々なAI開発支援を通してお客様に最適な課題解決をご提案。<br>
+									議事録機能の実装や音声操作機能の開発など、お客様のあらゆるニーズにお応えします。</div>
+								<div class="devbtn">
+									<div class="btnbox"><a class="btn" href="https://www.axinc.jp/solutions/ailia_works.html">詳しくはこちら</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="devpicbox">
+							<ul class="piclist">
+								<li class="devpic devpic01">
+									<div class="label">AIアプリケーションの開発</div>
+									<div class="pic"><img src="img/dev_pic01.png" width="1056" height="548" alt=""/></div>
+								</li>
+								<li class="devpic devpic02">
+									<div class="label">クラウドを使用したサーバシステムの開発</div>
+									<div class="pic"><img src="img/dev_pic02.png" width="1056" height="548" alt=""/></div>
+								</li>
+								<li class="devpic devpic03">
+									<div class="label">AIモデルのアルゴリズム開発</div>
+									<div class="pic"><img src="img/dev_pic03.png" width="1056" height="548" alt=""/></div>
+								</li>
+								<li class="devpic devpic04">
+									<div class="label">組み込み機器へのポーティング</div>
+									<div class="pic"><img src="img/dev_pic04.png" width="1056" height="548" alt=""/></div>
+								</li>
+							</ul>
+						</div>
+						<div class="devco">
+							<div class="colabel">ailia SDK 採用企業一覧</div>
+							<ul class="colist">
+								<li class="co co02">
+									<div class="cologo"><img src="img/dev_co_logo02.png" width="276" height="142" alt="ASK Corporation"/></div>
+								</li>
+								<li class="co co03">
+									<div class="cologo"><img src="img/dev_co_logo03.png" width="276" height="142" alt="CELSYS"/></div>
+								</li>
+								<li class="co co04">
+									<div class="cologo"><img src="img/dev_co_logo04.png" width="459" height="142" alt="KONICA MINOLTA"/></div>
+								</li>
+								<li class="co co05">
+									<div class="cologo"><img src="img/dev_co_logo05.png" width="275" height="142" alt="RANDIDO"/></div>
+								</li>
+								<li class="co co06">
+									<div class="cologo"><img src="img/dev_co_logo06.png" width="276" height="142" alt="SEGA"/></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- MODAL -->
+	<div id="sitemap">
+		<div class="sitemapinner">
+			<div class="btn_close"><a class="btn modalclose">CLOSE</a></div>
+			<div class="sitemapbody">
+				<ul class="sitemaplist">
+					<li class="sitemapbtn sitemap01">
+						<div class="sitemapbox"><span class="btntext">INTRODUCTION</span><a class="btn modalclose" href="#introduction">こんな課題はありませんか？</a></div>
+					</li>
+					<li class="sitemapbtn sitemap02">
+						<div class="sitemapbox"><span class="btntext">FLOW</span><a class="btn modalclose" href="#flow">導入フロー</a></div>
+					</li>
+					<li class="sitemapbtn sitemap03">
+						<div class="sitemapbox"><span class="btntext">FEATURE</span><a class="btn modalclose" href="#feature">なぜ組み込み機器に最適？</a></div>
+					</li>
+					<li class="sitemapbtn sitemap04">
+						<div class="sitemapbox"><span class="btntext">CASE STUDY</span><a class="btn modalclose" href="#casestudy">AI活用シーン</a></div>
+					</li>
+					<li class="sitemapbtn sitemap05">
+						<div class="sitemapbox"><span class="btntext">FOLLOW UP</span><a class="btn modalclose" href="#followup">フォローアップ</a></div>
+					</li>
+					<li class="sitemapbtn sitemap06">
+						<div class="sitemapbox"><span class="btntext">WHITE PAPER</span><a class="btn modalclose" href="#hint">AI活用のお役立ちヒント</a></div>
+					</li>
+					<li class="sitemapbtn sitemap07">
+						<div class="sitemapbox"><span class="btntext">FAQ</span><a class="btn modalclose" href="#faq">よくあるご質問</a></div>
+					</li>
+					<li class="sitemapbtn sitemap08">
+						<div class="sitemapbox"><span class="btntext">SUPPORT</span><a class="btn modalclose" href="#support">サポート</a></div>
+					</li>
+					<li class="sitemapbtn sitemap09">
+						<div class="sitemapbox"><span class="btntext">DEVELOP &amp; IMPLEMENT</span><a class="btn modalclose" href="#development">開発・実装支援</a></div>
+					</li>
+				</ul>
+			</div>
+			<div class="sitemapfoot">
+				<div class="sitemapbtn cpbtn">
+					<div class="btnset">
+						<div class="btnbox btn01"><span class="btntext">アイリア SDK 無料トライアル版</span><a class="btn dllink modalclose">トライアルのお申し込み</a></div>
+						<div class="btnbox btn02"><span class="btntext">無料個別相談にも対応</span><a class="btn" href="https://share.hsforms.com/1ICO3aeJJQpWCwvtpsZgOfQbq8vm" target="_blank">導入のご相談</a></div>
+					</div>
+				</div>
+				<div class="sitemapfootnav">
+					<div class="footnavset">
+						<ul class="navlist list01">
+							<li class="nav0101"><a href="https://axinc.jp/" target="_blank"><img src="img/sitemap_ax.png" width="94" height="45" alt="ax"/></a></li>
+							<li class="nav0102"><a href="https://www.axell.co.jp/" target="_blank"><img src="img/sitemap_axell.png" width="124" height="45" alt="Axell"/></a></li>
+						</ul>
+						<ul class="navlist list02">
+							<li class="nav0201"><a href="https://www.axell.co.jp/browser/">Terms of service</a></li>
+							<li class="nav0201"><a href="https://www.axell.co.jp/privacy/">Privacy policy</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="download">
+		<div class="downloadbox">
+			<div class="downloadinner">
+				<div class="btn_close"><a class="btn modalclose2">CLOSE</a></div>
+				<div class="downloadbody">
+					<h2>アイリア SDK 無料トライアル版</h2>
+					<div class="dlbtn01">
+						<div class="dllabel">アイリア SDK</div>
+						<div class="btnset">
+							<div class="btnbox btn01"><span class="btntext">ONNX</span><a class="btn" href="https://axinc.jp/trial/">ダウンロード</a></div>
+							<div class="btnbox btn02"><span class="btntext">tflite</span><a class="btn" href="https://axip-console.appspot.com/trial/terms/AILIA-TFLITE">ダウンロード</a></div>
+						</div>
+					</div>
+					<div class="dlbtn02">
+						<div class="dllabel">アイリア AI Showcase</div>
+						<div class="btnset">
+							<div class="btnbox btn01"><span class="btntext">iOS版</span><a class="btn" href="https://apps.apple.com/jp/app/ailia-ai-showcase/id1522828798"><img src="img/btn_appstore.png" width="328" height="121" alt="App Store"/></a></div>
+							<div class="btnbox btn02"><span class="btntext">Android版</span><a class="btn" href="https://play.google.com/store/apps/details?id=jp.axinc.ailia_ai_showcase"><img src="img/btn_googleplay.png" width="406" height="121" alt="Google Play"/></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /MODAL --> 
+</div>
+
+<footer>
+
+	<div class="cw">
+		<div class="wrap">
+			<div class="left">
+				<div class="col">
+					<a href="https://ailia.ai/">アイリアAIシリーズ</a>
+					<a href="https://ailia.ai/dx/">アイリア DX Insight</a>
+					<a href="https://ailia.ai/sdk/">アイリア SDK</a>
+					<a href="https://www.ailia.ai/voice">アイリア AI VOICE</a>
+					<a href="https://www.ailia.ai/speech">アイリア AI SPEECH</a>
+					<a href="https://ailia.ai/embedded/">アイリア Embedded AI</a>
+				</div>
+				<div class="col">
+					<a href="https://ailia.ai/ai-computing/">AIコンピューティング</a>
+					<a href="https://ailia.ai/ai-computing/ai-deeplearning-acceleration/">AI・深層学習向け高速化</a>
+					<a href="https://ailia.ai/ai-computing/embedded-acceleration/">組込み高速化</a>
+					<a href="https://ailia.ai/ai-computing/image-processing-acceleration/">画像処理高速化</a>
+					<a href="https://ailia.ai/ai-computing/gpu-accelaration/">GPU向け高速化</a>
+				</div>
+				<div class="col">
+					<a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/">AIアプリケーション</a>
+					<a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/">AIエージェント</a>
+				</div>
+				<div class="col">
+					<a href="https://ailia.ai/company/">会社情報</a>
+					<a href="https://www.axell.co.jp/browser/">利用規約</a>
+					<a href="https://www.axell.co.jp/privacy/">プライバシーポリシー</a>
+				</div>
+			</div>
+			<div class="right">
+				<p class="company">アイリア株式会社</p>
+				<p class="address">〒150-0032　東京都渋谷区鶯谷町19-22　塗装会館5F</p>
+				<p class="btnWrap">
+					<a class="btn btnContact" href="https://ailia.ai/contact/" target="_blank">
+						<span class="icon"><img src="img/common/icon_contact.svg" alt=""></span>
+						<span class="label">お問い合わせ</span>
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="bannerArea">
+			<a href="https://blog.ailia.ai/" target="_blank">
+				<img src="img/common/footer_banner_01.webp" alt="AIでしごとするなら「AI専門メディア」">
+			</a>
+			<a href="https://ailia.ai/sdk/" target="_blank">
+				<img src="img/common/footer_banner_02.webp" alt="ソフトウェア開発きっとアイリアSDK">
+			</a>
+
+		</div>
+
+	</div>
+	<p class="copyright">Copyright &copy; アイリア株式会社 / 株式会社アクセル</p>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
