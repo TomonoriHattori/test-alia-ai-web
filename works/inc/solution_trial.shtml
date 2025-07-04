@@ -1,0 +1,29 @@
+				<div id="solution_trial">
+					<div class="imgArea">
+						<img class="objectFit bgParallax tabletUpOnly" src="/images/solutions/index/bg_trial.jpg" alt="">
+						<img class="objectFit bgParallax mobileOnly" src="/images/solutions/index/bg_trial_sp.jpg" alt="">
+					</div>
+					<div class="txtArea">
+						<div class="cw">
+							<h2 class="title">最高のAI開発体験はこちら。</h2>
+							<p class="txt">Web上でAIのデモを体験できたり、<br>
+								ailia SDKのトライアルをダウンロードすることができます。</p>
+
+							<p class="btnFreeTrialWrap">
+								<a class="btnFreeTrial" href="/trial/">
+									<img src="/images/common/trial_banner01.png" alt="Start free trial">
+									<img src="/images/common/trial_banner02.png" alt="Start free trial">
+									<img src="/images/common/trial_banner03.png" alt="Start free trial">
+									<img src="/images/common/trial_banner04.png" alt="Start free trial">
+									<img src="/images/common/trial_banner05.png" alt="Start free trial">
+									<img src="/images/common/trial_banner06.png" alt="Start free trial">
+									<img src="/images/common/trial_banner07.png" alt="Start free trial">
+									<img src="/images/common/trial_banner08.png" alt="Start free trial">
+								</a> </p>
+
+							<!-- <div class="logoList">
+								<p><img src="/images/solutions/index/logolist.png" alt=""></p>
+							</div> -->
+						</div>
+					</div>
+				</div>

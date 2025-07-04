@@ -5,12 +5,13 @@
 	}
 	/* HEADER */
 	#head02 {
-		position: absolute;
+		position: fixed;
 		top: 70px;
 		left: 0;
 		width: 100%;
 		height: 80px;
 		z-index: 10;
+		background-color: #ffffff80;
 	}
 	#head02 .headinner {
 		padding: 15px 100px 15px 15px;
@@ -108,12 +109,6 @@
 		padding: 60px 0 0 0;
 		background: url("../img/nav02_btn.png") no-repeat center center;
 		background-size: 60px auto;
-	}
-	#head02.is-fixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-		background-color: rgba(255, 255, 255, 0.5);
 	}
 	/* MV */
 	#mv {
@@ -897,6 +892,7 @@
 		font-weight: bold;
 		letter-spacing: 0.1em;
 		margin: 0 auto 25px auto;
+		width: 940px;
 	}
 	#development .devbox .text {
 		text-align: center;
@@ -1483,6 +1479,8 @@
 	}
 	/* /日英切り替えPC */
 }
+
+
 @media screen and (max-width:1500px) {
 	#footer .footlogo {
 		width: 340px;
@@ -1529,10 +1527,11 @@
 	#head02 {
 		width: 100%;
 		height: 70px;
-		position: absolute;
+		position: fixed;
 		top: 50px;
 		left: 0;
 		z-index: 10;
+		background-color: #ffffff80;
 	}
 	#head02 .head02nav {
 		position: absolute;

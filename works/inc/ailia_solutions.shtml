@@ -1,0 +1,99 @@
+<section class="ailiaSolutions detailSection">
+			<div class="cw">
+				<div class="titleArea">
+					<h1 class="sectionTitle">ailia solutions</h1>
+				</div>
+			</div>
+			<div class="bodyArea">
+				<ul class="solutionList">
+					<li>
+						<a href="./ailia_sdk.html">
+							<p class="img">
+								<img src="../images/solutions/solution_01.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_01.svg" alt="ailia SDK"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia SDK</span></h3>
+									<p class="sub">クロスプラットフォーム<br class="mobileOnly">高速推論SDK</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="./ailia_models.html">
+							<p class="img">
+								<img src="../images/solutions/solution_02.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_02.svg" alt="ailia MODELS"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia MODELS</span></h3>
+									<p class="sub">300種類以上の<br class="mobileOnly">
+学習済みモデル</p>
+								</div>
+							</div>
+						</a>
+					</li>
+
+					<li>
+						<a href="./ailia_vision.html">
+							<p class="img">
+								<img src="../images/solutions/solution_03.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_03.svg" alt="ailia VISION"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia VISION</span></h3>
+									<p class="sub">クラウド画像認識API</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="./ailia_apps.html">
+							<p class="img">
+								<img src="../images/solutions/solution_04.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_04.svg" alt="ailia APPS"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia APPS</span></h3>
+									<p class="sub">業界特化型<br class="mobileOnly">
+ソリューションパッケージ</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="./ailia_trainer.html">
+							<p class="img">
+								<img src="../images/solutions/solution_05.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_05.svg" alt="ailia TRAINER"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia TRAINER</span></h3>
+									<p class="sub">モデル開発向け<br class="mobileOnly">
+学習プラットフォーム</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="./ailia_works.html">
+							<p class="img">
+								<img src="../images/solutions/solution_06.jpg" alt="">
+							</p>
+							<div class="txtArea">
+								<p class="logo"><img src="../images/solutions/solution_logo_06.svg" alt="ailia WORKS"></p>
+								<div class="solutionTitleArea">
+									<h3 class="title"><span>ailia WORKS</span></h3>
+									<p class="sub">AI開発支援サービス</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>

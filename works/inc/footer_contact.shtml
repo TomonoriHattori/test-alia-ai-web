@@ -1,0 +1,15 @@
+<section id="footerContact">
+	<a href="/contact/">
+		<div class="imgArea">
+			<img class="tabletUpOnly bgParallax" src="/images/common/bg_contact.png" alt="">
+			<img class="mobileOnly bgParallax" src="/images/common/bg_contact_sp.png" alt="">
+		</div>
+		<div class="txtArea">
+			<h1>Contact</h1>
+			<div class="txt">ご依頼やご相談、お気軽にお問い合わせください。</div>
+			<div class="more">
+				<img class="svg" src="/images/common/link_arrow_right_black.svg" alt="">
+			</div>
+		</div>
+	</a>
+</section>

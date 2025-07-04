@@ -1,0 +1,19 @@
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="/js/viewport.js"></script> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="ax株式会社のコーポレートサイトです。あらゆるデバイスにAI が載る未来。そのような未来が来ることを我々は信じています。その未来に向けて我々は高速なSDK を開発し、最新のAI モデルを常に研究し続けます。ax 株式会社は最新のAI 機能を現場に導入するツールを提供することで、世界の様々な課題解決を目指しています。" />
+    <meta property="og:title" content="ax Inc.">
+    <meta property="og:description" content="ax株式会社のコーポレートサイトです。あらゆるデバイスにAI が載る未来。そのような未来が来ることを我々は信じています。その未来に向けて我々は高速なSDK を開発し、最新のAI モデルを常に研究し続けます。ax 株式会社は最新のAI 機能を現場に導入するツールを提供することで、世界の様々な課題解決を目指しています。">
+    <meta property="og:image" content="https://axinc.jp/images/common/og.jpg">
+    <meta property="og:url" content="https://axinc.jp/">
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="icon" href="/images/common/favicon.ico" />
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N5X3855');</script>
+	<!-- End Google Tag Manager -->
+

@@ -1,0 +1,62 @@
+<footer>
+	<div class="cw">
+		<div class="wrap">
+			<div class="left">
+				<a href="" class="footerLogo">
+					<img src="/images/common/footerlogo.svg" alt="ax">
+				</a>
+			</div>
+			<div class="right">
+				<div class="col">
+					<a href="/news/">News</a>
+				</div>
+				<div class="col">
+					<a href="/solutions/">Solutions</a>
+					<div class="childList">
+						<a href="/solutions/ailia_sdk.html">ailia SDK</a>
+						<a href="/solutions/ailia_models.html">ailia MODELS</a>
+						<a href="/solutions/ailia_vision.html">ailia VISION</a>
+						<a href="/solutions/ailia_apps.html">ailia APPS</a>
+						<a href="/solutions/ailia_trainer.html">ailia TRAINER</a>
+						<a href="/solutions/ailia_works.html">ailia WORKS</a>
+						<a href="https://www.motionportrait.com/indexj.php" target="_blank">
+							<span class="label">Motion Portrait</span>
+							<span class="icon"><img class="svg" src="/images/common/icon_blank.svg" alt=""></span>
+						</a>
+						<a href="https://ax-ip.com/" target="_blank">
+							<span class="label">AXIP</span>
+							<span class="icon"><img class="svg" src="/images/common/icon_blank.svg" alt=""></span>
+						</a>
+					</div>
+				</div>
+				<div class="col">
+					<a href="/company/">Company</a>
+				</div>
+				<div class="col">
+					<a href="/career/">Career</a>
+				</div>
+				<div class="col">
+					<a href="/blog/">Blog</a>
+				</div>
+				<div class="col demos">
+					<a href="javascript:void(0)">Demos &amp; Trials</a>
+					<div class="childList">
+						<a href="/solutions/ailia_sdk.html#AIshowcase">AI showcase</a>
+						<a href="/trial/">Free trial</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cw">
+		<div class="wrap2">
+			<div class="right">
+				<div class="col">
+					<a href="/terms.html">Terms of service</a>
+					<a href="/privacy.html">Privacy policy </a>
+				</div>
+				<p class="copyright">copyright &copy; ax inc.</p>
+			</div>
+		</div>
+	</div>
+</footer>
