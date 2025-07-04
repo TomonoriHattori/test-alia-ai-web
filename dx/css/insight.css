@@ -4,36 +4,9 @@
 		margin: 0 auto;
 	}
 	/* HEADER */
-	#head01 {
-		background: #fff;
-		box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
-		padding: 15px 20px;
-		min-width: 1000px;
-		margin: 0 auto;
-		position: relative;
-	}
-	#head01 .headlogo {
-		width: 220px;
-	}
-	#head01 .head01nav {
-		position: absolute;
-		top: 24px;
-		right: 15px;
-		display: flex;
-		font-size: 14px;
-		font-weight: bold;
-	}
-	#head01 .head01nav li {
-		margin: 0 30px;
-	}
-	#head01 .head01nav a {
-		transition: 0.2s;
-	}
-	#head01 .head01nav a:hover {
-		color: #888;
-	}
+	
 	#head02 {
-		position: absolute;
+		position: fixed;
 		top: 70px;
 		left: 0;
 		width: 100%;
@@ -136,12 +109,6 @@
 		padding: 60px 0 0 0;
 		background: url("../img/nav02_btn.png") no-repeat center center;
 		background-size: 60px auto;
-	}
-	#head02.is-fixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-		background-color: rgba(255, 255, 255, 0.5);
 	}
 	/* MV */
 	#mv .mvinner {
@@ -949,87 +916,7 @@
 		width: 18%;
 	}
 	/* FOOTER */
-	#footer {
-		background: #000;
-		color: #fff;
-		min-width: 1000px;
-	}
-	#footer .footinner {
-		min-width: 1000px;
-		padding: 20px;
-		font-size: 12px;
-		position: relative;
-	}
-	#footer .footinner a {
-		color: #A8A8A9;
-	}
-	#footer .footlogo {
-		width: 30%;
-	}
-	#footer .footlogo .logoinner {
-		display: flex;
-	}
-	#footer .footlogo .logo {
-		display: block;
-		width: 180px;
-	}
-	#footer .footlogo .sublogo {
-		display: block;
-		font-size: 12px;
-		padding: 10px 0 0 10px;
-	}
-	#footer .footnav01 {
-		position: absolute;
-		bottom: 30px;
-		left: 340px;
-	}
-	#footer .footnav01 .navlist {
-		display: flex;
-		justify-content: space-between;
-	}
-	#footer .footnav01 .navlist li {
-		padding: 0 15px 0 0;
-		margin: 0 15px 0 0;
-		border-right: 1px solid #A8A8A9;
-	}
-	#footer .footnav01 .navlist li:last-child {
-		border: none;
-	}
-	#footer .footnav02 {
-		position: absolute;
-		bottom: 20px;
-		right: 520px;
-	}
-	#footer .footnav02 .navlist {
-		display: flex;
-		justify-content: space-between;
-	}
-	#footer .footnav02 .navlist li {
-		margin: 0 10px;
-		width: 65px;
-	}
-	#footer .footnav03 {
-		position: absolute;
-		bottom: 30px;
-		right: 20px;
-	}
-	#footer .footnav03 .navlist {
-		display: flex;
-		justify-content: space-between;
-	}
-	#footer .footnav03 .navlist li {
-		padding: 0 15px 0 0;
-		margin: 0 15px 0 0;
-		border-right: 1px solid #A8A8A9;
-	}
-	#footer .footnav03 .navlist .footnav0302 {
-		border: none;
-	}
-	#footer .footnav03 .navlist li:last-child {
-		border: none;
-		margin: 0;
-		padding: 0;
-	}
+	
 	/* SITEMAP */
 	#sitemap {
 		position: fixed;
