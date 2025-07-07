@@ -1424,7 +1424,7 @@
 /* /日英切り替えPC */
 @media screen and (min-width:1650px) {
  #header .headnavlayer {
-  position: absolute;
+  position: fixed;
   top: 30px;
   right: 20px;
  }
