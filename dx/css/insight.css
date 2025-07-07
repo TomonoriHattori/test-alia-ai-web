@@ -2,6 +2,7 @@
 	#ailia_wrapper {
 		min-width: 1000px;
 		margin: 0 auto;
+		margin-top: 70px;
 	}
 	/* HEADER */
 	
@@ -1512,7 +1513,7 @@
 	#head02 {
 		width: 100%;
 		height: 70px;
-		position: absolute;
+		position: fixed;
 		top: 50px;
 		left: 0;
 		z-index: 10;
@@ -2716,4 +2717,9 @@
 		background: #888;
 	}
 	/* /日英切り替えSP */
+
+
+	#ailia_wrapper {
+		margin-top: 70px;
+	}
 }
