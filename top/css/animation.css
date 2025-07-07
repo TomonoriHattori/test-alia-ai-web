@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* ANIMATION */
+.first {
+	opacity: 0;
+	transition: all 0.8s ease;
+}
+.first.show {
+	opacity: 1;
+	transform: none;
+}
+.move {
+	opacity: 0;
+	transition: 0.8s;
+}
+.move.show {
+	opacity: 1;
+	transform: none;
+}
+.move-lr {
+	transform: translate(-30px, 0);
+}
+.move-rl {
+	transform: translate(30px, 0);
+}
+.move-up {
+	transform: translate(0, 30px);
+}
+.move-down {
+	transform: translate(0, -30px);
+}
+.move-big {
+	transform: scale(0.8);
+}
+.move.move-p {
+	opacity: 1;
+}
+.move-p.show {
+	opacity: 1;
+}
+.move.pop {
+	opacity: 0;
+	transition: all .8s ease;
+	transform: scale(1.5);
+}
+.move.pop.show {
+	opacity: 1;
+	transform: scale(1);
+}
+.move-d1 {
+	transition-delay: 0.4s;
+}
+.move-d2 {
+	transition-delay: 0.8s;
+}
+.move-d3 {
+	transition-delay: 1.2s;
+}
+.move-d4 {
+	transition-delay: 1.6s;
+}
+.move-d5 {
+	transition-delay: 2s;
+}
+.move-d6 {
+	transition-delay: 2.4s;
+}
+.move-d7 {
+	transition-delay: 2.8s;
+}
+.move-c {
+	opacity: 0;
+	transition: 0.8s;
+}
+.show .move-c {
+	opacity: 1;
+	transform: none;
+}
+.move-c.move-d1 {
+	transition-delay: 0.4s;
+}
+.move-c.move-d2 {
+	transition-delay: 0.8s;
+}
+.move-c.move-d3 {
+	transition-delay: 1.2s;
+}
+.move-c.move-d4 {
+	transition-delay: 1.6s;
+}
+.move-c.move-d5 {
+	transition-delay: 2s;
+}
+.move-c.move-d6 {
+	transition-delay: 2.4s;
+}
+.move-c.move-d7 {
+	transition-delay: 2.8s;
+}
+.move.move-flow.show {
+	animation-name: flow;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	transition-timing-function: ease;
+	opacity: 1;
+}
+@keyframes flow {
+	0% {
+		transform: translate(0, 30px);
+	}
+	70% {
+		transform: translate(0, -5px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}

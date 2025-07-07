@@ -1,0 +1,1012 @@
+<!DOCTYPE html><html lang="ja"><head>
+	<meta name="robots" content="index">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>ailia AI Series</title>
+	<meta name="description" content="This is the official website of the Japanese AI brand, ailia. We offer one of the world's fastest inference engines, the ailia SDK, and support the development, optimization, and acceleration of AI environments through AI computing. We provide comprehensive solutions to meet the diverse needs of AI and semiconductor applications from various perspectives.">
+	<!-- Open Graph protocol metadata start-->
+	<meta property="og:site_name" content="ailia AI Series">
+	<meta property="og:title" content="ailia AI Series">
+	<meta property="og:description" content="This is the official website of the Japanese AI brand, ailia. We offer one of the world's fastest inference engines, the ailia SDK, and support the development, optimization, and acceleration of AI environments through AI computing. We provide comprehensive solutions to meet the diverse needs of AI and semiconductor applications from various perspectives.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://ailia.ai/en/">
+	<meta property="og:image" content="https://ailia.ai/en/img/ogimage.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- Open Graph protocol metadata end-->
+	<link rel="shortcut icon" href="https://ailia.ai/en/img/favicon.png">
+	<link rel="stylesheet" property="stylesheet" href="css/common.css" media="all">
+	<link rel="stylesheet" property="stylesheet" href="css/ailiatop.css" media="all">
+	<link rel="stylesheet" property="stylesheet" href="css/slick.css" media="screen">
+	<link rel="stylesheet" property="stylesheet" href="css/slick-theme.css" media="screen">
+	<link rel="stylesheet" property="stylesheet" href="css/modal-video.css" media="screen">
+	<link rel="stylesheet" property="stylesheet" href="css/animation.css" media="screen">
+	<link rel="stylesheet" property="stylesheet" href="css/footer.css" media="screen">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/smoothScroll.js"></script>
+	<script type="text/javascript" src="js/top.js"></script>
+	<script type="text/javascript" src="js/spnavi.js"></script>
+	<script type="text/javascript" src="js/profmodal.js"></script>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript" src="js/mp_config.js"></script>
+	<script type="text/javascript" src="js/mp_fileio.js"></script>
+	<script type="text/javascript" src="js/mp_lib.js"></script>
+	<script type="text/javascript" src="js/chatwindow.js"></script>
+	<script type="text/javascript" src="js/jquery-modal-video.min.js"></script>
+<script type="text/javascript" src="js/top_blog.js"></script>
+	<script>
+		$(function () {
+			if ($(".movielink").length) {
+				$(".movielink").modalVideo({
+					channel: "youtube",
+					youtube: {
+						rel: 0,
+						autoplay: 1,
+						controls: 0,
+					},
+				});
+			}
+		});
+	</script>
+	<script type="text/javascript" src="js/slick.js"></script>
+	<script>
+		$(function () {
+			$('.mvslide').slick({
+				fade: true,
+				autoplay: true,
+				speed: 1500,
+				autoplaySpeed: 3500,
+				pauseOnFocus: false,
+				pauseOnHover: false,
+				arrows: false,
+			})
+			$('.mvslide_sp').slick({
+				fade: true,
+				autoplay: true,
+				speed: 1500,
+				autoplaySpeed: 3500,
+				pauseOnFocus: false,
+				pauseOnHover: false,
+				arrows: false,
+			})
+
+			$('.lineupslide').slick({
+				slidesToShow: 4,
+				slidesToScroll: 1,
+				speed: 3000,
+				autoplaySpeed: 0,
+				cssEase: "linear",
+				pauseOnFocus: false,
+				pauseOnHover: false,
+				arrows: false,
+				autoplay: true,
+				swipe: false,
+				responsive: [{
+					breakpoint: 768,
+					settings: "unslick",
+				}]
+			});
+		});
+	</script>
+	<script type="text/javascript" src="js/ailia_dx_chat.js"></script>
+	<!-- Google Tag Manager -->
+	<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || [];
+			w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src =
+				'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-5Q579RMM');
+	</script>
+	<!-- End Google Tag Manager -->
+</head>
+
+<body class="en">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q579RMM" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div id="ailia_wrapper" class="ailiatop">
+		<div id="ailia_contents">
+			<div id="header">
+				<div class="headinner">
+					<div class="headlogo"><img src="img/head_logo_en.png" width="226" height="132" alt="ailia AI Series" class="pc"><img src="img/headlogo_sp.png" width="430" height="73" alt="ailia AI Series" class="sp"></div>
+					<div class="headnavlayer">
+						<ul class="headnav">
+							<li class="nav nav01"><a href="#about">
+									<div class="navlabel txt_en">About</div>
+									<div class="navtext">Product information.<br>What is Ailia?</div>
+								</a></li>
+							<li class="nav nav02"><a href="#lineup">
+									<div class="navlabel txt_en">Lineup</div>
+									<div class="navtext">Various.<br>Application</div>
+								</a></li>
+							<li class="nav nav03"><a href="#pickup">
+									<div class="navlabel txt_en">Pickup</div>
+									<div class="navtext">Pick up.<br>ailia SDK</div>
+								</a></li>
+							<!--
+							<li class="nav nav04"><a href="#whitepaper">
+									<div class="navlabel txt_en">White Paper</div>
+									<div class="navtext">Useful tips<br>White paper</div>
+								</a></li>-->
+							<li class="nav nav05"><a href="#blog">
+									<div class="navlabel txt_en">Blog</div>
+									<div class="navtext">Useful tips<br>Blog</div>
+								</a></li>
+							<li class="nav nav06"><a href="#support">
+									<div class="navlabel txt_en">Support</div>
+									<div class="navtext">Support</div>
+								</a></li>
+							<li class="nav nav07"><a href="https://ailia.ai/company/">
+									<div class="navlabel txt_en">Company</div>
+									<div class="navtext">Company info</div>
+								</a></li>
+							<li class="nav nav_contact pc"><a href="https://www.ailia.ai/en/contact" target="_blank">
+								<div class="navlabel txt_en">Contact</div>
+									<div class="navtext">Contact</div>
+								</a></li>
+						</ul>
+						<div class="navfoot sp">
+							<ul class="nav01">
+								<li class="nav0101"><a href="https://www.axell.co.jp/en/" target="_blank"><img src="img/spnav_axell.png" width="218" height="82" alt="Axell"></a></li>
+								<li class="nav0102"><img src="img/spnav_ax_en.png" width="218" height="82" alt="ax"></li>
+							</ul>
+							<ul class="nav02">
+								<li class="nav0201 txt_en"><a href="https://www.axell.co.jp/browser/" target="_blank">Terms of service</a></li>
+								<li class="nav0202 txt_en"><a href="https://www.axell.co.jp/privacy/" target="_blank">Privacy policy</a></li>
+							</ul>
+						</div>
+						<div class="translation_sp sp"><a class="lang_jp" href="/">JP</a><a class="lang_en active">EN</a></div><!-- 日英切り替えSP -->
+					</div>
+					<div class="headbtn sp"><a class="navbtn">menu</a></div>
+					<div class="contactbtn sp"><a href="https://www.ailia.ai/en/contact" target="_blank">Contact</a></div>
+				</div>
+			</div>
+			<div id="mv" class="anchor first">
+				<div class="slidewrap pc">
+					<div class="mvslide">
+						<div class="slide slide01"></div>
+						<div class="slide slide02"></div>
+						<div class="slide slide03"></div>
+					</div>
+				</div>
+				<div class="mvinner">
+					<div class="slidewrap sp">
+						<div class="mvslide_sp">
+							<div class="slide slide01">
+								<div class="spslide"><img src="img/mv01_sp.jpg" width="757" height="774" alt=""></div>
+							</div>
+							<div class="slide slide02">
+								<div class="spslide"><img src="img/mv02_sp.jpg" width="757" height="794" alt=""></div>
+							</div>
+							<div class="slide slide03">
+								<div class="spslide"><img src="img/mv03_sp.jpg" width="757" height="774" alt=""></div>
+							</div>
+						</div>
+					</div>
+					<div class="mvtext"><img src="img/mvtext_en.png" width="2017" height="1228" alt="AIは、人を自由にする。">
+					</div>
+						<div class="translation_pc pc"><a class="lang_jp" href="/">JP</a><a class="lang_en active">EN</a></div><!-- 日英切り替えSP -->
+					<div class="mvnews">
+						<div class="newsbody"><a href="#" target="_blank" id="newslink"><span class="date" id="newsdate"></span><span class="newstext" id="newstext"></span></a></div>
+					</div>
+					<div class="mvnavwrapper">
+						<div class="mvnavinner">
+							<div class="mvnav nav01">
+								<div class="mvnavhead"><a class="mvnav01">
+										<div class="mvnavlogo"><img src="img/topnav_logo01.png" width="337" height="83" alt="DX Insight"></div>
+										<div class="mvnavtext">DX app to support office work</div>
+									</a></div>
+								<div class="mvnavbody">
+									<div class="pic01"><img src="img/topnav_pic0101_en.png" width="777" height="542" alt=""></div>
+									<div class="pic02"><a data-video-id="JimbyVwCUp4" class="movielink"><img src="img/topnav_pic0102.jpg" width="777" height="542" alt=""><span class="play"><img src="img/play.png" width="171" height="171" alt=""></span></a></div>
+									<div class="linkbtn"><a class="btn" href="https://ailia.ai/en/dx/"><span class=" txt_en">DX Insight</span>Special site</a></div>
+								</div>
+							</div>
+							<div class="mvnav nav02">
+								<div class="mvnavhead"><a class="mvnav02">
+										<div class="mvnavlogo"><img src="img/topnav_logo_sdk_en.png" width="422" height="85"	alt="ailia SDK" /></div>
+										<div class="mvnavtext">Software development kit</div>
+									</a></div>
+								<div class="mvnavbody">
+									<div class="movie"><div class="thumb"><a data-video-id="4ZNBZDFhEVI"	class="movielink"><img src="img/topnav_sdk_moviethumb.jpg"	width="1230" height="692" alt="" /><span	class="play"><img src="img/play.png" width="171" height="171" alt="PLAY" /></span><span class="icon"><img src="img/topnav_sdk_icon_360_en.png" width="454" height="454"	alt="学習済みモデル 360種類以上" /></span></a></div></div>
+									<ul class="bnrlist">
+										<li><a class="bnr" href="https://www.ailia.ai/en/voice"><img src="img/topnav_sdk_bnr01_en.png" width="1234" height="482"	alt="音声合成ミドルウェア ailia AI Voice" /><span class="icon"><img src="img/topnav_sdk_icon_new.png" width="221" height="221"	alt="NEW" /></span></a></li>
+										<li><a class="bnr" href="https://www.ailia.ai/en/speech"><img src="img/topnav_sdk_bnr02_en.png" width="1250" height="483"	alt="音声認識ライブラリ ai Speech" /></a></li>
+									</ul>
+									<div class="linkbtn"><a class="btn" href="https://ailia.ai/en/sdk/"><span	class="txt_en">ailia SDK</span> Special website</a></div>
+								</div>
+							</div>
+							<div class="mvnav nav03">
+								<div class="mvnavhead"><a class="mvnav03">
+										<div class="mvnavlogo"><img src="img/topnav_eb_logo.png" width="337" height="83" alt="Embedded AI"></div>
+										<div class="mvnavtext">AI on every device.</div>
+									</a></div>
+								<div class="mvnavbody">
+									<div class="pic01"><img src="img/topnav_eb_pic01_en.png" width="777" height="542" alt=""></div>
+									<ul class="feature">
+										<li>Multi-platform specification</li>
+										<li>Prepare a large number of learning models.</li>
+										<li>It can utilize the latest AI model.</li>
+										<li>Wide range of support system in various fields</li>
+									</ul>
+									<div class="linkbtn"><a class="btn" href="https://ailia.ai/en/embedded/"><span class="txt_en">Embedded AI</span>Special site</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul class="mvbnr">
+						<li class="bnr02"><a href="https://ailia.ai/en/sdk/" target="_blank"><img src="img/mvbnr_sdk_en.png" width="721" height="281" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="chatbtn">
+				<div class="chatbtnbox chatopen">
+					<div class="chatbtnwindow">I'll answer anything about ainyan ailia.</div>
+					<div class="chara">
+						<canvas id="avatar" width="256" height="256"></canvas>
+						<img src="img/chara_sp.png" width="108" height="109" alt="あいにゃん" class="sp">
+					</div>
+				</div>
+				<div class="btnclose chatclose">Close</div>
+				<div class="btnprof profopen">Profile</div>
+			</div>
+			<div id="chatwindow">
+				<div class="aichatinner">
+					<!-- チャット部分 -->
+					<div class="logarea">
+						<div class="loghead">
+							<div class="logtitle">Ainyan Chat BOT (automatic response)</div>
+							<div id="chatclose" class="winclose">Close</div>
+						</div>
+						<div class="logbody" id="logbody">
+							<div class="logtext">
+								<div id="chat"></div>
+							</div>
+						</div>
+					</div>
+					<div class="chatarea">
+						<div class="chatbody">
+							<form name="chat_form" action="javascript:chat_api('https://ailia-llm-insight.uw.r.appspot.com/');">
+								<div class="chatformbox">
+									<input type="text" name="prompt" id="prompt" size="40" placeholder="Please enter your question here (e.g., what is ailia)">
+								</div>
+								<div class="chatbutton">
+									<button type="button" onclick="chat_api('https://ailia-llm-insight.uw.r.appspot.com/')">Send</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mainbody">
+				<!-- ABOUT -->
+				<div id="about" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">About</h2>
+								<div class="titlelabel"><span class="txt_en">ailiaSDK</span>What is it?</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item move-c move-rl">
+									<div class="iteminner">
+										<div class="leadtext">"ailia SDK" is developed based on the knowledge and expertise cultivated by Axell and ailia Inc. as an LSI manufacturer.<br class="pc">It is the world's fastest level inference engine. The ailia SDK is an AI framework specialized in inference.<br class="pc">By adopting a cross-platform approach, consistent development becomes possible.<br>Connect various "AI models" and the "execution platform" of OS and hardware, and do not connect to the network.<br class="pc">We offer a world-class AI development environment that utilizes secure and high-speed edge AI.</div>
+										<ul class="reasonlist">
+											<li class="reason reason01">
+												<div class="textarea">
+													<div class="label"><span class="labelinner">Reason for support ❶</span>
+													</div>
+													<div class="title">Also on smartphone devices.<br>It is possible to implement without stress.</div>
+													<div class="text">It has a wide coverage, supporting over 150 types of ONNX operators, and has fewer errors and less stress when transferring to iOS and Android.</div>
+												</div>
+												<div class="pic"><img src="img/about_thumb_1.jpg" width="725" height="472" alt=""></div>
+											</li>
+											<li class="reason reason02">
+												<div class="textarea">
+													<div class="label"><span class="labelinner">Reasons for support ❷</span>
+													</div>
+													<div class="title">For iOS and Android use.<br>In-house development of library.</div>
+													<div class="text">Ensure execution on smartphones without using libraries provided by in-house vendors for each platform for using AI on GPUs.</div>
+												</div>
+												<div class="pic"><img src="img/about_thumb_2.jpg" width="725" height="472" alt=""></div>
+											</li>
+											<li class="reason reason03">
+												<div class="textarea">
+													<div class="label"><span class="labelinner">Reason for support ❸</span>
+													</div>
+													<div class="title">For each platform.<br>Always provide the latest version.</div>
+													<div class="text">We have prepared a wide variety of samples tailored to each platform's latest version, making it easy and smooth to introduce.</div>
+												</div>
+												<div class="pic"><img src="img/about_thumb_3.jpg" width="725" height="472" alt=""></div>
+											</li>
+											<li class="reason reason04">
+												<div class="textarea">
+													<div class="label"><span class="labelinner">Reasons for support ❹</span>
+													</div>
+													<div class="title">Creating new samples as well<br>Flexible response</div>
+													<div class="text">We will flexibly respond to the development of new sample code. Developed sample code is publicly released and also used for implementing new AI models.</div>
+												</div>
+												<div class="pic"><img src="img/about_thumb_4.jpg" width="725" height="472" alt=""></div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contentspic">
+							<div class="pic01 move move-flow"><img src="img/about_pic.png" width="966" height="896" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<!-- LINEUP -->
+				<div id="lineup" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Lineup</h2>
+								<div class="titlelabel">Latest lineup</div>
+								<div class="headtext txt_en">- <a href="#lineup_dx">DX Insight</a><br>
+									- <a href="#lineup_aispeech">AI Speech</a><br>
+									- <a href="#lineup_embedded">Embedded AI</a></div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div id="lineup_dx" class="item item01 move-c move-rl">
+									<div class="iteminner">
+										<div class="itemhead">
+											<div class="textarea">
+												<div class="num"><img src="img/lineup_num01.png" width="163" height="137" alt="01"></div>
+												<div class="catch">AI as a companion for everyday work</div>
+												<div class="logo"><img src="img/lineup_logo01.png" width="587" height="151" alt="DX Insight"></div>
+												<div class="lead">Wide range of support from sales positions to research positions.<br>Accelerate office work with AI<br class="pc">Easy and safe DX app.</div>
+											</div>
+											<div class="pic"><img src="img/lineup_pic01_en.png" width="873" height="781" alt=""></div>
+										</div>
+										<div class="itemcheck">
+											<ul class="checklist">
+												<li>Instantly answer questions even at customer sites.</li>
+												<li>Summarize the entered minutes of the meeting immediately.</li>
+												<li>It is possible to translate texts between Japanese and English.</li>
+												<li>Generate jokes from loaded material!?</li>
+											</ul>
+										</div>
+										<div class="detailbtn"><a class="link" href="https://ailia.ai/en/dx/"><span class="ul">See in details.</span></a></div>
+									</div>
+								</div>
+								<div id="lineup_aispeech" class="item item02 move-c move-rl">
+									<div class="iteminner">
+										<div class="itemhead">
+											<div class="textarea">
+												<div class="num"><img src="img/lineup_num02.png" width="163" height="137" alt="02"></div>
+												<div class="catch">Speech recognition library</div>
+												<div class="logo"><img src="img/lineup_logo02.png" width="489" height="97" alt="AI Speech"></div>
+												<div class="lead">It works even offline because it's edge!<br>Compatible with any platform.<br class="pc">Real-time voice recognition function</div>
+											</div>
+											<div class="pic"><img src="img/lineup_pic02_en.png" width="873" height="781" alt=""></div>
+										</div>
+										<div class="itemcheck">
+											<ul class="checklist">
+												<li>Create automatic minutes offline.</li>
+												<li>Supports 99 languages in real-time translation.</li>
+												<li>To be able to give instructions to machines with voice.</li>
+												<li>When you speak, your smartphone transcribes it into text.</li>
+											</ul>
+										</div>
+										<div class="detailbtn"><a class="link" href="https://www.ailia.ai/en/speech"><span class="ul">See in detail.</span></a></div>
+									</div>
+								</div>
+								<div id="lineup_embedded" class="item item03 move-c move-rl">
+									<div class="iteminner">
+										<div class="itemhead">
+											<div class="textarea">
+												<div class="num"><img src="img/lineup_num03.png" width="163" height="137" alt="03"></div>
+												<div class="catch">AI to all devices</div>
+												<div class="logo"><img src="img/lineup_logo03.png" width="656" height="73" alt="Embedded AI"></div>
+												<div class="catch02">(System on Chip)</div>
+												<div class="lead">The appeal lies in the vast learning models and high versatility!<br>In the embedded AI scene.<br>"ailia SDK" demonstrates its superiority.</div>
+											</div>
+											<div class="pic"><img src="img/lineup_pic03_en.jpg" width="1202" height="966" alt="" class="pc"><img src="img/lineup_pic03_sp_en.png" width="1337" height="799" alt="" class="sp"></div>
+										</div>
+										<div class="itemcheck">
+											<ul class="checklist">
+												<li>Multi-platform specification</li>
+												<li>Prepare a huge number of learning models.</li>
+												<li>Latest AI model can be utilized.</li>
+												<li>Extensive support system in various fields.</li>
+											</ul>
+										</div>
+										<div class="detailbtn"><a class="link" href="https://ailia.ai/en/embedded/"><span class="ul">See in detail.</span></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contentspic">
+							<div class="pic01 move move-flow"><img src="img/lineup_pic.png" width="923" height="883" alt=""></div>
+						</div>
+					</div>
+					<div class="contentsfoot">
+						<div class="footinner">
+							<ul class="lineupslide">
+								<li><a href="https://www.axell.co.jp/business/case/detail_08.html" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb01.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">Partner Mobility x ailia SDK</div>
+											<div class="text">Cooperating in the development of "visual recognition AI" and "applications" for autonomous driving and remote control.</div>
+										</div>
+									</a></li>
+								<li><a href="https://www.axell.co.jp/business/case/detail_01.html" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb02.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">CLIP STUDIO PAINT for Galaxy × ailia SDK</div>
+											<div class="text">Greatly reduce the jaggies caused by changing the resolution or enlarging the image.</div>
+										</div>
+									</a></li>
+								<!--
+							<li><a href="https://www.axell.co.jp/business/case/detail_07.html" target="_blank">
+								<div class="thumb"><img src="img/lineup_thumb03.jpg" width="759" height="523" alt=""/></div>
+								<div class="textarea">
+									<div class="label">パチスロ開発支援ツール「Ps-BOX」 × SHALO LICENSING</div>
+									<div class="text">アプリケーション販売においてサブスクリプション化や不正使用への強化を実現</div>
+								</div>
+								</a></li>
+							<li><a href="https://www.axell.co.jp/business/case/detail_06.html" target="_blank">
+								<div class="thumb"><img src="img/lineup_thumb04.jpg" width="759" height="523" alt=""/></div>
+								<div class="textarea">
+									<div class="label">エコポイントシステム × ブロックチェーン</div>
+									<div class="text">個別空調システムにおけるエコ行動に応じてスマートコントラクトを利用したポイントを付与</div>
+								</div>
+								</a></li>
+							<li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_05.html" target="_blank">
+								<div class="thumb"><img src="img/lineup_thumb05.jpg" width="759" height="523" alt=""/></div>
+								<div class="textarea">
+									<div class="label">TVアニメ「イングレス」 × 「GRADIA」</div>
+									<div class="text">スマートCGを用いたアニメーションの高品質化に貢献</div>
+								</div>
+								</a></li>
+							-->
+								<li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_04.html" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb06.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">Next-generation in-vehicle equipment PoC × AI solution</div>
+											<div class="text">Realization of advanced "monitoring function" that detects the driver's state using the latest deep learning technology.</div>
+										</div>
+									</a></li>
+								<li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_03.html" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb07.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">DEEP∞ × ailia AI showcase</div>
+											<div class="text">Experience AI functions casually with DEEP∞</div>
+										</div>
+									</a></li>
+								<li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_02.html" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb08.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">CLIP STUDIO PAINT × ailia SDK.</div>
+											<div class="text">Provide a high-speed inference foundation using GPUs on a cross-platform basis.</div>
+										</div>
+									</a></li>
+								<li><a href="https://ailia.ai/case/blueing/" target="_blank">
+										<div class="thumb"><img src="img/lineup_thumb09.jpg" width="759" height="523" alt=""></div>
+										<div class="textarea">
+											<div class="label">JFA Soccer Culture Creation Base "blue-ing!"</div>
+											<div class="text">AI implementation into next-generation experiential content utilizing the latest technology.</div>
+										</div>
+									</a></li>
+							</ul>
+							<div class="morebtn sp"><a class="btn"><span class="ul">Read more.</span></a></div>
+							<div class="morebtn sp close"><a class="btn"><span class="ul">Close</span></a></div>
+						</div>
+					</div>
+				</div>
+				<!-- PICKUP -->
+				<div id="pickup" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Pickup</h2>
+								<div class="titlelabel">Pickup</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item item01 move-c move-rl">
+									<div class="iteminner">
+										<div class="itemhead">
+											<div class="textarea">
+												<div class="catch">Can be implemented on any device.<br>Edge AI framework developed independently.</div>
+												<div class="logo"><img src="img/picup_logo_en.png" width="475" height="77" alt="ailia SDK"></div>
+												<div class="lead">Providing a consistent inference environment across platforms.<br>Connect an "AI model" that outputs various recognitions and results to an "execution platform" of OS and hardware.<br class="pc">It is a world-class AI development environment that enables fast edge AI.</div>
+											</div>
+										</div>
+										<div class="itembody">
+											<div class="movie">
+												<div class="title"><span class="label txt_en">Special Movie</span><span class="text pc">Accelerate the implementation of AI in society.</span></div>
+												<div class="moviethumb">
+													<div class="thumb"><a data-video-id="yKjUD2Wxh0g" class="movielink"><img src="img/picup_movie_thumb.jpg" width="1546" height="743" alt=""><span class="play"><img src="img/play.png" width="171" height="171" alt="PLAY"></span></a></div>
+													<div class="sptitle sp">Accelerating the social implementation of AI.</div>
+												</div>
+											</div>
+											<div class="demo">
+												<div class="textarea">
+													<div class="title">ailia's demo app</div>
+													<div class="text">This is an application that allows you to easily try out various AI functions. It realizes high-speed inference by maximizing the use of CPU and GPU through "ailia SDK".</div>
+												</div>
+												<div class="pic"><img src="img/picup_demo_thumb.jpg" width="777" height="455" alt=""></div>
+												<div class="btnset">
+													<div class="apbtn btn01"><a href="https://play.google.com/store/apps/details?id=jp.axinc.ailia_ai_showcase" target="_blank"><img src="img/getbtn_gp_en.png" width="291" height="88" alt="Google Play"></a></div>
+													<div class="apbtn btn02"><a href="https://apps.apple.com/jp/app/ailia-ai-showcase/id1522828798" target="_blank"><img src="img/getbtn_app_en.png" width="303" height="88" alt="Mac App Store"></a></div>
+												</div>
+											</div>
+											<div class="exp">
+												<div class="textarea">
+													<div class="title">The best AI development experience is here.</div>
+													<div class="text">You can experience AI demos online and download ailia SDK trial.</div>
+												</div>
+												<div class="startbtn"><a href="https://ailia.ai/en/trial/"><img src="img/trialbtn_en.png" width="777" height="237" alt="Start Free Trial"></a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item item02 move-c move-rl">
+									<div class="iteminner">
+										<div class="model">
+											<div class="catch">More than 300 learning models are available in the lineup.</div>
+											<a href="https://ailia.ai/en/models/">
+												<div class="logo"><img src="img/models_logo_en.png" width="631" height="77" alt="ailia MODELS"></div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ACTIVITY -->
+				<div id="activity" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Activity</h2>
+								<div class="titlelabel">Activity</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item move-c move-rl">
+									<div class="iteminner">
+										<div class="itemhead">
+											<div class="textarea">
+												<div class="lead">As part of its social contribution, Axle aims to<br class="pc">I am actively working to support students and companies.</div>
+											</div>
+										</div>
+										<div class="actset">
+											<ul class="actlist">
+												<li>
+													<div class="actbody">
+														<div class="title">AI Contest for Students</div>
+														<div class="text">We host various contests for students, with the leading one being the "Axell AI Contest". Through this event, which is held based on themes centered around AI, we provide students with opportunities to engage in practical AI tasks and improve their skills by tackling real-world challenges.</div>
+														<a href="https://ailia.ai/contest/"><img src = "img/AI_Contest2024.jpg"></a>
+													</div>
+												</li>
+												<li>
+													<div class="actbody">
+														<div class="title">Startup program</div>
+														<div class="text">Axel actively supports startup companies, providing consulting support for system implementation and a total solution that includes everything from "learning" to "inference" required for AI implementation to support the creation of a future using AI from various angles.</div>
+														<a href="https://ailia.ai/universe/"><img src = "img/Universe2024.jpg"></a>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contentspic">
+							<div class="pic01 move move-flow"><img src="img/activity_pic.png" width="880" height="691" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<!-- WHITEPAPER -->
+				<div id="whitepaper" class="anchor move move-p" style="display:none;">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">White<br class="pc">Paper</h2>
+								<div class="titlelabel">Useful tips for AI utilization.</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item move-c move-rl">
+									<div class="iteminner">
+										<ul class="itemlist">
+											<li class="wp wp05">
+												<div class="new">NEW</div>
+												<a href="#">
+													<div class="thumb"><img src="img/wp_pic05.jpg" width="553" height="781" alt="">
+														<div class="over hs-cta-trigger-button hs-cta-trigger-button-162753075223">PDF free download</div>
+													</div>
+												</a>
+												<div class="title">ailia SDK is "embedded AI."<br>Change the future.</div>
+												<div class="text">We will introduce the latest situation and advantages of "ailia SDK" focusing on embedded AI, which has attracted attention recently, using surveillance cameras as an example.</div>
+											</li>
+											<li class="wp wp04">
+												<a href="#">
+													<div class="thumb"><img src="img/wp_pic01.jpg" width="553" height="781" alt="">
+														<div class="over hs-cta-trigger-button hs-cta-trigger-button-157750252952">Free PDF download</div>
+													</div>
+												</a>
+												<div class="title">AI for business into one<br>DX App "ailia DX Insight"</div>
+												<div class="text">Sales positions, research positions, and even comedy? The true value of "ailia DX Insight", the latest "secure DX app" that provides multifaceted support for business DX, and examples of how it can be utilized.</div>
+											</li>
+											<li class="wp wp03"> <a href="#">
+													<div class="thumb"><img src="img/wp_pic02.jpg" width="553" height="781" alt="">
+														<div class="over hs-cta-trigger-button hs-cta-trigger-button-157651965349">PDF free download</div>
+													</div>
+												</a>
+												<div class="title tit3l">How effective is it for business?<br>I asked an AI expert.<br class="pc">The current status and future of "Image Generation AI".</div>
+												<div class="text">"Exploiting image generation AI at the business scene - focus on the latest trends in image generation AI discussed by AI experts, and points to keep in mind when introducing it."</div>
+											</li>
+											<li class="wp wp02"> <a href="#">
+													<div class="thumb"><img src="img/wp_pic03.jpg" width="553" height="781" alt="">
+														<div class="over hs-cta-trigger-button hs-cta-trigger-button-157651965360">PDF free download</div>
+													</div>
+												</a>
+												<div class="title">You can easily create AI apps for business purposes.<br class="pc">What is "ailia," the key to AI development?</div>
+												<div class="text">We will provide an easy-to-understand introduction to the characteristics and lineup of "ailia," which offers a wide range of solutions and services in various areas of AI development.</div>
+											</li>
+											<li class="wp wp01 wpmore"> <a href="#">
+													<div class="thumb"><img src="img/wp_pic04.jpg" width="553" height="781" alt="">
+														<div class="over hs-cta-trigger-button hs-cta-trigger-button-131341753962">PDF free download</div>
+													</div>
+												</a>
+												<div class="title tit3l">Master the use of Whisper!<br>Safe and secure to use with edge technology<br class="pc">What are the conditions for speech recognition AI?</div>
+												<div class="text">"What is AI voice recognition? What's so amazing about Whisper?" Introducing the basic knowledge of voice recognition AI and the conditions for using reliable and safe voice recognition AI on the edge.</div>
+											</li>
+										</ul>
+											<div class="morebtn"><a class="btn"><span class="ul">Read more</span></a></div>
+											<div class="morebtn close"><a class="btn"><span class="ul">Close</span></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contentspic">
+							<div class="pic01 move move-flow"><img src="img/wp_pic.png" width="764" height="902" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<!-- BLOG -->
+				<div id="blog" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Blog</h2>
+								<div class="titlelabel">Blog</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item move-c move-rl">
+									<div class="iteminner">
+											<ul class="postlist">
+												<!-- <li class="post"><a
+														href="https://medium.com/axinc/retinaface-%E9%AB%98%E8%A7%A3%E5%83%8F%E5%BA%A6%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%9F%E9%A1%94%E6%A4%9C%E5%87%BA%E3%83%A2%E3%83%87%E3%83%AB-37d0807581ce"
+														target="_blank">
+														<div class="postinner">
+															<div class="pic"><img src="img/blog_thumb01.jpg" width="888"
+																	height="498" alt="" /></div>
+															<div class="textarea">
+																<div class="date">2024.2.13</div>
+																<div class="title">RetinaFace : 高解像度に対応した顔検出モデル</div>
+																<div class="text">
+																	高解像度に対応した顔検出用の機械学習モデルであるRetinaFaceのご紹介です。RetinaFaceを使用することで、高解像度の画像に対して、小さな顔のバウンディングボックスを高精度に計算可能です。
+																</div>
+															</div>
+														</div>
+													</a></li>
+												<li class="post"><a
+														href="https://medium.com/axinc/ailia-ai-speech-1-1-0%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-407e41cceef5"
+														target="_blank">
+														<div class="postinner">
+															<div class="pic"><img src="img/blog_thumb02.jpg" width="888"
+																	height="498" alt="" /></div>
+															<div class="textarea">
+																<div class="date">2024.2.1</div>
+																<div class="title">ailia AI Speech 1.1.0をリリース</div>
+																<div class="text">Whisper
+																	Largeへの対応や、音声認識誤り訂正、日本語への翻訳機能を追加したailia AI Speech
+																	1.1.0をリリースしました。</div>
+															</div>
+														</div>
+													</a></li>
+												<li class="post"><a
+														href="https://medium.com/axinc/aws%E3%81%AEgpu%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%ABailia-sdk%E3%82%92%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B-cdf5b83675cd"
+														target="_blank">
+														<div class="postinner">
+															<div class="pic"><img src="img/blog_thumb03.jpg" width="888"
+																	height="498" alt="" /></div>
+															<div class="textarea">
+																<div class="date">2023.12.25</div>
+																<div class="title">AWSのGPUインスタンスにailia SDKをデプロイする</div>
+																<div class="text">AWSのGPUインスタンスにailia
+																	SDKをデプロイする方法を解説します。ailia SDKとailia
+																	MODELSを使用することで、様々なAIモデルをAWS上で実行することが可能です。</div>
+															</div>
+														</div>
+													</a></li>
+												<li class="post postmore"><a
+														href="https://medium.com/axinc/nafnet-%E7%94%BB%E5%83%8F%E3%81%AE%E3%83%96%E3%83%A9%E3%83%BC%E3%82%92%E9%99%A4%E5%8E%BB%E3%81%99%E3%82%8B%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%A2%E3%83%87%E3%83%AB-b8547fd67597"
+														target="_blank">
+														<div class="postinner">
+															<div class="pic"><img src="img/blog_thumb04.jpg" width="888"
+																	height="498" alt="" /></div>
+															<div class="textarea">
+																<div class="date">2023.12.13</div>
+																<div class="title">NAFNET : 画像のブラーを除去する機械学習モデル</div>
+																<div class="text">画像のブラーを除去する機械学習モデルであるNAFNETのご紹介です。
+																</div>
+															</div>
+														</div>
+													</a></li>
+												<li class="post postmore"><a
+														href="https://medium.com/axinc/i8mm-int8-%E8%A1%8C%E5%88%97%E7%A9%8D%E5%90%91%E3%81%91-arm-%E6%8B%A1%E5%BC%B5-8792b74a860b"
+														target="_blank">
+														<div class="postinner">
+															<div class="pic"><img src="img/blog_thumb05.jpg" width="888"
+																	height="498" alt="" /></div>
+															<div class="textarea">
+																<div class="date">2023.12.6</div>
+																<div class="title">I8MM: INT8 行列積向け ARM 拡張</div>
+																<div class="text">INT8の行列積の計算を行うことができるI8MM の使い方の紹介です。
+																</div>
+															</div>
+														</div>
+													</a></li> -->
+											</ul>
+											<div class="linkbtn"><a href="https://axinc.jp/en/blog/" target="_blank" class="btn"><span class="ul">Read more</span></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="contentspic">
+							<div class="pic01 move move-flow"><img src="img/blog_pic.png" width="1049" height="699" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<!-- SUPPORT -->
+				<div id="support" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Support</h2>
+								<div class="titlelabel">Support</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="item move-c move-rl">
+									<div class="iteminner">
+										<div class="lead">"Specialized staff will support you from initial introduction to post-operation care in an easy-to-understand manner."<br>We also offer a one-month trial version that can help you consider implementation.<br>Please feel free to try it out, and our professional staff will carefully assist you with the actual introduction process.</div>
+										<ul class="flowlist">
+											<li class="flow flow01">
+												<div class="label">STEP1</div>
+												<div class="title tit2l">Inquiry<br class="pc">Support</div>
+												<div class="text">You can try the free trial download before contacting us only by entering your email address. If you need any assistance, please contact us by email or Slack.</div>
+											</li>
+											<li class="flow flow02">
+												<div class="label">STEP2</div>
+												<div class="title">Quotation</div>
+												<div class="text">If you are satisfied with the trial version, please contact us by email or slack for further quotation and we will be flexible to assist with sample creation and other consultations while confirming requirements.</div>
+											</li>
+											<li class="flow flow03">
+												<div class="label">STEP3</div>
+												<div class="title">Introduction and operation</div>
+												<div class="text">We will provide support and assistance tailored to the requirements, such as various consulting and specific application development, while conducting meetings via phone calls or web meetings, to facilitate implementation.</div>
+											</li>
+											<li class="flow flow04">
+												<div class="label">STEP4</div>
+												<div class="title">Aftercare</div>
+												<div class="text">We will provide answers to simple questions during the implementation phase, and also offer consultation for post-implementation and discussions regarding app development and improvements, and propose suitable solutions.</div>
+											</li>
+										</ul>
+											<div class="linkbtn"><a href="https://www.ailia.ai/en/contact" target="_blank" class="btn"><span class="ul">Please contact us here.</span></a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- PHILOSOPHY -->
+				<div id="philosophy" class="anchor move move-p">
+					<div class="contentsinner">
+						<div class="contentshead">
+							<div class="headiner move-c move-lr">
+								<h2 class="txt_en">Philosophy</h2>
+								<div class="titlelabel">Philosophy</div>
+							</div>
+						</div>
+						<div class="contentsbody">
+							<div class="bodyinner">
+								<div class="lead move-c move-rl">We humans, over the course of a long history.<br class="sp">Create new technology every day.<br>Building society by making full use of that technology.<br class="sp">I have built up tomorrow<br>
+									<br>AI is also created by human hands.<br class="sp">Together we have walked.<br>AI is indispensable for a comfortable everyday life.<br class="sp">It has already blended into daily life.<br>
+									<br>And the key to unlocking the door to further freedom is,<br>ailia SDK is the world's fastest inference engine.<br>I am not inferior to other countries in AI technology.<br class="sp">One of the world's leading AI solutions developed in Japan.<br>Still today, by the hands of humans.<br class="sp">I continue to improve performance day by day.<br>
+									<br>AI frees people.<br>We aspire to a more free and prosperous future.<br>It is already within reach.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- COMPANY -->
+				<div id="company" class="anchor">
+					<div class="contentsinner">
+						<div class="title">ailia SDK corporate list</div>
+						<ul class="colist">
+							<li class="co co02">
+								<div class="cologo"><img src="img/co_logo02.png" width="266" height="131" alt="ASK Corporation"></div>
+							</li>
+							<li class="co co03">
+								<div class="cologo"><img src="img/co_logo03.png" width="266" height="131" alt="CELSYS"></div>
+							</li>
+							<li class="co co04">
+								<div class="cologo"><img src="img/co_logo04.png" width="446" height="131" alt="KONICA MINOLTA"></div>
+							</li>
+							<li class="co co05">
+								<div class="cologo"><img src="img/co_logo05.png" width="266" height="131" alt="RANDIDO"></div>
+							</li>
+							<li class="co co06">
+								<div class="cologo"><img src="img/co_logo06.png" width="267" height="131" alt="SEGA">
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="note">※Some content on this website uses AI.</div>
+				</div>
+			</div>
+			<!-- SCROLLNAV -->
+			<div id="scrollnav" class="def">
+				<ul class="navinner">
+					<li class="nav01"><a href="#about">
+							<div class="navlabel txt_en">Sobre</div>
+						</a></li>
+					<li class="nav02"><a href="#lineup">
+							<div class="navlabel txt_en">Lineup</div>
+						</a></li>
+					<li class="nav03"><a href="#pickup">
+							<div class="navlabel txt_en">Pickup</div>
+						</a></li>
+					<li class="nav04"><a href="#activity">
+							<div class="navlabel txt_en">Activity</div>
+						</a></li>
+					<li class="nav05"><a href="#whitepaper">
+							<div class="navlabel txt_en">White Paper</div>
+						</a></li>
+					<li class="nav06"><a href="#blog">
+							<div class="navlabel txt_en">Blog</div>
+						</a></li>
+					<li class="nav07"><a href="#support">
+							<div class="navlabel txt_en">Support</div>
+						</a></li>
+					<li class="nav08"><a href="#philosophy">
+							<div class="navlabel txt_en">Philosophy</div>
+						</a></li>
+				</ul>
+			</div>
+			<!-- CHARAPROF -->
+			<div id="profmodal">
+				<div class="profbg"></div>
+				<div class="profwindow">
+					<div class="profinner">
+						<div class="profclose">Close.</div>
+						<div class="pic"><img src="img/chara_detail_pic.png" width="447" height="574" alt=""></div>
+						<div class="textarea">
+							<div class="label">ailia brand official character</div>
+							<div class="name">Ai-nyan</div>
+							<div class="text">AI knows about the mysterious creature "◯◯danya" that came from the future, but it doesn't seem to be a cat. It provides information about ailia brand products and services. [Favorite food] Cat food.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- FOOTER -->
+			<div id="footer">
+				<div class="cw">
+					<div class="wrap">
+						<div class="left">
+							<div class="col">
+								<a href="/en/">ailia AI series</a>
+								<a href="/en/dx/">ailia DX Insight</a>
+								<a href="https://ailia.ai/en/sdk/">ailia SDK</a>
+								<a href="https://www.ailia.ai/en/voice">ailia AI VOICE</a>
+								<a href="https://www.ailia.ai/en/speech">ailia AI SPEECH</a>
+								<a href="/en/embedded/">ailia Embedded AI</a>
+							</div>
+							<div class="col">
+								<a href="/ai-computing/">AI Computing</a>
+								<a href="/ai-computing/ai-deeplearning-acceleration/">AI Deeplearning Acceleration</a>
+								<a href="/ai-computing/embedded-acceleration/">Embedded Acceleration</a>
+								<a href="/ai-computing/image-processing-acceleration/">Image Processing Acceleration</a>
+								<a href="/ai-computing/gpu-acceleration/">GPU Acceleration</a>
+							</div>
+							<div class="col">
+								<a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/" target="_blank">AI Application</a>
+								<a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/" target="_blank">AI Agent</a>
+							</div>
+							<div class="col">
+								<a href="/en/company/">Company Profile</a>
+								<a href="https://www.axell.co.jp/browser/">Terms of Service</a>
+								<a href="https://www.axell.co.jp/privacy/">Privacy Policy</a>
+							</div>
+						</div>
+						<div class="right">
+							<p class="company">ailia Inc.</p>
+							<p class="address">5F Tosokaikan, 19-22 Uguisudanicho, Shibuya-ku, Tokyo 150-0032 Japan</p>
+							<p class="btnWrap">
+								<a class="btn btnContact" href="./en/contact" target="_blank">
+									<span class="icon"><img src="/img/common/icon_contact.svg" alt=""></span>
+									<span class="label">Contact</span>
+								</a>
+							</p>
+						</div>
+					</div>
+					<div class="bannerArea">
+						<a href="https://blog.ailia.ai/" target="_blank">
+							<img src="/img/common/footer_banner_01.webp" alt="AIでしごとするなら「AI専門メディア」">
+						</a>
+						<a href="https://ailia.ai/en/sdk/" target="_blank">
+							<img src="/img/common/footer_banner_02.webp" alt="ソフトウェア開発きっとアイリアSDK">
+						</a>
+					</div>
+				</div>
+				<p class="copyright">Copyright &copy; ailia Inc. / Axell Co., Ltd</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		function newsListener() {
+			text = this.responseText.replace(/\r?\n/g, "");
+			json = JSON.parse(text);
+			var len = json["news"].length;
+			if (len > 1) {
+				len = 1;
+			}
+			for (var i = 0; i < len; i++) {
+				console.log(json["news"][i])
+				doc = json["news"][i]
+
+				var title = doc["title"];
+				var date = doc["date"];
+				var detail = doc["body"];
+				var url = doc["url"];
+
+				detail = detail.replace(/“/g, '"');
+				detail = detail.replace(/”/g, '"');
+
+				var article_id = doc.id;
+				document.getElementById("newslink").href = url;
+				document.getElementById("newsdate").innerHTML = date;
+				document.getElementById("newstext").innerHTML = title;
+			}
+		}
+
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", newsListener);
+		oReq.open("GET", "https://axinc.jp/api/news?filter=ailia&lang=en");
+		oReq.send();
+	</script>
+</body></html>

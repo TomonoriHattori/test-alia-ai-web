@@ -1,0 +1,276 @@
+/*!**********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/scss/style.scss ***!
+  \**********************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap);
+/*!**************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/scss/style.scss (1) ***!
+  \**************************************************************************************************************************************************************************/
+
+  #footer {
+    font-size: 14px;
+    font-family: "Noto Sans JP", sans-serif;
+    color: #000;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    position: relative;
+    width: 1280px;
+    max-width: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  #footer *,
+  #footer ::after,
+  #footer ::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  #footer img {
+    vertical-align: middle;
+  }
+
+  @media (max-width: 767px) {
+    #footer .cw {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #footer .cw {
+      padding-left: 60px;
+      padding-right: 60px;
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  #footer .cw {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #footer .wrap {
+    display: flex;
+  }
+
+  #footer .wrap .left {
+    display: flex;
+  }
+
+  #footer .wrap .left .col + .col {
+    margin-left: 80px;
+  }
+
+  #footer .wrap .left .col a {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    line-height: 2.2;
+  }
+
+  #footer .wrap .left .col a:first-child {
+    font-weight: 500;
+  }
+
+  #footer .wrap .right {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  #footer .wrap .right .company {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  #footer .wrap .right .address {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  #footer .wrap .right .btnWrap {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #footer .btn {
+    display: flex;
+    background: #EB3155;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 40px;
+    position: relative;
+  }
+
+  #footer .btn::after {
+    content: "";
+    height: 100%;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #005CD9;
+    transition: all ease 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    #footer .btn:hover::after {
+      width: 100%;
+    }
+  }
+
+  #footer .btn .icon {
+    z-index: 1;
+    margin-right: 10px;
+    margin-top: -3px;
+  }
+
+  #footer .btn .label {
+    z-index: 1;
+  }
+
+  #footer .bannerArea {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+  }
+
+  #footer .bannerArea a {
+    transition: all ease 0.3s;
+    box-shadow: 0px 0px 16px -2px rgba(10, 10, 10, 0.1);
+  }
+
+  #footer .bannerArea a + a {
+    margin-left: 20px;
+  }
+
+  @media (min-width: 768px) {
+    #footer .bannerArea a:hover {
+      opacity: 0.75;
+    }
+  }
+
+  #footer .bannerArea a img {
+    width: 282px;
+  }
+
+  #footer .copyright {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 767px) {
+    #footer {
+      padding-bottom: 50px;
+      padding-top: 30px;
+      width: 100%;
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #footer .cw {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #footer .wrap {
+      display: block;
+    }
+
+    #footer .wrap .left {
+      display: block;
+    }
+
+    #footer .wrap .left .col + .col {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    #footer .wrap .left .col a {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      white-space: nowrap;
+      line-height: 2.2;
+    }
+
+    #footer .wrap .left .col a:first-child {
+      font-weight: 500;
+    }
+
+    #footer .wrap .right {
+      margin-left: 0;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    #footer .wrap .right .company {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    #footer .wrap .right .address {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    #footer .wrap .right .btnWrap {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    #footer .btn {
+      width: 180px;
+      height: 40px;
+    }
+
+    #footer .btn .icon {
+      z-index: 1;
+      margin-right: 10px;
+      margin-top: -3px;
+    }
+
+    #footer .btn .label {
+      z-index: 1;
+    }
+
+    #footer .bannerArea {
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    #footer .bannerArea a {
+      transition: all ease 0.3s;
+    }
+
+    #footer .bannerArea a + a {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    #footer .copyright {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 12px;
+    }
+  }
