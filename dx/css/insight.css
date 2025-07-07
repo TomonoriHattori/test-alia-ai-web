@@ -831,6 +831,7 @@
 		font-weight: bold;
 		letter-spacing: 0.1em;
 		margin: 0 auto 25px auto;
+		width: 940px;
 	}
 	#development .devbox .text {
 		text-align: center;
