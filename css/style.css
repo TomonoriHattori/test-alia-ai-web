@@ -1,0 +1,739 @@
+body {
+  margin: 0;
+  overflow: hidden; /* JavaScriptでスクロールを制御するため */
+}
+section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  perspective: 1000px;
+}
+section {
+  text-align: center;
+  justify-content: center;
+}
+#section1 { background-color: #fff; }
+#section1_1 { background-color: #fff; }
+#section2 { background: linear-gradient(180deg, #fff 0%, #fff 50%, #eceef4 50%, #eceef4 100%); }
+#section2_2, #section2_3, #section2_4 { background-color: #eceef4; }
+#section3 { background: linear-gradient(180deg, #eceef4 0%, #eceef4 50%, #fff 50%, #fff 100%); }
+#section4 {
+  background-color: #fff;
+  height: auto;
+  min-height: 100vh;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.inner-space {
+  width: 90vw;
+  min-width: 700px;
+  max-width: 1080px;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.section-inner1 {
+  height: 100%;
+  padding: 0 auto;
+  color: black;
+}
+.section-inner1_1 {
+  height: 100%;
+  padding: 0 auto;
+  color: black;
+}
+.ctaArea {
+  width: 100%;
+  height: 100%;
+}
+.section-inner2 {
+  background-color: #eceef4;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0 ;
+  border-radius: 80px 80px 0 0;
+  z-index: 15;
+}
+.section-inner2_2,
+.section-inner2_4 {
+  background-color: #eceef4;
+  height: 100%;
+  width: 100%;
+  padding: 0 auto;
+  padding-top: 10vh;
+}
+.section-inner2_3 {
+  background-color: #eceef4;
+  height: 100%;
+  width: 100%;
+  padding: 0 auto;
+  padding-top: 16vh;
+}
+.section-inner3 {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 0 auto;
+  border-radius: 80px 80px 0 0;
+  z-index: 15;
+}
+.section-inner4 {
+  background-color: #141e53;
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  padding: 0 auto;
+  border-radius: 80px 80px 0 0;
+}
+
+.hoge {
+  content: "";
+  height: 500px;
+  width: 90px;
+}
+
+
+/*スクロールダウンアニメーション*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+
+.scroll_down{
+  position:fixed;
+  bottom: 20vh;
+  right: 3vw;
+  z-index: 40;
+}
+
+.scroll_down a{
+  position: absolute;
+  left: 10px;
+  bottom: 90px;
+  color: #141e53;
+  font-size: 12px;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: .2em;
+  writing-mode: vertical-lr;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 40;
+}
+
+.scroll_down:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background:#141e53;
+  animation:
+    circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite;
+}
+
+@keyframes circlemove{
+  0%{bottom:80px;}
+  100%{bottom:0px;}
+}
+
+@keyframes cirlemovehide{
+  0%{opacity:0}
+  50%{opacity:1;}
+  80%{opacity:0.9;}
+  100%{opacity:0;}
+}
+
+.scroll_down:after{
+  content:"";
+  position: absolute;
+  bottom:0;
+  left:20px;
+  width:2px;
+  height: 80px;
+  background:#141e53;
+}
+
+/* 2ページ目以降で色を白にするためのスタイル */
+.scroll_down.is-scrolled a {
+  color: white;
+}
+.scroll_down.is-scrolled:before {
+  background: white;
+}
+.scroll_down.is-scrolled:after {
+  background: white;
+}
+
+/* ページ最下部で非表示にするためのスタイル */
+.scroll_down.is-hidden {
+  opacity: 0;
+  pointer-events: none; /* 要素をクリックできなくする */
+  transition: opacity 0.4s ease; /* スムーズにフェードアウトさせる */
+}
+
+
+/*スライドインアニメーション*/
+.section-inner2,
+.section-inner3, 
+.section-inner4 {
+  transform: translateY(-20px);
+  transition: 0.5s;
+  transition-delay: 0.7s;
+  transform-style: preserve-3d;
+}
+.section-inner2_2,
+.section-inner2_3,
+.section-inner2_4 {
+  transform: translateY(0px);
+  transition: 0.5s;
+  transition-delay: 0.7s;
+  transform-style: preserve-3d;
+}
+
+.is-animated {
+  transform: translateY(110px);
+}
+.section-inner2_2 .is-animated,
+.section-inner2_3 .is-animated,
+.section-inner2_4 .is-animated {
+  transform: translateY(0);
+}
+
+.slideIn1, .slideIn2, .slideIn3, .slideIn4 {
+  opacity: 0;
+  transform: translateY(10vh);
+  transition: opacity 0.5s, transform 1s;
+}
+
+.slideIn1 {
+  transition-delay: 0.6s;
+}
+.slideIn2 {
+  transition-delay: 0.8s;
+}
+.slideIn3 {
+  transition-delay: 1s;
+}
+.slideIn4 {
+  transition-delay: 1.2s;
+}
+
+
+
+/* 表示された時のスタイル（アニメーションの「最終地点」） */
+.slideIn1.is-visible,
+.slideIn2.is-visible,
+.slideIn3.is-visible,
+.slideIn4.is-visible {
+  transform: translateY(0); /* 元の位置に戻す */
+  opacity: 1;
+}
+
+/*ナビゲーションエリア*/
+
+.subNavArea {
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;  
+  align-items: center;
+  position: fixed;
+  background-color: #ffffffd4;
+  z-index: 40;
+  top: 60px;
+}
+.subNavArea .subNavTitle {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  width: 200px;
+  margin-left: 50px;
+}
+.site-menu ul {
+  display: flex;
+}
+.site-menu ul li {
+  margin: auto 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+@media (max-width: 1023px) {
+  .subNavArea {
+    top: 40px;
+  }
+}
+.site-menu a:hover {
+  color: #5e5e5e;
+}
+
+/*　MVエリア　*/
+
+.mv-area {
+  position: absolute;
+  /* content: "";
+  background-color: #EB3155; */
+  justify-content: center;
+  display: flex;
+  top: 16vh;
+  height: 70%;
+  min-height: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  aspect-ratio: 16 / 9;
+}
+.mv-area video {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.ctaArea {
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  display: flex;
+}
+.ctaArea ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 40px 40px;
+  bottom: 0;
+}
+
+.ctaArea li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  background-color: #EB3155;
+  width: 180px;
+  height: 40px;
+  padding-top: 8px;
+  margin-right: 20px;
+  border-radius: 20px;
+}
+.ctaArea a {
+  font-size: 10px;
+  color: white;
+}
+
+.cta-btn:hover .arrow {
+  transform: translate(8px, 3px);
+  transition: 0.2s;
+}
+
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 15.3px;
+  height: 8px;
+  transform: translateX(8px);
+}
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #fff;
+  transform-origin: 50% calc(100% - 1px);
+}
+
+.arrow::before {
+  transform: rotate(45deg);
+}
+
+.arrow::after {
+  transform: rotate(-45deg);
+}
+
+.logo-area {
+  position: absolute;
+  bottom: 2vh;
+  height: 10vh;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+}
+.logo-area-wrap {
+  height: 100%;
+  display: flex;
+}
+.logo-list {
+  display: flex;
+  align-items: center;
+}
+
+
+@keyframes logoScroll {
+from {
+  transform: translateX(0);
+}
+to {
+  transform: translateX(-100%);
+}
+}
+.logo-list {
+  animation: logoScroll 80s infinite linear 0.5s both;
+  flex-shrink: 0;
+}
+.logo-list li {
+  padding: 0 40px;
+}
+
+
+/*　タグラインエリア　*/
+
+.taglineArea {
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  top: 40vh;
+  text-align: start;
+  justify-content: space-between;
+}
+.taglineTitle {
+  width: clamp(380px, 49vw, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  left: 0;
+}
+.taglineArea h1 {
+  display: inline-block;
+  /* font-size: 3vw; */
+  font-size: clamp(24px, 3vw, 39px);
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+  padding: 0 1vw;
+}
+.taglineTitle h1:first-child {
+  background-image: linear-gradient(90deg, #eb3056, #6b38a6 50%, #172059);
+}
+.taglineTitle h1:nth-child(2) {
+  background-image: linear-gradient(90deg, #eb3056, #853695);
+}
+.taglineTitle h1:last-child {
+  background-image: linear-gradient(90deg, #eb3056, #843696 50%, #19215e);
+}
+.taglineText {
+  width: clamp(280px, 36vw,480px);
+  text-align: start;
+  transform: translateY(-1vh);
+}
+.taglineText p {
+  font-size: clamp(11px, 1.2vw, 15px);
+  font-weight: bold;
+  line-height: clamp(27px, 3vw, 36px);
+  color: #141e53;
+}
+
+
+/*セクションタイトル*/
+
+.sectionTitle {
+  color: #141e53;
+  display: flex;
+  padding-top: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.sectionTitle h2 {
+  color: #141e53;
+  font-weight: bold;
+  font-size: 5vh;
+  line-height: 4vh;
+}
+.sectionTitle .rubby {
+  font-size: 1.4vh;
+  font-weight: bold;
+}
+
+/*カテゴリー*/
+
+.category {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: clamp(12px, 1.4vh, 14px);
+}
+.category h3 {
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #EB3155;
+  border-radius: 20vw;
+  font-weight: bold;
+}
+.category p {
+  padding: 0 30px;
+  font-weight: bold;
+}
+
+
+/* スライドイン画像 */
+
+.animations {
+  width: 100%;
+  position: relative;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.imgBox {
+  width: 42vw;
+  max-width: 512px;
+  min-width: 330px;
+  border-radius: 2vw;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.imgBox img {
+  width: 100%;
+  transition: 0.4s
+}
+.imgBox:hover {
+  img{transform: scale(1.2);
+  transition: 0.4s;
+  animation-delay: 0;}
+}
+
+.section-inner2 .category {
+  margin: 4vh 0;
+}
+.section-inner2_2 .animations,
+.section-inner2_4 .animations {
+  margin-top: 40px;
+}
+.section-inner2_3 .animations {
+  margin-top: 10px;
+}
+
+
+/* 画像タグエリア */
+
+.imgTagArea {
+  display: flex;/* 中の要素を横並びにする */
+  align-items: flex-start;/* 要素を上揃えにする */
+  justify-content: space-between;
+}
+.imgTitle {
+  display: flex;
+  flex-direction: column; /* 中の要素を縦積みにする */
+  align-items: flex-start; /* 要素を左揃えにする */
+  width: 42vw;
+  max-width: 512px;
+  min-width: 330px;
+}
+.imgTag {
+  display: flex;         /* Gridの代わりにFlexboxを使用 */
+  flex-wrap: wrap;       /* 要素がコンテナの幅を超えたら折り返す */
+  gap: 8px 12px;         /* タグ間の隙間を指定 */
+  margin-top: 10px;      /* 上の要素との間に余白を追加 */
+  width: 100%;
+}
+
+/* 個々のタグのスタイル（見た目を整えるため） */
+.imgTag a {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: #fff;
+  background-color: #141e53;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap; /* タグ内で文字が改行しないようにする */
+  text-align: center;
+  font-size: clamp(10px, 1.2vw, 14px);
+}
+
+.imgTitle h4 {
+  font-size: clamp(12px, 1.6vw, 20px);
+  color: #141e53;
+  font-weight: bold;
+  margin-top: 2vh;
+  text-align: left;
+}
+.imgTitle p {
+  font-size: clamp(8px, 1vw, 12px);
+}
+
+
+/*　開発実績　*/
+
+.lineupslide-area {
+  position: absolute;
+  top: 30vh;
+  height: 40vh;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+}
+/*ulの一つ上*/
+.lineupslide-warap {
+  height: 100%;
+  display: flex;
+}
+/*ul*/
+.lineupslide {
+  display: flex;
+  align-items: center;
+}
+
+
+@keyframes logoScroll2 {
+from {
+  transform: translateX(0);
+}
+to {
+  transform: translateX(-100%);
+}
+}
+.lineupslide {
+  animation: logoScroll2 50s infinite linear 0.5s both;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.lineupslide li {
+  width: 300px; /* 例: 幅を540pxに指定 */
+  height: 360px; /* 例: 高さを360pxに指定 */
+  padding: 20px; /* 内側の余白 */
+  box-sizing: border-box; /* paddingとborderをwidthとheightに含める */
+  /* background-color: #f0f0f0; サイズが分かりやすいように背景色を追加（任意） */
+  border-radius: 12px; /* 角丸のデザイン（任意） */
+  margin: 0 20px; /* li同士の間隔を調整 */
+}
+
+/* .lineupslide内のaタグをliの高さ一杯に広げ、フレックスコンテナとして設定 */
+.lineupslide li > a {
+  display: flex;
+  flex-direction: column; /* 子要素を縦に並べる */
+  height: 100%;
+  width: 100%;
+  text-decoration: none; /* リンクの下線を削除 */
+  color: inherit; /* 親要素の文字色を継承 */
+}
+
+/* 画像を囲む.thumbコンテナが、利用可能な残りのスペースをすべて埋めるように設定 */
+.lineupslide .thumb {
+  width: 100%; /* liの幅に合わせる */
+  height: 70%; /* liの高さの70%を画像エリアに */
+  overflow: hidden;
+  border-radius: 8px; /* 画像の角を丸くする（任意） */
+  flex-grow: 0; /* flex-growは不要なためリセット */
+}
+
+/* 画像が.thumbコンテナを覆うように設定し、アスペクト比を維持 */
+.lineupslide .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* アスペクト比を保ったまま、コンテナ全体を覆う。画像の一部が切り取られることがあります。 */
+  border-radius: 10px;
+}
+
+/* テキストエリアが縮まないように設定 */
+.lineupslide .textarea {
+  height: 45%; /* liの高さの残りの30%をテキストエリアに */
+  padding-top: 15px; /* 画像との間の余白 */
+  box-sizing: border-box;
+}
+.lineupslide .textarea .label {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+.lineupslide .textarea .text {
+  font-size: 12px;
+  text-align: left;
+}
+
+
+/*コンタクトエリア*/
+
+.section-inner4 {
+  color: #fff;
+}
+.section-inner4 .sectionTitle h2 {
+  color: #fff;
+}
+.contact-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 40px;
+  padding-bottom: 50px;
+}
+.contact-left {
+  width: 40%;
+  text-align: left;
+}
+.contact-right {
+  width: 50%;
+  text-align: left;
+}
+input {
+  width: 500px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.question {
+  height: 150px;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+.sent {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 20px;
+  width: 500px;
+  transition: 0.4s;
+}
+.sent:hover {
+    background-color: #141e53;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: 0.4s;
+}
+
+
+footer {
+  margin-top: 120px;
+  display: block;
+  background-color: #fff;
+  width: 100%;
+}
