@@ -1,180 +1,243 @@
-//スライドのアニメーション
-
+//ページ読み込み時にページトップに移動する
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
 // GSAPのプラグインを登録
 gsap.registerPlugin(ScrollToPlugin);
 
 // DOM要素の取得
 const sections = document.querySelectorAll('section');
-const scrollDownElement = document.querySelector('.scroll_down'); // ★変更点: .scroll_down要素を取得
+const scrollDownElement = document.querySelector('.scroll_down');
 
 // 変数の初期化
 let currentSectionIndex = 0;
 let isScrolling = false; // アニメーション中の多重実行を防ぐフラグ
 const lastSectionIndex = sections.length - 1;
 const animationDuration = 1; // アニメーションの時間（秒）
-const scrollCooldown = 500; // ★追加: スクロール後の待機時間（ミリ秒）。500 = 0.5秒
+const scrollCooldown = 500; // スクロール後の待機時間（ミリ秒）。500 = 0.5秒
 
 /**
  * リサイズイベントのハンドラ
- * ウィンドウのリサイズが終わったら現在のセクションに再スナップする
  */
 function handleResize() {
   // アニメーションはさせずに瞬時に位置を調整
-  scrollToSection(currentSectionIndex, 0); 
+  gsap.to(window, {
+      scrollTo: {
+          y: sections[currentSectionIndex].offsetTop
+      },
+      duration: 0
+  });
 }
 
 // リサイズイベントの登録（debounce処理付き）
-// 頻繁なイベント発生を防ぎ、リサイズ終了後に一度だけ実行する
 let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(handleResize, 150); // 150ms後に実行
+  resizeTimer = setTimeout(handleResize, 150);
 });
 
 
 /**
- * 指定されたインデックスのセクションへスクロールする関数
+ * 指定されたインデックスのセクションへスクロールする関数 (スクロール方向対応版)
  * @param {number} index - スクロール先のセクションのインデックス
+ * @param {string} direction - スクロール方向 ('up' または 'down')
  */
-function scrollToSection(index) {
-// インデックスが範囲内かチェック
-if (index < 0 || index >= sections.length) {
-    isScrolling = false; // フラグをリセット
+function scrollToSection(index, direction = 'down') { // directionパラメータを追加
+  if (index < 0 || index >= sections.length || index === currentSectionIndex) {
+    isScrolling = false;
     return;
-}
+  }
 
-// ★変更点: スクロールダウン.scroll_downの色を制御
-if (index > 6) {
-    // 2ページ目以降は 'is-scrolled' クラスを追加して白にする
+  if (index > 6) {
     scrollDownElement.classList.add('is-scrolled');
-} else {
-    // 1ページ目ではクラスを削除して黒に戻す
+  } else {
     scrollDownElement.classList.remove('is-scrolled');
-}
+  }
 
-// 最後のセクション（通常スクロール）に移動する場合
-if (index === lastSectionIndex) {
-    document.body.style.overflow = 'auto'; // 通常スクロールを許可
-} else {
-    document.body.style.overflow = 'hidden'; // スナップモードのためスクロールを禁止
-}
+  if (index === lastSectionIndex) {
+    document.body.style.overflow = 'auto';
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
 
-const targetSection = sections[index];
-currentSectionIndex = index;
+  const targetSection = sections[index];
+  const currentSection = sections[currentSectionIndex];
 
-// GSAPを使ってアニメーション実行
-gsap.to(window, {
-    scrollTo: {
-    y: targetSection.offsetTop, // 目標のY座標
-    autoKill: false // スクロール中にユーザーが操作した場合でもアニメーションを継続
-    },
-    duration: animationDuration,
-    ease: "power4.out", // イージングの種類
-    // アニメーション完了時にフラグをリセット
+  gsap.set(currentSection, { zIndex: 2 });
+  gsap.set(targetSection, { zIndex: 1 });
+
+  const currentContent = currentSection.querySelector('[class*="section-inner"]');
+  const targetContent = targetSection.querySelector('[class*="section-inner"]');
+  
+  let slideOutY, slideInY;
+  if (direction === 'down') {
+    slideOutY = -100;
+    slideInY = 100;
+  } else {
+    slideOutY = 100;
+    slideInY = -100;
+  }
+  
+  const tl = gsap.timeline({
     onComplete: () => {
       setTimeout(() => {
         isScrolling = false;
-      }, scrollCooldown); // 設定した待機時間だけ遅らせる
+      }, scrollCooldown);
+      gsap.set(currentSection, { zIndex: 'auto', clearProps: "backgroundColor" }); 
+      gsap.set(targetSection, { zIndex: 'auto' });
     }
-});
+  });
+
+  // --- アニメーションのシーケンス ---
+
+  // 1. 最初に現在のコンテンツをスライドアウトさせる
+  if (currentContent) {
+    tl.to(currentContent, {
+      yPercent: slideOutY,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.in"
+    });
+  }
+
+  // --- 背景色変更とスクロールのタイミング設定 ---
+  const scrollPosition = "+=0.1"; // スクロール開始のタイミング
+  const shouldChangeColor = currentSectionIndex === 2 || currentSectionIndex === 6;
+
+  // 2. もし条件に合致する場合、背景色を変更するアニメーションを「タイムライン開始0.1秒後」に設定
+  if (shouldChangeColor) {
+    const targetBgColor = window.getComputedStyle(targetSection).backgroundColor;
+    tl.to(currentSection, { 
+        backgroundColor: targetBgColor, 
+        duration: 0.1 
+    }, 0.8); // スライドアウト開始0.8秒後に開始
+  }
+  
+
+  // 3. ページスクロールを実行
+  tl.to(window, {
+    scrollTo: {
+      y: targetSection.offsetTop,
+      autoKill: false
+    },
+    duration: 0.1,
+    ease: "power2.inOut"
+  }, scrollPosition);
+  
+  
+
+  // 4. 新しいコンテンツをスライドイン
+  if (targetContent) {
+    tl.fromTo(targetContent, 
+      { 
+        yPercent: slideInY,
+        opacity: 0
+      }, 
+      {
+        yPercent: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+        clearProps: "transform,opacity"
+      }, 
+      "-=0.2"
+    );
+  }
+
+  // section2_2 -> section2 または section4 -> section3 への移動時（上スクロール）のみ実行
+  if ((index === 2 || index === 6) && direction === 'up') {
+      const previousBgColor = window.getComputedStyle(currentSection).backgroundColor;
+      const targetBgColor = window.getComputedStyle(targetSection).backgroundColor;
+
+      // ターゲットセクションの背景色を、前のセクションの色から本来の色へアニメーションさせる
+      tl.fromTo(targetSection,
+          { backgroundColor: previousBgColor }, // 開始色
+          {
+              backgroundColor: targetBgColor, // 終了色
+              duration: 2, // コンテンツのアニメーションと長さを合わせる
+              ease: "power2.in" // コンテンツのアニメーションとイージングを合わせる
+          },
+          "<" // 直前のアニメーション（コンテンツのスライドイン）と同時に開始
+      );
+  }
+
+  currentSectionIndex = index;
 }
+
 
 /**
  * マウスホイールイベントの処理
  */
 window.addEventListener('wheel', (event) => {
-  // アニメーション中は処理を中断し、デフォルトのスクロールもキャンセル
   if (isScrolling) {
     event.preventDefault();
     return;
   }
 
-  const delta = event.deltaY; // ホイールの移動量（下: 正, 上: 負）
+  const delta = event.deltaY;
 
-  // 現在が最後のセクション（通常スクロールモード）の場合
   if (currentSectionIndex === lastSectionIndex) {
-    // 最後のセクションの最上部で、さらに上にスクロールしようとした時
     if (window.scrollY <= sections[lastSectionIndex].offsetTop && delta < 0) {
-      event.preventDefault(); // スナップスクロールに戻るので、デフォルト動作をキャンセル
+      event.preventDefault();
       isScrolling = true;
-      scrollToSection(currentSectionIndex - 1); // 一つ前のセクションへ
+      scrollToSection(currentSectionIndex - 1, 'up'); // 'up'方向を渡す
     }
-    // それ以外の通常スクロール中は event.preventDefault() を呼ばず、ブラウザのデフォルトスクロールに任せる
     return;
   }
 
-  // --- これ以降はスナップモード中の処理 ---
-  // デフォルトのスクロール動作をキャンセル
   event.preventDefault();
-  
-  isScrolling = true; // アニメーション開始フラグを立てる
+  isScrolling = true;
 
   if (delta > 0) {
     // 下にスクロール
-    scrollToSection(currentSectionIndex + 1);
+    scrollToSection(currentSectionIndex + 1, 'down'); // 'down'方向を渡す
   } else {
     // 上にスクロール
-    scrollToSection(currentSectionIndex - 1);
+    scrollToSection(currentSectionIndex - 1, 'up'); // 'up'方向を渡す
   }
-}, { passive: false }); // preventDefaultを確実に機能させるためpassive: falseを指定
+}, { passive: false });
 
-// ページ読み込み完了時に最初のセクションへ移動（任意）
+// ページ読み込み完了時
 window.addEventListener('load', () => {
-  scrollToSection(0);
+  gsap.to(window, { scrollTo: 0, duration: 0 });
 });
 
 
-//innerとヒーローのアニメーション
-
-// 監視対象の要素をすべて取得
+// Intersection Observer
 const targets = document.querySelectorAll('.section-inner2, .section-inner2_2, .section-inner2_3, .section-inner2_4, .section-inner3, .section-inner4, .slideIn1, .slideIn2, .slideIn3, .slideIn4');
 
-// Intersection Observerのコールバック関数
 const observerCallback = (entries, observer) => {
   entries.forEach(entry => {
-    // 監視対象の要素（entry.target）がどのクラスを持っているか判定
-
-    // もし .section-inner2 クラスを持っていたら
     if (entry.target.matches('[class*="section-inner"]')) {
-      // is-animated クラスを付け外しする
       entry.target.classList.toggle('is-animated', entry.isIntersecting);
-    
-    // もし slideIn1, slideIn2... いずれかのクラスを持っていたら
     } else if (entry.target.matches('[class*="slideIn"]')) {
-      // is-visible クラスを付け外しする
       entry.target.classList.toggle('is-visible', entry.isIntersecting);
     }
   });
 };
 
-// Intersection Observerのオプション
 const observerOptions = {
-  root: null, // ビューポートをルートとする
+  root: null,
   rootMargin: '0px',
-  threshold: 0.3 // 要素が30%見えたらトリガー
+  threshold: 0.3
 };
 
-// Intersection Observerのインスタンスを作成
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-// 各ターゲット要素の監視を開始
 targets.forEach(target => {
   observer.observe(target);
 });
 
-// ★追加: ページ最下部を監視して .scroll_down を非表示にする
+// ページ最下部でのスクロールアイコン非表示
 const sentinel = document.querySelector('#page-bottom-sentinel');
 if (sentinel) {
     const bottomObserverCallback = (entries) => {
         entries.forEach(entry => {
-            // 最下部要素が画面内に入ったら .scroll_down に 'is-hidden' クラスを追加
             scrollDownElement.classList.toggle('is-hidden', entry.isIntersecting);
         });
     };
     const bottomObserverOptions = {
         root: null,
         rootMargin: '0px',
-        // 画面に少しでも入ったら発火
         threshold: 0.1
     };
     const bottomObserver = new IntersectionObserver(bottomObserverCallback, bottomObserverOptions);
@@ -183,40 +246,30 @@ if (sentinel) {
 
 /**
  * ナビゲーションリンクのクリックイベント処理
- * ページ内リンクがクリックされた際に、スムーズスクロールを実行する
  */
-// DOMの読み込みが完了したら実行
 document.addEventListener('DOMContentLoaded', () => {
-  // ナビゲーションメニュー内のaタグをすべて取得
   const navLinks = document.querySelectorAll('.site-menu a');
-  // ページ内の全<section>要素のリスト（既存のものを再利用）
   const sectionsArray = Array.from(sections);
 
   navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');
 
-      // リンクがページ内リンク（#で始まる）かチェック
       if (href && href.startsWith('#')) {
-        // デフォルトのアンカーリンクの挙動（瞬間移動）をキャンセル
         event.preventDefault();
-
-        // ターゲットとなる要素のIDを取得 (例: '#section2' -> 'section2')
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          // ターゲット要素が何番目のセクションかを検索
           const targetIndex = sectionsArray.indexOf(targetElement);
           
-          // 対応するセクションが見つかった場合
           if (targetIndex !== -1 && !isScrolling) {
-            isScrolling = true; // アニメーション開始フラグを立てる
-            scrollToSection(targetIndex); // スムーズスクロールを実行
+            isScrolling = true;
+            // ナビゲーションクリック時はデフォルトの 'down' 方向でアニメーション
+            scrollToSection(targetIndex);
           }
         }
       }
-      // #で始まらない通常のリンクは、このif文を無視して通常通りに動作します。
     });
   });
 });
