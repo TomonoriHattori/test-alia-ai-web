@@ -62,8 +62,16 @@ function scrollToSection(index, direction = 'down') { // directionパラメー�
   const targetSection = sections[index];
   const currentSection = sections[currentSectionIndex];
 
-  gsap.set(currentSection, { zIndex: 2 });
-  gsap.set(targetSection, { zIndex: 1 });
+  // スクロール方向によってz-indexの前後関係を入れ替える
+  if (direction === 'down') {
+    // 下スクロール時：現在のセクションが手前
+    gsap.set(currentSection, { zIndex: 2 });
+    gsap.set(targetSection, { zIndex: 1 });
+  } else {
+    // 上スクロール時：次のセクションが手前
+    gsap.set(targetSection, { zIndex: 2 });
+    gsap.set(currentSection, { zIndex: 1 });
+  }
 
   const currentContent = currentSection.querySelector('[class*="section-inner"]');
   const targetContent = targetSection.querySelector('[class*="section-inner"]');
@@ -248,7 +256,7 @@ if (sentinel) {
  * ナビゲーションリンクのクリックイベント処理
  */
 document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = document.querySelectorAll('.site-menu a');
+  const navLinks = document.querySelectorAll('a[href^="#"]');
   const sectionsArray = Array.from(sections);
 
   navLinks.forEach(link => {
@@ -264,8 +272,20 @@ document.addEventListener('DOMContentLoaded', () => {
           const targetIndex = sectionsArray.indexOf(targetElement);
           
           if (targetIndex !== -1 && !isScrolling) {
+            // 移動先と現在地が同じ場合は何もしない
+            if (targetIndex === currentSectionIndex) return;
+
             isScrolling = true;
-            // ナビゲーションクリック時はデフォルトの 'down' 方向でアニメーション
+
+            
+            // アニメーションが完了しなかった場合に備え、一定時間後に強制的にフラグをリセットする
+            setTimeout(() => {
+              isScrolling = false;
+            }, 2500); // アニメーション時間(約2秒)より少し長めに設定
+            
+            // 移動先のインデックスが現在のインデックスより大きいか小さいかで方向を決定する
+            const direction = targetIndex > currentSectionIndex ? 'down' : 'up';
+            
             scrollToSection(targetIndex);
           }
         }
