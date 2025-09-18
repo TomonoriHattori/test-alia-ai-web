@@ -293,3 +293,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ===================================================
+// スマートフォン向けフリック（スワイプ）操作への対応
+// ===================================================
+let touchStartY = 0; // タッチ開始時のY座標を保存する変数
+const swipeThreshold = 50; // スワイプとして認識するための最小移動距離（ピクセル）
+
+/**
+ * タッチ開始時にY座標を記録
+ */
+window.addEventListener('touchstart', (event) => {
+  if (isScrolling) return; // スクロールアニメーション中は処理しない
+  touchStartY = event.touches[0].clientY;
+}, { passive: true });
+
+/**
+ * 画面に指が触れている間のデフォルトスクロールを防止
+ */
+window.addEventListener('touchmove', (event) => {
+  // アニメーション中、または最終セクション以外では、
+  // ブラウザのデフォルトのスクロールを無効化する
+  if (isScrolling || currentSectionIndex !== lastSectionIndex) {
+    event.preventDefault();
+  }
+}, { passive: false }); // preventDefault() を使うため passive は false に設定
+
+/**
+ * タッチ終了時にスワイプ方向を判断し、スクロールを実行
+ */
+window.addEventListener('touchend', (event) => {
+  if (isScrolling) return; // スクロールアニメーション中は処理しない
+
+  const touchEndY = event.changedTouches[0].clientY;
+  const deltaY = touchStartY - touchEndY; // 正の値なら上スワイプ、負の値なら下スワイプ
+
+  // 最終セクションで下スワイプ（上に戻る動き）した場合の処理
+  if (currentSectionIndex === lastSectionIndex) {
+    if (deltaY < -swipeThreshold) { // 閾値以上の下スワイプ
+      isScrolling = true;
+      scrollToSection(currentSectionIndex - 1, 'up');
+    }
+    return; // 最終セクションでの上スワイプは通常のスクロールに任せる
+  }
+
+  // スワイプ距離が閾値を超えているかチェック
+  if (Math.abs(deltaY) > swipeThreshold) {
+    isScrolling = true;
+    if (deltaY > 0) {
+      // 上方向へのスワイプ
+      scrollToSection(currentSectionIndex + 1, 'down');
+    } else {
+      // 下方向へのスワイプ
+      scrollToSection(currentSectionIndex - 1, 'up');
+    }
+  }
+}, { passive: false });
