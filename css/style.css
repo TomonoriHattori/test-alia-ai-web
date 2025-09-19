@@ -30,13 +30,14 @@ body::-webkit-scrollbar{
 
 .inner-space {
   width: 90vw;
-  min-width: 700px;
+  /* min-width: 700px; */
   max-width: 1080px;
   height: 100%;
   margin: 0 auto;
   justify-content: center;
   z-index: 10;
 }
+
 
 .section-inner1 {
   height: 100%;
@@ -90,10 +91,19 @@ body::-webkit-scrollbar{
   border-radius: 80px 80px 0 0;
 }
 
-.hoge {
-  content: "";
-  height: 500px;
-  width: 90px;
+@media (max-width: 1023px) {
+  .section-inner2,
+  .section-inner3,
+  .section-inner4 {
+    border-radius: 40px 40px 0 0;
+  }
+  .section-inner2_2,
+  .section-inner2_4 {
+    padding-top: 16px;
+  }
+  .section-inner2_3 {
+    padding-top: 12px;
+  }
 }
 
 
@@ -184,6 +194,17 @@ body::-webkit-scrollbar{
   transform: translateY(110px);
 }
 
+@media (max-width:767px) {
+  .section-inner2,
+  .section-inner3, 
+  .section-inner4,
+  .section-inner2_2,
+  .section-inner2_3,
+  .section-inner2_4  {
+    transform: translateY(90px);
+  }
+}
+
 
 /* .slideIn1, .slideIn2, .slideIn3, .slideIn4 {
   opacity: 0;
@@ -249,6 +270,19 @@ body::-webkit-scrollbar{
     top: 45px;
   }
 }
+@media (max-width: 767px) {
+  .subNavArea {
+    height: 40px;
+  }
+  .subNavArea .subNavTitle {
+    font-size: 15px;
+    margin-left: 20px;
+  }
+  .site-menu ul li {
+    margin: auto 10px;
+    font-size: 10px;
+  }
+}
 .site-menu a:hover {
   color: #5e5e5e;
 }
@@ -264,6 +298,11 @@ body::-webkit-scrollbar{
   top: 14vh;
   height: 77%;
   min-height: 300px;
+  /* top: 15%;
+  width: 100vw;
+  min-width: 900px;
+  max-height: 77%;
+  min-height: 300px; */
   left: 50%;
   transform: translateX(-50%);
   aspect-ratio: 16 / 9;
@@ -275,6 +314,7 @@ body::-webkit-scrollbar{
   width: 100%;
   object-fit: cover;
 }
+
 .ctaArea {
   width: 100%;
   height: 20%;
@@ -344,6 +384,8 @@ body::-webkit-scrollbar{
 .logo-area {
   position: absolute;
   bottom: 2vh;
+  /* position: relative;
+  top: 80%; */
   height: 6vh;
   width: 100%;
   object-fit: contain;
@@ -379,6 +421,67 @@ to {
   height: 8vh;
   width: auto;
   object-fit: contain; /* 念のため追加 */
+}
+
+@media (max-width: 767px) {
+  .mv-area {
+    top: 20vh;
+    width: 100vw;
+    height: auto;
+    min-height: none;
+  }
+  .ctaArea {
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    top: 400px;
+  }
+  .ctaArea ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 10px 10px;
+    bottom: 0;
+  }
+  
+  .ctaArea li {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #EB3155;
+    width: 120px;
+    height: 30px;
+    padding: 0;
+    margin: auto 3px;
+    border-radius: 25px;
+  }
+  .ctaArea a {
+    font-size: 8px;
+  }
+  .arrow {
+    display: none;
+  }
+  .logo-area {
+    position: absolute;
+    bottom: 2vh;
+    /* position: relative;
+    top: 80%; */
+    height: 6vh;
+    width: 100%;
+    object-fit: contain;
+    left: 0;
+  }
+  .logo-area-wrap {
+    height: 100%;
+    display: flex;
+  }
+  .logo-list {
+    display: flex;
+    align-items: center;
+  }
 }
 
 
@@ -419,6 +522,33 @@ to {
   font-weight: bold;
   line-height: clamp(27px, 3vw, 36px);
   color: #141e53;
+}
+
+@media (max-width: 767px) {
+  /* taglineAreaのレイアウトを縦並びに変更し、子要素を中央揃えにします */
+  .taglineArea {
+    flex-direction: column;
+    align-items: center;
+    top: 30vh; /* 上からの位置を調整 */
+    gap: 40px; /* タイトルとテキストの間のスペース */
+  }
+
+  /* taglineTitleコンテナの幅を調整します。
+     親要素によって中央揃えになりつつ、中のh1要素同士は左揃えが維持されます */
+  .taglineTitle {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* taglineTextコンテナの幅を調整し、位置をリセットします。
+     親要素によって中央揃えになりつつ、中のテキストは左揃えが維持されます */
+  .taglineText {
+    width: 90%;
+    transform: translateY(0);
+  }
+  .taglineArea h1 {
+    font-size: clamp(20px, 5vw, 39px);
+  }
 }
 
 
@@ -468,7 +598,7 @@ to {
 }
 .slideIn1 .slideIn-wrap .inn {
   color: #fff;
-  font-size: clamp(24px, 3vw, 39px);
+  /* font-size: clamp(24px, 3vw, 39px); */
   display: inline-block;
   position: relative;
   z-index: 1;
@@ -522,6 +652,16 @@ to {
   font-size: 1.4vh;
   font-weight: bold;
 }
+@media (max-width: 767px) {
+  .sectionTitle {
+    padding-top: 1vh;
+  }
+  .sectionTitle h2 {
+    font-size: 3vh;
+    line-height: 3vh;
+  }
+}
+
 
 /*カテゴリー*/
 
@@ -542,17 +682,51 @@ to {
   padding: 0 30px;
   font-weight: bold;
 }
+.section-inner2 .category {
+  margin: 4vh 0;
+}
+
+@media (max-width: 767px) {
+  .category {
+    position: relative;
+    display: block;
+    justify-content: left;
+    text-align: left;
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .category h3 {
+    color: #fff;
+    padding: 10px 10px;
+    background-color: #EB3155;
+    border-radius: 20vw;
+    font-weight: bold;
+    display: inline-block;
+  }
+  .category p {
+    padding: 8px 0;
+    font-weight: bold;
+  }
+  .section-inner2 .category {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+}
 
 
-/* スライドイン画像 */
+/* 画像 */
 
+.container {
+  display: flex;
+}
 .animations {
   width: 100%;
   position: relative;
   z-index: 45;
-  display: flex;
+  display: block;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 10px;
 }
 .imgBox {
@@ -563,6 +737,7 @@ to {
   overflow: hidden;
   border-radius: 20px;
   background-color: #fff;
+  position: relative;
 }
 .imgBox.unprepared {
   background-color: #141E53CC;
@@ -586,8 +761,9 @@ to {
 .ComingSoon {
   position: absolute;
   color: #fff;
-  right: 12%;
-  top: 39%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: clamp(24px, 3vw, 40px);
   opacity: 0;
   transition: 0.4s;
@@ -595,19 +771,44 @@ to {
 }
 .imgBox.unprepared:hover .ComingSoon {
   opacity: 1;
-  transition: 0.8s;
+  transition: 0.4s;
 }
 
 
-.section-inner2 .category {
-  margin: 4vh 0;
-}
 .section-inner2_2 .animations,
 .section-inner2_4 .animations {
   margin-top: 40px;
 }
 .section-inner2_3 .animations {
   margin-top: 10px;
+}
+@media (max-width: 767px) {
+  .container {
+    display: block;
+    justify-content: none;
+    align-items: center;
+  }
+  .animations {
+    width: 100%;
+    position: relative;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .imgBox {
+    width: 100%;
+    aspect-ratio: 1.5 / 0.9;
+  }
+  .section-inner2_2 .animations,
+  .section-inner2_4 .animations {
+    margin-top: 8px;
+  }
+  .section-inner2_3 .animations {
+    margin-top: 40px;
+  }
 }
 
 
@@ -658,6 +859,18 @@ to {
 }
 .imgTitle p {
   font-size: clamp(8px, 1vw, 12px);
+}
+@media (max-width: 767px) {
+  .imgTitle h4 {
+    margin-top: 5px;
+  }
+  .imgTitle {
+    width: 100%;
+  }
+  .imgTag {
+    margin-top: 5px;
+    gap: 4px 5px;
+  }
 }
 
 
@@ -752,6 +965,12 @@ to {
   text-align: left;
 }
 
+@media(max-width: 767px) {
+  .disappear {
+    display: none;
+  }
+}
+
 /*ホバー*/
 
 .lineupslide .thumb {
@@ -824,6 +1043,7 @@ input {
   margin-bottom: 40px;
   color: black;
   border-radius: 5px;
+  padding: 10px;
 }
 select {
   width: 100%;
@@ -858,7 +1078,7 @@ button {
 .required {
   color: red;
   background-color: #fff;
-  font-size: 1vw;
+  font-size: 10px;
   padding: 2px 6px;
   border-radius: 2px;
   margin-left: 10px;
