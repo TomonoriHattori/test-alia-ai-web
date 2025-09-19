@@ -316,7 +316,8 @@ body::-webkit-scrollbar{
 }
 
 .ctaArea {
-  width: 100%;
+  width: 100vw;
+  max-width: 1080px;
   height: 20%;
   bottom: 0;
   position: absolute;
@@ -916,7 +917,6 @@ to {
   height: 360px; /* 例: 高さを360pxに指定 */
   padding: 20px; /* 内側の余白 */
   box-sizing: border-box; /* paddingとborderをwidthとheightに含める */
-  /* background-color: #f0f0f0; サイズが分かりやすいように背景色を追加（任意） */
   border-radius: 12px; /* 角丸のデザイン（任意） */
   margin: 0 20px; /* li同士の間隔を調整 */
 }
@@ -968,6 +968,10 @@ to {
 @media(max-width: 767px) {
   .disappear {
     display: none;
+  }
+  .lineupslide {
+    animation: none;
+    display: inline-block;
   }
 }
 
