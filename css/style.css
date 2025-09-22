@@ -9,6 +9,27 @@ section {
   align-items: center;
   position: relative;
 }
+ @media(max-width: 767px){
+  section {
+    height: auto;
+    width: 100%;
+  }
+  #section1,
+  #section1_1 {
+      min-height: calc(100vh - 48px); /* ヘッダーの高さを考慮して画面いっぱいに */
+  }
+  
+  /* コンテンツを持つセクションに適切な余白を設定 */
+  #section2,
+  #section2_2,
+  #section2_3,
+  #section2_4,
+  #section3,
+  #section4 {
+      padding: 0 auto; /* 上下に余白を追加 */
+      min-height: 0; /* 他のセクションのmin-heightをリセット */
+  }
+} 
 section {
   text-align: center;
   justify-content: center;
@@ -96,14 +117,15 @@ body::-webkit-scrollbar{
   .section-inner3,
   .section-inner4 {
     border-radius: 40px 40px 0 0;
+    position: relative;
   }
   .section-inner2_2,
+  .section-inner2_3,
   .section-inner2_4 {
-    padding-top: 16px;
+    position: relative;
+    display: block;
   }
-  .section-inner2_3 {
-    padding-top: 12px;
-  }
+  
 }
 
 
@@ -113,7 +135,7 @@ body::-webkit-scrollbar{
 .scroll_down{
   position:fixed;
   bottom: 20vh;
-  right: 3vw;
+  right: 28px;
   z-index: 40;
 }
 
@@ -201,7 +223,7 @@ body::-webkit-scrollbar{
   .section-inner2_2,
   .section-inner2_3,
   .section-inner2_4  {
-    transform: translateY(90px);
+    transform: none;
   }
 }
 
@@ -246,7 +268,7 @@ body::-webkit-scrollbar{
   align-items: center;
   position: fixed;
   background-color: #ffffffd4;
-  z-index: 40;
+  z-index: 65;
   top: 60px;
 }
 .subNavArea .subNavTitle {
@@ -391,6 +413,7 @@ body::-webkit-scrollbar{
   width: 100%;
   object-fit: contain;
   left: 0;
+  overflow: hidden;
 }
 .logo-area-wrap {
   height: 100%;
@@ -427,7 +450,7 @@ to {
 @media (max-width: 767px) {
   .mv-area {
     top: 20vh;
-    width: 100vw;
+    width: 100%;
     height: auto;
     min-height: none;
   }
@@ -530,7 +553,7 @@ to {
   .taglineArea {
     flex-direction: column;
     align-items: center;
-    top: 30vh; /* 上からの位置を調整 */
+    top: 10px; /* 上からの位置を調整 */
     gap: 40px; /* タイトルとテキストの間のスペース */
   }
 
@@ -628,6 +651,21 @@ to {
   transition: 1s;
 } */
 
+@media (max-width: 767px) {
+  .slideIn1.is-visible .slideIn-wrap::before {
+    animation-delay: 0.5s;
+  }
+  .slideIn1.is-visible .slideIn-wrap:first-child::before {
+    animation: slideIn 8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+  .slideIn1.is-visible .slideIn-wrap:nth-child(2)::before {
+    animation: slideIn 8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+  .slideIn1.is-visible .slideIn-wrap:last-child::before {
+    animation: slideIn 8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+}
+
 
 
 /*セクションタイトル*/
@@ -655,7 +693,7 @@ to {
 }
 @media (max-width: 767px) {
   .sectionTitle {
-    padding-top: 1vh;
+    padding-top: 30px;
   }
   .sectionTitle h2 {
     font-size: 3vh;
@@ -965,13 +1003,151 @@ to {
   text-align: left;
 }
 
+.load-more-btn {
+  display: none; /* デフォルトでは非表示 */
+  margin: 20px auto 0;
+  padding: 10px 40px;
+  background-color: #141e53;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.load-less-btn {
+  display: none; /* デフォルト（PC表示）では両方のボタンを非表示 */
+  margin: 20px auto 0;
+  padding: 10px 40px;
+  background-color: #141e53;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+
+.load-more-btn:hover {
+  opacity: 0.7;
+}
+
 @media(max-width: 767px) {
-  .disappear {
+  .section3 {
+    display: flex;
+    align-items: center;
+  }
+  .lineupslide-area {
+    height: auto;
+    position: relative;
+    top: 10px;
+  }
+  .lineupslide-warap {
+    justify-content: center;
+  }
+  .lineupslide.disappear {
     display: none;
   }
   .lineupslide {
     animation: none;
+    display: flex;
+    flex-direction: column; /* リスト項目を縦に並べる */
+    align-items: center;   /* 項目を水平方向に中央揃えする */
+    padding: 0;            /* ulのデフォルトパディングを削除 */
+  }
+  .lineupslide li {
+    margin-bottom: 25px; /* 縦に並んだ項目間のスペースを追加 */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.4 / 1;
+  }
+  .lineupslide-warap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* モバイル時にボタンを表示 */
+  .load-more-btn {
     display: inline-block;
+  }
+
+  /* 3つ目以降のliを最初は非表示に */
+  .lineupslide li.mobile-hidden {
+    display: none;
+  }
+
+  /* is-expandedクラスが付いたら、非表示のliを表示 */
+  .lineupslide-warap.is-expanded .lineupslide li.mobile-hidden {
+    display: block; /* もしくは flex など、元のレイアウトに合わせてください */
+  }
+
+  /* is-expandedクラスが付いたら、ボタンを非表示に */
+  .lineupslide-warap.is-expanded .load-more-btn {
+    display: none;
+  }
+  .lineupslide-warap.is-expanded .load-less-btn {
+      display: inline-block;
+  }
+
+  /*ホバー*/
+
+  .lineupslide .thumb {
+    position: relative; 
+  }
+
+  .lineupslide .thumb::before {
+    content: ''; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); 
+    border-radius: 8px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+  }
+
+  .lineupslide a:hover .thumb::before {
+    opacity: 1;
+  }
+
+  /*コンタクトエリア*/
+
+  .section-inner4 {
+    color: #fff;
+  }
+  .section-inner4 .sectionTitle h2 {
+    color: #fff;
+  }
+  .contact-area {
+    display: flex;
+    flex-direction: column; /* 左右のセクションを縦に並べる */
+    align-items: center;   /* フォームエリアを中央に配置 */
+    margin-top: 30px;
+    gap: 40px; /* 縦積みに合わせて間隔を調整 */
+    padding-bottom: 50px;
+    min-width: 0; /* モバイル表示のために最小幅を解除 */
+  }
+  .contact-left, .contact-right {
+    width: 90%; /* 小さい画面用に幅を調整 */
+    min-width: 0;
+  }
+  .contact-left {
+    text-align: center; /* テキストを中央揃えに */
+  }
+  .contact-left p {
+    margin-bottom: 30px; /* マージンを調整 */
+    font-size: 16px; /* フォントサイズを調整 */
+  }
+
+  input, select {
+    margin-bottom: 20px; /* フォーム要素のマージンを縮小 */
+  }
+  
+  footer {
+    margin-top: 120px;
+    display: block;
+    background-color: #fff;
+    width: 100%;
   }
 }
 
@@ -1035,10 +1211,28 @@ to {
   min-width: 250px;
 }
 
-.contact-img img {
+.contact-img {
+  content: "";
   width: 100%;
+  height: 600px;
+  background-image: url(../img/img_contact.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
-
+@media(max-width: 767px) {
+  .contact-left {
+    width: 100%;
+    text-align: left;
+  }
+  .contact-img {
+    content: "";
+    width: 80vw;
+    height: 50px;
+    background-image: url(../img/img_contact_mini.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+}
 
 input {
   width: 100%;
