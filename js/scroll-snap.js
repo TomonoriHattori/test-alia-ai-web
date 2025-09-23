@@ -211,17 +211,21 @@ function enableCustomScroll() {
 }
 
 function disableCustomScroll() {
-    console.log("カスタムスクロールを無効化");
-    document.body.style.overflow = 'auto'; // 通常スクロールに戻す
-    window.removeEventListener('wheel', handleWheel, { passive: false });
-    window.removeEventListener('touchstart', handleTouchStart, { passive: true });
-    window.removeEventListener('touchmove', handleTouchMove, { passive: false });
-    window.removeEventListener('touchend', handleTouchEnd, { passive: false });
-    navLinks.forEach(link => link.removeEventListener('click', handleNavClick));
-    window.removeEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(handleResize, 150);
-    });
+  console.log("カスタムスクロールを無効化");
+  // ここを変更: 縦スクロールのみを許可し、横スクロールを禁止する
+  document.body.style.overflowY = 'auto'; 
+  document.body.style.overflowX = 'hidden';
+
+  // 意図しないスクロール制御を避けるため、不要なイベントリスナーを削除
+  window.removeEventListener('wheel', handleWheel, { passive: false });
+  window.removeEventListener('touchstart', handleTouchStart, { passive: true });
+  window.removeEventListener('touchmove', handleTouchMove, { passive: false });
+  window.removeEventListener('touchend', handleTouchEnd, { passive: false });
+  navLinks.forEach(link => link.removeEventListener('click', handleNavClick));
+  window.removeEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleResize, 150);
+  });
 }
 
 

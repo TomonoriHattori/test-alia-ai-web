@@ -1,6 +1,7 @@
 body {
   margin: 0;
   overflow: hidden; /* JavaScriptでスクロールを制御するため */
+  overflow-x: hidden;
 }
 section {
   width: 100vw;
@@ -14,11 +15,13 @@ section {
     height: auto;
     width: 100%;
   }
-  #section1,
-  #section1_1 {
+  #section1 {
       min-height: calc(100vh - 48px); /* ヘッダーの高さを考慮して画面いっぱいに */
   }
-  
+  #section1_1{
+    padding: 50px auto;
+    min-height: 500px;
+  }
   /* コンテンツを持つセクションに適切な余白を設定 */
   #section2,
   #section2_2,
@@ -26,8 +29,8 @@ section {
   #section2_4,
   #section3,
   #section4 {
-      padding: 0 auto; /* 上下に余白を追加 */
-      min-height: 0; /* 他のセクションのmin-heightをリセット */
+    padding: 0 auto; /* 上下に余白を追加 */
+    min-height: 0; /* 他のセクションのmin-heightをリセット */
   }
 } 
 section {
@@ -116,7 +119,7 @@ body::-webkit-scrollbar{
   .section-inner2,
   .section-inner3,
   .section-inner4 {
-    border-radius: 40px 40px 0 0;
+    border-radius: 60px 60px 0 0;
     position: relative;
   }
   .section-inner2_2,
@@ -124,8 +127,17 @@ body::-webkit-scrollbar{
   .section-inner2_4 {
     position: relative;
     display: block;
+    padding-top: 10px;
   }
-  
+  .section-inner3 {
+    padding-bottom: 100px;
+  }
+  .section-inner2_4 {
+    padding-bottom: 40px;
+  }
+  .section-inner2_3 {
+    padding-top: 0;
+  }
 }
 
 
@@ -477,8 +489,8 @@ to {
     vertical-align: middle;
     background-color: #EB3155;
     width: 120px;
-    height: 30px;
-    padding: 0;
+    height: 35px;
+    padding: 3px;
     margin: auto 3px;
     border-radius: 25px;
   }
@@ -569,6 +581,9 @@ to {
   .taglineText {
     width: 90%;
     transform: translateY(0);
+  }
+  .taglineText p {
+    font-size: 14px;
   }
   .taglineArea h1 {
     font-size: clamp(20px, 5vw, 39px);
@@ -683,7 +698,7 @@ to {
 }
 .sectionTitle h2 {
   color: #141e53;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 5vh;
   line-height: 4vh;
 }
@@ -693,11 +708,11 @@ to {
 }
 @media (max-width: 767px) {
   .sectionTitle {
-    padding-top: 30px;
+    padding-top: 40px;
   }
   .sectionTitle h2 {
-    font-size: 3vh;
-    line-height: 3vh;
+    font-size: 4.4vh;
+    line-height: 4vh;
   }
 }
 
@@ -731,24 +746,24 @@ to {
     display: block;
     justify-content: left;
     text-align: left;
-    font-size: 10px;
+    font-size: 3.6vw;
     margin-top: 5px;
     margin-bottom: 0;
   }
   .category h3 {
     color: #fff;
-    padding: 10px 10px;
+    padding: 5px 20px;
     background-color: #EB3155;
     border-radius: 20vw;
     font-weight: bold;
     display: inline-block;
   }
   .category p {
-    padding: 8px 0;
+    padding: 8px 0 0 0;
     font-weight: bold;
   }
   .section-inner2 .category {
-    margin-top: 5px;
+    margin-top: 40px;
     margin-bottom: 0;
   }
 }
@@ -841,12 +856,15 @@ to {
     width: 100%;
     aspect-ratio: 1.5 / 0.9;
   }
+  .section-inner2 .animations,
   .section-inner2_2 .animations,
+  .section-inner2_3 .animations,
   .section-inner2_4 .animations {
-    margin-top: 8px;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
   .section-inner2_3 .animations {
-    margin-top: 40px;
+    margin-top: 0px;
   }
 }
 
@@ -901,7 +919,14 @@ to {
 }
 @media (max-width: 767px) {
   .imgTitle h4 {
-    margin-top: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  .imgTitle p {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+
   }
   .imgTitle {
     width: 100%;
@@ -1012,18 +1037,70 @@ to {
   font-weight: bold;
   text-decoration: none;
   transition: opacity 0.3s;
+  box-shadow: 0 3pt 6pt #00000029;
 }
 .load-less-btn {
   display: none; /* デフォルト（PC表示）では両方のボタンを非表示 */
   margin: 20px auto 0;
-  padding: 10px 40px;
-  background-color: #141e53;
-  color: #fff;
+  padding: 5px 40px;
+  background-color: #fff;
+  border: solid 1px;
+  border-color: #141e53;
+  color: #141e53;
   font-weight: bold;
   text-decoration: none;
   transition: opacity 0.3s;
+  box-shadow: 0 3pt 6pt #00000029;
 }
 
+.plus {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 14px;
+  padding: 0;
+}
+.plus:before, .plus:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+}
+.plus:before {
+  width: 1px;
+  height: 15px;
+  left: 0.5em;
+}
+.plus:after {
+  width: 15px;
+  height: 1px;
+}
+
+.minus {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 14px;
+  padding: 0;
+}
+.minus:after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #141e53;
+  width: 14px;
+  height: 1px;
+}
 
 .load-more-btn:hover {
   opacity: 0.7;
@@ -1109,46 +1186,6 @@ to {
   .lineupslide a:hover .thumb::before {
     opacity: 1;
   }
-
-  /*コンタクトエリア*/
-
-  .section-inner4 {
-    color: #fff;
-  }
-  .section-inner4 .sectionTitle h2 {
-    color: #fff;
-  }
-  .contact-area {
-    display: flex;
-    flex-direction: column; /* 左右のセクションを縦に並べる */
-    align-items: center;   /* フォームエリアを中央に配置 */
-    margin-top: 30px;
-    gap: 40px; /* 縦積みに合わせて間隔を調整 */
-    padding-bottom: 50px;
-    min-width: 0; /* モバイル表示のために最小幅を解除 */
-  }
-  .contact-left, .contact-right {
-    width: 90%; /* 小さい画面用に幅を調整 */
-    min-width: 0;
-  }
-  .contact-left {
-    text-align: center; /* テキストを中央揃えに */
-  }
-  .contact-left p {
-    margin-bottom: 30px; /* マージンを調整 */
-    font-size: 16px; /* フォントサイズを調整 */
-  }
-
-  input, select {
-    margin-bottom: 20px; /* フォーム要素のマージンを縮小 */
-  }
-  
-  footer {
-    margin-top: 120px;
-    display: block;
-    background-color: #fff;
-    width: 100%;
-  }
 }
 
 /*ホバー*/
@@ -1231,6 +1268,45 @@ to {
     background-image: url(../img/img_contact_mini.jpg);
     background-repeat: no-repeat;
     background-size: 100% auto;
+  }
+  
+  /*コンタクトエリア モバイル*/
+
+  .section-inner4 {
+    color: #fff;
+  }
+  .section-inner4 .sectionTitle h2 {
+    color: #fff;
+  }
+  .contact-area {
+    display: flex;
+    flex-direction: column; /* 左右のセクションを縦に並べる */
+    align-items: center;   /* フォームエリアを中央に配置 */
+    margin-top: 30px;
+    gap: 40px; /* 縦積みに合わせて間隔を調整 */
+    padding-bottom: 50px;
+    min-width: 0; /* モバイル表示のために最小幅を解除 */
+  }
+  .contact-left, .contact-right {
+    width: 100%; /* 小さい画面用に幅を調整 */
+    min-width: 0;
+  }
+  
+  .contact-left p {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  input, select {
+    margin-bottom: 20px; /* フォーム要素のマージンを縮小 */
+  }
+  
+  footer {
+    margin-top: 120px;
+    display: block;
+    background-color: #fff;
+    width: 100%;
   }
 }
 
