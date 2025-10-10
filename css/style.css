@@ -369,14 +369,18 @@ body::-webkit-scrollbar{
   width: 100%;
   object-fit: cover;
 }
-.mv-area-text {
+.mv-text-wrap {
+  position: absolute;
+  width: 100vw;
+}
+.mv-text {
   position: absolute;
   display: flex;
   text-align: start;
   left: 60px;
   top: 10%;
 }
-.mv-area-text h2 {
+.mv-text h2 {
   font-size: clamp(70px, 8vh, 95px);
   font-weight: bold;
   line-height: clamp(100px, 12vh, 125px);
@@ -503,19 +507,19 @@ to {
 
 @media (max-width: 767px) {
   .mv-area {
-    top: 20vh;
+    top: 15vh;
     width: 100%;
     height: auto;
     min-height: none;
   }
-  .mv-area-text {
+  .mv-text {
     position: absolute;
     display: flex;
     text-align: start;
-    left: 20vw;
+    left: 20px;
     top: 10%;
   }
-  .mv-area-text h2 {
+  .mv-text h2 {
     font-size: clamp(70px, 8vw, 95px);
     font-weight: bold;
     line-height: clamp(100px, 12vw, 125px);
