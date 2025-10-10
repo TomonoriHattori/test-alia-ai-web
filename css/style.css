@@ -105,6 +105,7 @@ body::-webkit-scrollbar{
   padding: 0 auto;
   border-radius: 80px 80px 0 0;
   z-index: 15;
+  position: relative;
 }
 .section-inner4 {
   background-color: #141e53;
@@ -146,8 +147,8 @@ body::-webkit-scrollbar{
 
 .scroll_down{
   position:fixed;
-  bottom: 20vh;
-  right: 28px;
+  bottom: 40vh;
+  right: 50px;
   z-index: 40;
 }
 
@@ -320,38 +321,79 @@ body::-webkit-scrollbar{
 .site-menu a:hover {
   color: #5e5e5e;
 }
+.subNavTitle:hover {
+  color: #5e5e5e;
+}
 
 /*　MVエリア　*/
 
-.mv-area {
+/* .mv-area {
   position: absolute;
-  /* content: "";
-  background-color: #EB3155; */
   justify-content: center;
   display: flex;
   top: 14vh;
   height: 77%;
   min-height: 300px;
-  /* top: 15%;
-  width: 100vw;
-  min-width: 900px;
-  max-height: 77%;
-  min-height: 300px; */
   left: 50%;
   transform: translateX(-50%);
   aspect-ratio: 16 / 9;
+} */
+.mv-area {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  top: 14vh;
+  height: 75%;
+  min-height: 300px;
+  top: 15%;
+  width: 100vw;
+  min-width: 900px;
+  max-height: 77%;
+  min-height: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  aspect-ratio: 16 / 9;
+  background-color: #eb3056;
 }
 .mv-area video {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 110%;
+  object-fit: cover;
+}
+.mv-area .mv_pc {
   display: flex;
   position: relative;
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
+.mv-area-text {
+  position: absolute;
+  display: flex;
+  text-align: start;
+  left: 60px;
+  top: 10%;
+}
+.mv-area-text h2 {
+  font-size: clamp(70px, 8vh, 95px);
+  font-weight: bold;
+  line-height: clamp(100px, 12vh, 125px);
+}
+
+/* .ctaArea {
+  width: 100vw;
+  max-width: 1080px;
+  height: 20%;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  display: flex;
+} */
 
 .ctaArea {
   width: 100vw;
-  max-width: 1080px;
   height: 20%;
   bottom: 0;
   position: absolute;
@@ -363,7 +405,7 @@ body::-webkit-scrollbar{
   display: flex;
   align-items: center;
   position: absolute;
-  padding: 40px 40px;
+  padding: 40px 60px;
   bottom: 0;
 }
 
@@ -466,8 +508,20 @@ to {
     height: auto;
     min-height: none;
   }
+  .mv-area-text {
+    position: absolute;
+    display: flex;
+    text-align: start;
+    left: 20vw;
+    top: 10%;
+  }
+  .mv-area-text h2 {
+    font-size: clamp(70px, 8vw, 95px);
+    font-weight: bold;
+    line-height: clamp(100px, 12vw, 125px);
+  }
   .ctaArea {
-    width: 100%;
+    width: 100vw;
     height: 20%;
     bottom: 0;
     position: absolute;
@@ -483,7 +537,6 @@ to {
     padding: 10px 10px;
     bottom: 0;
   }
-  
   .ctaArea li {
     display: inline-block;
     vertical-align: middle;
@@ -774,7 +827,7 @@ to {
 .container {
   display: flex;
 }
-.animations {
+.products {
   width: 100%;
   position: relative;
   z-index: 45;
@@ -801,7 +854,7 @@ to {
   transition: 0.4s
 }
 
-.imgBox:hover {
+.imgBox:hover a {
   img{transform: scale(1.06);
   transition: 0.4s;
   animation-delay: 0;}
@@ -829,11 +882,11 @@ to {
 }
 
 
-.section-inner2_2 .animations,
-.section-inner2_4 .animations {
+.section-inner2_2 .products,
+.section-inner2_4 .products {
   margin-top: 40px;
 }
-.section-inner2_3 .animations {
+.section-inner2_3 .products {
   margin-top: 10px;
 }
 @media (max-width: 767px) {
@@ -842,7 +895,7 @@ to {
     justify-content: none;
     align-items: center;
   }
-  .animations {
+  .products {
     width: 100%;
     position: relative;
     z-index: 45;
@@ -856,14 +909,14 @@ to {
     width: 100%;
     aspect-ratio: 1.5 / 0.9;
   }
-  .section-inner2 .animations,
-  .section-inner2_2 .animations,
-  .section-inner2_3 .animations,
-  .section-inner2_4 .animations {
+  .section-inner2 .products,
+  .section-inner2_2 .products,
+  .section-inner2_3 .products,
+  .section-inner2_4 .products {
     margin-top: 40px;
     margin-bottom: 60px;
   }
-  .section-inner2_3 .animations {
+  .section-inner2_3 .products {
     margin-top: 0px;
   }
 }
@@ -1106,6 +1159,52 @@ to {
   opacity: 0.7;
 }
 
+.view-more-link {
+  position: absolute;
+  bottom: -20%;
+  left: 60px;
+  z-index: 20; /* スクロールする実績より手前に表示 */
+  color: #eb3056;
+  font-weight: 500;
+  padding: 12px 35px;
+  text-decoration: none;
+}
+.arrow-side {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  margin: 4px 4px;
+  border-radius: 9999px;
+  background-color: #eb3056;
+  transition: 0.3s;
+}
+
+.arrow-side::before,
+.arrow-side::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 0.2px);
+  right: 0;
+  width: 4px;
+  height: 1px;
+  border-radius: 9999px;
+  background-color: #eb3056;
+  transform-origin: calc(100% - 0.5px) 50%;
+}
+
+.arrow-side::before {
+  transform: rotate(45deg);
+}
+
+.arrow-side::after {
+  transform: rotate(-45deg);
+}
+
+.view-more-link:hover .arrow-side {
+  transform: translateX(10px);
+}
+
 @media(max-width: 767px) {
   .section3 {
     display: flex;
@@ -1186,6 +1285,16 @@ to {
   .lineupslide a:hover .thumb::before {
     opacity: 1;
   }
+
+  .view-more-link {
+    position: static;
+    display: none; /* 初期状態では非表示 */
+    margin: 0 10px 0 auto;
+    padding-right: 5px;
+    text-align: right;
+    width: 90%;
+    max-width: 300px;
+  }
 }
 
 /*ホバー*/
@@ -1214,6 +1323,13 @@ to {
   opacity: 1; /* ホバー時に表示（不透明）にする */
 }
 
+
+
+
+/* MOREボタンクリック後に表示 */
+.lineupslide-warap.is-expanded .view-more-link {
+  display: block;
+}
 
 /*コンタクトエリア*/
 

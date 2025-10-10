@@ -75,8 +75,18 @@ function scrollToSection(index, direction = 'down') {
             setTimeout(() => {
                 isScrolling = false;
             }, 500);
-            gsap.set(currentSection, { zIndex: 'auto', clearProps: "backgroundColor" });
-            gsap.set(targetSection, { zIndex: 'auto' });
+
+            // 全てのセクションをループ処理
+            sections.forEach((sec, i) => {
+                // targetSectionのインデックス（index）と一致する場合
+                if (i === index) {
+                    // 現在表示されているセクションを最前面に設定
+                    gsap.set(sec, { zIndex: 2 });
+                } else {
+                    // それ以外のセクションは背面に設定し、背景色をクリア
+                    gsap.set(sec, { zIndex: 1, clearProps: "backgroundColor" });
+                }
+            });
         }
     });
 

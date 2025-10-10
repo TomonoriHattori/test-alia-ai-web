@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI アプリケーション</title>
 
+    <link rel="stylesheet" property="stylesheet" href="css/common.css" media="all">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/smoothScroll.js"></script>
+	<script type="text/javascript" src="js/top.js"></script>
+	<script type="text/javascript" src="js/spnavi.js"></script>
+	<script type="text/javascript" src="js/profmodal.js"></script>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript" src="js/mp_config.js"></script>
+	<script type="text/javascript" src="js/mp_fileio.js"></script>
+	<script type="text/javascript" src="js/mp_lib.js"></script>
+	<script type="text/javascript" src="js/chatwindow.js"></script>
+	<script type="text/javascript" src="js/jquery-modal-video.min.js"></script>
+    <script type="text/javascript" src="js/top_blog.js"></script>
+    <script type="text/javascript" src="js/ailia_dx_chat.js"></script>
 </head>
 <body>
     <header id="header">
@@ -64,11 +79,80 @@
             </div>
         </div>
 
+        <!--あいにゃんチャットボット-->
+        <div id="chatbtn">
+            <div class="chatbtnbox chatopen">
+                <div class="chatbtnwindow">ボク、あいにゃん。アイリアのことならなんでも聞いてくれにゃ。</div>
+                <div class="chara">
+                    <canvas id="avatar" width="256" height="256"></canvas>
+                    <img src="img/chara_sp.png" width="108" height="109" alt="あいにゃん" class="sp" />
+                </div>
+            </div>
+            <div class="btnclose chatclose">閉じる</div>
+            <div class="btnprof profopen">プロフィール</div>
+        </div>
+        <div id="chatwindow">
+            <div class="aichatinner">
+                <!-- チャット部分 -->
+                <div class="logarea">
+                    <div class="loghead">
+                        <div class="logtitle">あいにゃんチャットBOT（自動応答）</div>
+                        <div id="chatclose" class="winclose">閉じる</div>
+                    </div>
+                    <div class="logbody" id="logbody">
+                        <div class="logtext">
+                            <div id="chat"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatarea">
+                    <div class="chatbody">
+                        <form name="chat_form"
+                            action="javascript:chat_api('https://ailia-llm-insight.uw.r.appspot.com/');">
+                            <div class="chatformbox">
+                                <input type="text" name="prompt" id="prompt" size="40"
+                                    placeholder="※ここに質問を入力（例：アイリアについて）">
+                            </div>
+                            <div class="chatbutton">
+                                <button type="button"
+                                    onclick="chat_api('https://ailia-llm-insight.uw.r.appspot.com/')">送信</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CHARAPROF -->
+        <div id="profmodal">
+            <div class="profbg"></div>
+            <div class="profwindow">
+                <div class="profinner">
+                    <div class="profclose">閉じる</div>
+                    <div class="pic"><img src="img/chara_detail_pic.png" width="447" height="574" alt="" /></div>
+                    <div class="textarea">
+                        <div class="label">アイリアブランド公式キャラクター</div>
+                        <div class="name">あいにゃん</div>
+                        <div class="text">
+                            未来の世界からやってきた、AIにくわしい謎の生物。「◯◯だにゃ」としゃべるが、ねこではないらしい。アイリアブランドの製品やサービスに関する情報を教えてくれる。 【好きな食べ物】
+                            キャットフード</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--本文-->
+
         <section id="section1">
             <div class="section-inner1">
                 <div class="inner-space">
                     <div class="mv-area">
-                        <video src="video/ailia_top_page.webm" autoplay loop muted></video>
+                        <img class="mv_pc" src="img/sampling.jpg" alt="">
+                        <!-- <video src="video/ailia_top_page.webm" autoplay loop muted></video> -->
+                        <div class="mv-area-text">
+                            <h2>AIは、<br>人を<br>自由にする。</h2>
+                        </div>
                         <div class="ctaArea">
                             <ul class="ctaBtn">
                                 <div class="cta-btn"><li><a href="#section2">AIソリューションを見る<span class="arrow"></span></a></li></div>
@@ -131,26 +215,26 @@
                         <p>企業変革を加速するDXソリューション</p>
                     </div>
                     <div class="container">
-                        <div class="animations">
+                        <div class="products">
                             <div class="imgBox">
-                                <a href=""><img src="img/img_DX_insight.png" alt=""></a>
+                                <a href="https://ailia.ai/dx/" target="_blank"><img src="img/img_DX_insight.png" alt=""></a>
                             </div>
                             <div class="imgTitle">
                                 <h4>アイリア DX Insight</h4>
                                 <p>企業向けAIアプリ集</p>
                                 <div class="imgTag">
-                                    <a href="">DX</a>
-                                    <a href="">OCR</a>
-                                    <a href="">ローカルLLM</a>
-                                    <a href="">議事録</a>
-                                    <a href="">文書検索</a>
-                                    <a href="">翻訳</a>
-                                    <a href="">要約</a>
-                                    <a href="">画像生成</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">DX</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">OCR</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">ローカルLLM</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">議事録</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">文書検索</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">翻訳</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">要約</a>
+                                    <a href="https://ailia.ai/dx/" target="_blank">画像生成</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="animations">
+                        <div class="products">
                             <div class="imgBox unprepared">
                                 <a><img src="img/img_DX_enterprise.png" alt=""></a>
                                 <span class="ComingSoon">Coming Soon</span>
@@ -184,32 +268,34 @@
                         <p>想像性を解き放つクリエイティブAI</p>
                     </div>
                     <div class="container">
-                        <div class="animations">
+                        <div class="products">
                             <div class="imgBox">
-                                <a href=""><img src="img/img_mp.png" alt=""></a>
+                                <a href="https://sp-2025.com/mbradio_download" target="_blank"><img src="img/img_mirroredbodyradio.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <h4>Mirrored Body Radio</h4>
+                                <p>AIアバター同士の会話が楽しめるアプリ</p>
+                                <div class="imgTag">
+                                    <a href="https://sp-2025.com/mbradio_download" target="_blank">AI</a>
+                                    <a href="https://sp-2025.com/mbradio_download" target="_blank">AI Speech</a>
+                                    <a href="https://sp-2025.com/mbradio_download" target="_blank">AI Voice</a>
+                                    <a href="https://sp-2025.com/mbradio_download" target="_blank">AI アバター</a>
+                                    <a href="https://sp-2025.com/mbradio_download" target="_blank">LLM</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://www.motionportrait.com/indexj.php" target="_blank"><img src="img/img_mp.png" alt=""></a>
                             </div>
                             <div class="imgTitle">
                                 <h4>MotionPortrait</h4>
                                 <p>ゲーム業界向け2Dアニメーション</p>
                                 <div class="imgTag">
-                                    <a href="">VTO</a>
-                                    <a href="">シミュレーション</a>
-                                    <a href="">アニメーション</a>
-                                    <a href="">顔認識</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="animations">
-                            <div class="imgBox">
-                                <a href=""><img src="img/img_ailiasdk_hair.png" alt=""></a>
-                            </div>
-                            <div class="imgTitle">
-                                <h4>アイリアSDK:HAIR STYLE & VIDEO GENERATOR</h4>
-                                <p>ヘアスタイルやヘアカラーを自由に生成</p>
-                                <div class="imgTag">
-                                    <a href="">生成AI</a>
-                                    <a href="">シミュレーション</a>
-                                    <a href="">VTO</a>
+                                    <a href="https://www.motionportrait.com/indexj.php" target="_blank">VTO</a>
+                                    <a href="https://www.motionportrait.com/indexj.php" target="_blank">シミュレーション</a>
+                                    <a href="https://www.motionportrait.com/indexj.php" target="_blank">アニメーション</a>
+                                    <a href="https://www.motionportrait.com/indexj.php" target="_blank">顔認識</a>
                                 </div>
                             </div>
                         </div>
@@ -222,18 +308,32 @@
             <div class="section-inner2_3">
                 <div class="inner-space">
                     <div class="container">
-                        <div class="animations">
+                        <div class="products">
                             <div class="imgBox">
-                                <a href=""><img src="img/img_mocap.png" alt=""></a>
+                                <img src="img/img_mocap.png" alt="">
                             </div>
                             <div class="imgTitle">
                                 <h4>Motion Capture 3D</h4>
                                 <p>動画から3Dモーション生成</p>
                                 <div class="imgTag">
-                                    <a href="">AI</a>
-                                    <a href="">3D</a>
-                                    <a href="">モーション生成</a>
-                                    <a href="">トラッキング</a>
+                                    <a>AI</a>
+                                    <a>3D</a>
+                                    <a>モーション生成</a>
+                                    <a>トラッキング</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox">
+                                <img src="img/img_ailiasdk_hair.png" alt="">
+                            </div>
+                            <div class="imgTitle">
+                                <h4>アイリアSDK:HAIR STYLE & VIDEO GENERATOR</h4>
+                                <p>ヘアスタイルやヘアカラーを自由に生成</p>
+                                <div class="imgTag">
+                                    <a>生成AI</a>
+                                    <a>シミュレーション</a>
+                                    <a>VTO</a>
                                 </div>
                             </div>
                         </div>
@@ -250,20 +350,20 @@
                         <p>顧客体験を革新するAIエージェント</p>
                     </div>
                     <div class="container">
-                        <div class="animations">
+                        <div class="products">
                             <div class="imgBox">
-                                <a href=""><img src="img/img_ainyan_agent.png" alt=""></a>
+                                <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank"><img src="img/img_ainyan_agent.png" alt=""></a>
                             </div>
                             <div class="imgTitle">
                                 <h4>あいにゃん</h4>
                                 <p>高性能ぬいぐるみロボットAIエージェント</p>
                                 <div class="imgTag">
-                                    <a href="">AIエージェント</a>
-                                    <a href="">対話型AI</a>
-                                    <a href="">STT</a>
-                                    <a href="">LLM</a>
-                                    <a href="">RAG</a>
-                                    <a href="">TTS</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">AIエージェント</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">対話型AI</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">STT</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">LLM</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">RAG</a>
+                                    <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank">TTS</a>
                                 </div>
                             </div>
                         </div>
@@ -435,6 +535,7 @@
                             </a></li>
                         </ul>
                         <a href="#" class="load-more-btn">MORE<span class="plus"></span></a>
+                        <a href="https://www.axell.co.jp/business/case/" target="_blank" class="view-more-link">VIEW MORE<span class="arrow-side"></span></a>
                         <a href="#" class="load-less-btn">MORE<span class="minus"></span></a>
                     </div>
                 </div>
@@ -469,9 +570,16 @@
                                 <p>お問い合わせ項目<span class="required">必須</span><br>
                                 <select name="tag">
                                     <option value=""></option>
-                                    <option value="hoge">DX向けAIアプリケーション</option>
-                                    <option value="hoge">クリエイティブ業界向けAIアプリケーション</option>
-                                    <option value="hoge">イベント、小売店向けAIエージェント</option>
+                                    <option value="hoge">アイリア DX Insight</option>
+                                    <option value="hoge">アイリア DX EnterPrise</option>
+                                    <option value="hoge">Mirrored Body Radio</option>
+                                    <option value="hoge">MotionPortrait</option>
+                                    <option value="hoge">Motion Capture 3D</option>
+                                    <option value="hoge">アイリアSDK:HAIR STYLE & VIDEO GENERATOR</option>
+                                    <option value="hoge">あいにゃん</option>
+                                    <option value="hoge">カスタムAI開発</option>
+                                    <option value="hoge">開発支援</option>
+                                    <option value="hoge">その他</option>
                                 </select></p>
                                 <p>お問い合わせ内容<span class="required">必須</span><br>
                                 <input type="text" name="question" class="question"></p>
@@ -546,6 +654,10 @@
         <div class="scroll_down">
             <a href="#">Scroll</a>
         </div>
+
+
+
+        
        
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
