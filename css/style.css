@@ -53,9 +53,10 @@ body::-webkit-scrollbar{
 }
 
 .inner-space {
-  width: 90vw;
+  width: 80vw;
   /* min-width: 700px; */
-  max-width: 1080px;
+  max-width: 880px;
+  min-width: 720px;
   height: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -353,7 +354,6 @@ body::-webkit-scrollbar{
   left: 50%;
   transform: translateX(-50%);
   aspect-ratio: 16 / 9;
-  background-color: #eb3056;
 }
 .mv-area video {
   display: flex;
@@ -590,7 +590,7 @@ to {
   justify-content: space-between;
 }
 .taglineTitle {
-  width: clamp(380px, 49vw, 700px);
+  width: clamp(441px, 49vw, 525px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -599,7 +599,7 @@ to {
 .taglineArea h1 {
   display: inline-block;
   /* font-size: 3vw; */
-  font-size: clamp(24px, 3vw, 39px);
+  font-size: clamp(24px, 2.5vw, 29px);
   font-weight: bold;
   color: #fff;
   margin-bottom: 5px;
@@ -607,14 +607,16 @@ to {
 }
 
 .taglineText {
-  width: clamp(280px, 36vw,480px);
+  width: clamp(320px, 37.7vw, 371px);
+  
   text-align: start;
   transform: translateY(-1vh);
 }
 .taglineText p {
-  font-size: clamp(11px, 1.2vw, 15px);
+  font-size: clamp(5px, 1.3vw, 13px);
+  
   font-weight: bold;
-  line-height: clamp(27px, 3vw, 36px);
+  line-height: clamp(27px, 3vw, 34px);
   color: #141e53;
 }
 
@@ -746,7 +748,7 @@ to {
 .sectionTitle {
   color: #141e53;
   display: flex;
-  padding-top: 5vh;
+  padding-top: 4vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -795,7 +797,7 @@ to {
   font-weight: bold;
 }
 .section-inner2 .category {
-  margin: 4vh 0;
+  margin: 3vh 0;
 }
 
 @media (max-width: 767px) {
@@ -839,11 +841,11 @@ to {
   display: block;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .imgBox {
-  width: 42vw;
-  max-width: 512px;
+  width: 38vw;
+  max-width: 416px;
   min-width: 330px;
   border-radius: 2vw;
   overflow: hidden;
@@ -876,7 +878,7 @@ to {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(24px, 2.5vw, 30px);
   opacity: 0;
   transition: 0.4s;
   font-weight: 100;
@@ -939,7 +941,7 @@ to {
   flex-direction: column; /* 中の要素を縦積みにする */
   align-items: flex-start; /* 要素を左揃えにする */
   width: 42vw;
-  max-width: 512px;
+  max-width: 416px;
   min-width: 330px;
 }
 .imgTag {
@@ -1166,7 +1168,7 @@ to {
 
 .view-more-link {
   position: absolute;
-  bottom: -20%;
+  bottom: -30%;
   left: 60px;
   z-index: 20; /* スクロールする実績より手前に表示 */
   color: #eb3056;
