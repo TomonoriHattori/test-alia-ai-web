@@ -62,7 +62,12 @@ body::-webkit-scrollbar{
   justify-content: center;
   z-index: 10;
 }
-
+@media (max-width:767px){
+  .inner-space {
+    width: 90vw;
+    min-width: 250px;
+  }
+}
 
 .section-inner1 {
   height: 100%;
@@ -309,6 +314,7 @@ body::-webkit-scrollbar{
 @media (max-width: 767px) {
   .subNavArea {
     height: 40px;
+    height: 50pt;
   }
   .subNavArea .subNavTitle {
     font-size: 15px;
@@ -368,6 +374,9 @@ body::-webkit-scrollbar{
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+.mv-area .mv_mobile {
+  display: none;
 }
 .mv-text-wrap {
   position: absolute;
@@ -512,6 +521,17 @@ to {
     width: 100%;
     height: auto;
     min-height: none;
+    overflow: hidden;
+  }
+  .mv-area .mv_pc {
+    display: none;
+  }
+  .mv-area .mv_mobile {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    top: -50px;
+    object-fit: cover;
   }
   .mv-text {
     position: absolute;
@@ -527,12 +547,12 @@ to {
   }
   .ctaArea {
     width: 100vw;
-    height: 20%;
+    height: 100%;
     bottom: 0;
-    position: absolute;
+    position: relative;
     text-align: center;
     display: flex;
-    top: 500px;
+    bottom: 5%;
   }
   .ctaArea ul {
     width: 100%;
@@ -632,14 +652,14 @@ to {
   /* taglineTitleコンテナの幅を調整します。
      親要素によって中央揃えになりつつ、中のh1要素同士は左揃えが維持されます */
   .taglineTitle {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
   /* taglineTextコンテナの幅を調整し、位置をリセットします。
      親要素によって中央揃えになりつつ、中のテキストは左揃えが維持されます */
   .taglineText {
-    width: 90%;
+    width: 100%;
     transform: translateY(0);
   }
   .taglineText p {
@@ -771,7 +791,7 @@ to {
     padding-top: 40px;
   }
   .sectionTitle h2 {
-    font-size: 4.4vh;
+    font-size: 8vw;
     line-height: 4vh;
   }
 }
