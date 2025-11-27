@@ -1455,6 +1455,13 @@ to {
   border-radius: 26px;
   background-color: #FFFFFF;
   border: none;
+  transition: .3s;
+}
+.contact-right .actions input:hover {
+  background-color: #00000029;
+  border: 1px solid;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 /* 画像 */
