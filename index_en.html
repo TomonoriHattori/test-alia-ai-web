@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Application</title>
+
+    <link rel="stylesheet" property="stylesheet" href="css/common.css" media="all">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/smoothScroll.js"></script>
+	<script type="text/javascript" src="js/top.js"></script>
+	<script type="text/javascript" src="js/spnavi.js"></script>
+	<script type="text/javascript" src="js/profmodal.js"></script>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript" src="js/mp_config.js"></script>
+	<script type="text/javascript" src="js/mp_fileio.js"></script>
+	<script type="text/javascript" src="js/mp_lib.js"></script>
+	<script type="text/javascript" src="js/chatwindow.js"></script>
+	<script type="text/javascript" src="js/jquery-modal-video.min.js"></script>
+    <script type="text/javascript" src="js/top_blog.js"></script>
+    <script type="text/javascript" src="js/ailia_dx_chat.js"></script>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="navArea">
+                <div class="inner cw">
+                    <h1>
+                        <a class="navLogo" href="/en/"><img class="" src="img/common/logo.svg" alt="ailia">
+                            <span class="siteTitle">ailia</span>
+                        </a>
+                    </h1>
+                    <ul class="navList">
+                        <li>
+                            <a href="/en/" class="">ailia AI series</a>
+                        </li>
+                        <li>
+                            <a href="/ai-computing/" class="ai-computing">AI Computing</a>
+                        </li>
+                        <li>
+                            <a href="/en/ai-application/" target="_blank" class="ai-application current">AI Application</a>
+                        </li>
+                        <li>
+                            <a href="/company/" class="company">Company Profile</a>
+                        </li>
+                        <li class="lang">
+                            <a href="/ai-application/" lang="ja">JP</a>
+                            <a href="/en/ai-application/" class="current" lang="en">EN</a>
+                        </li>
+                        <li class="contact">
+                            <a class="" href="https://ailia.ai/en/contact/" target="_blank">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://ailia.ai/en/contact/" target="_blank" class="spContact mobileOnly">Contact</a>
+                <a class="spNavBtn mobileOnly" href="javascript:void(0);"><span></span><span></span><span></span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="subNavArea">
+            <a href="#section1" class="subNavTitle">AI Application</a>
+            <div class="site-menu-inner">
+                <nav class="site-menu">
+                    <ul>
+                        <li><a href="#section2">Product</a></li>
+                        <li><a href="#section3">Works</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!--あいにゃんチャットボット-->
+        <div id="chatbtn">
+            <div class="chatbtnbox chatopen">
+                <div class="chatbtnwindow">I'll answer anything about ainyan ailia.</div>
+                <div class="chara">
+                    <canvas id="avatar" width="256" height="256"></canvas>
+                    <img src="img/chara_sp.png" width="108" height="109" alt="あいにゃん" class="sp">
+                </div>
+            </div>
+            <div class="btnclose chatclose">Close</div>
+            <div class="btnprof profopen">Profile</div>
+        </div>
+        <div id="chatwindow">
+            <div class="aichatinner">
+                <!-- チャット部分 -->
+                <div class="logarea">
+                    <div class="loghead">
+                        <div class="logtitle">Ainyan Chat BOT (automatic response)</div>
+                        <div id="chatclose" class="winclose">Close</div>
+                    </div>
+                    <div class="logbody" id="logbody">
+                        <div class="logtext">
+                            <div id="chat"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatarea">
+                    <div class="chatbody">
+                        <form name="chat_form" action="javascript:chat_api('https://ailia-llm-insight.uw.r.appspot.com/');">
+                            <div class="chatformbox">
+                                <input type="text" name="prompt" id="prompt" size="40" placeholder="Please enter your question here (e.g., what is ailia)">
+                            </div>
+                            <div class="chatbutton">
+                                <button type="button" onclick="chat_api('https://ailia-llm-insight.uw.r.appspot.com/')">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CHARAPROF -->
+        <div id="profmodal">
+            <div class="profbg"></div>
+            <div class="profwindow">
+                <div class="profinner">
+                    <div class="profclose">Close.</div>
+                    <div class="pic"><img src="img/chara_detail_pic.png" width="447" height="574" alt=""></div>
+                    <div class="textarea">
+                        <div class="label">ailia brand official character</div>
+                        <div class="name">Ai-nyan</div>
+                        <div class="text">AI knows about the mysterious creature "◯◯danya" that came from the future, but it doesn't seem to be a cat. It provides information about ailia brand products and services. [Favorite food] Cat food.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--本文-->
+
+        <section id="section1">
+            <div class="section-inner1">
+
+                <div class="mv-area">
+                    <img class="mv_pc" src="img/use_case2_notext.png" alt="">
+                    <img class="mv_pc" src="img/use_case1_notext.png" alt="">
+                    <img class="mv_pc" src="img/use_case3_notext.png" alt="">
+                    <img class="mv_mobile" src="img/img_mv_01_sp.png" alt="">
+                    <img class="mv_mobile" src="img/img_mv_02_sp.png" alt="">
+                    <img class="mv_mobile" src="img/img_mv_03_sp.png" alt="">
+                    <!-- <video src="video/ailia_top_page.webm" autoplay loop muted></video> -->
+
+                    <div class="inner-space">
+                        <div class="taglineArea">
+                            <div class="taglineTitle slideIn1">
+                                <h1 class="slideIn-wrap"><span class="inn">ailia AI Applications</span></h1>
+                                <h1 class="slideIn-wrap"><span class="inn">Leading the</span></h1>
+                                <h1 class="slideIn-wrap"><span class="inn">AI era of business</span></h1>
+                            </div>
+                            <div class="taglineText">
+                                <p>We deliver advanced AI applications that solve challenges across industries. Backed by years of research and proven deployments, we provide the optimal AI solutions to accelerate business transformation.</p>
+                            </div>
+                        </div>
+                        <div class="ctaArea ctaArea_en">
+                            <ul class="ctaBtn">
+                                <div class="cta-btn"><li><a href="#section2">Product<span class="arrow"></span></a></li></div>
+                                <div class="cta-btn"><li><a href="#section4">Works<span class="arrow"></span></a></li></div>
+                                <div class="cta-btn"><li><a href="#section5">Contact<span class="arrow"></span></a></li></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+
+        <section id="section2">
+            <div class="section-inner2">
+                
+
+                <div class="inner-space">
+                    <div class="sectionTitle">
+                        <h2 class="rubby"></h2>
+                        <h2>PRODUCT LINEUP</h2>
+                    </div>
+                    <div class="category">
+                        <h3>AI Applications for DX</h3>
+                        <p>Enhancing Avatar Expression with AI</p>
+                    </div>
+                    <div class="container">
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://sp-2025.com/mbradio_download" target="_blank"><img src="img/img_mirroredbodyradio.png" alt=""></a>
+                            </div>
+                            
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://sp-2025.com/mbradio_download" target="_blank"></a>
+                                <h4>Mirrored Body Radio</h4>
+                                <p>An app that lets you enjoy conversations between AI avatars</p>
+                                <div class="imgTag">
+                                    <p>AI</p>
+                                    <p>AI Speech</p>
+                                    <p>AI Voice</p>
+                                    <p>AI Avatar</p>
+                                    <p>LLM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://www.motionportrait.com/indexj.php" target="_blank"><img src="img/img_mp.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://www.motionportrait.com/indexj.php" target="_blank"></a>
+                                <h4>MotionPortrait</h4>
+                                <p>2D animation generation for the gaming industry</p>
+                                <div class="imgTag">
+                                    <p>VTO</p>
+                                    <p>Simulation</p>
+                                    <p>Animation</p>
+                                    <p>Facial Recognition</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://www.ailia.ai/voice?_gl=1*1fpr30e*_gcl_au*MTY2NDcxNDM1Ny4xNzYxNTMzMzU2" target="_blank"><img src="img/img_ai_voice_en.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://www.ailia.ai/voice?_gl=1*1fpr30e*_gcl_au*MTY2NDcxNDM1Ny4xNzYxNTMzMzU2" target="_blank"></a>
+                                <h4>Ailia AI Voice</h4>
+                                <p>Real-Time Speech Synthesis for Natural Dialogue</p>
+                                <div class="imgTag">
+                                    <p>AI</p>
+                                    <p>AI Speech</p>
+                                    <p>AI Voice</p>
+                                    <p>Speech synthesis</p>
+                                    <p>interpretation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://www.ailia.ai/speech?_gl=1*1womhzt*_gcl_au*MTY2NDcxNDM1Ny4xNzYxNTMzMzU2" target="_blank"><img src="img/img_ai_speech_en.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://www.ailia.ai/speech?_gl=1*1womhzt*_gcl_au*MTY2NDcxNDM1Ny4xNzYxNTMzMzU2" target="_blank"></a>
+                                <h4>Ailia AI Speech</h4>
+                                <p>Multi-Platform, Real-Time Speech Recognition</p>
+                                <div class="imgTag">
+                                    <p>AI</p>
+                                    <p>Offline</p>
+                                    <p>Voice Recognition</p>
+                                    <p>Whisper</p>
+                                    <p>AI Speech</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    
+                </div>
+
+                <div class="inner-space">
+                    
+                    <div class="category">
+                        <h3>AI Applications for DX</h3>
+                        <p>DX solutions that accelerate corporate transformation</p>
+                    </div>
+                    <div class="container">
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://ailia.ai/dx/" target="_blank"><img src="img/img_DX_insight_en.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://ailia.ai/dx/" target="_blank"></a>
+                                <h4>ailia DX Insight</h4>
+                                <p>AI applications for businesses</p>
+                                <div class="imgTag">
+                                    <p>DX</p>
+                                    <p>OCR</p>
+                                    <p>Translation</p>
+                                    <p>Minutes creation</p>
+                                    <p>Local LLM</p>
+                                    <p>Summarization</p>
+                                    <p>Document Search</p>
+                                    <p>Image Generation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox unprepared">
+                                <a><img src="img/img_DX_enterprise_en.png" alt=""></a>
+                                <span class="ComingSoon">Coming Soon</span>
+                            </div>
+                            <div class="imgTitle">
+                                <h4>ailia DX Enterprise</h4>
+                                <p>AI search service for businesses</p>
+                                <div class="imgTag">
+                                    <p>DX</p>
+                                    <p>OCR</p>
+                                    <p>Corporate server</p>
+                                    <p>Minutes creation</p>
+                                    <p>Document Search</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-space">
+                    <div class="category">
+                        <h3>AI agents for events and retail stores</h3>
+                        <p>AI agents revolutionizing customer experiences</p>
+                    </div>
+                    <div class="container">
+                        <div class="products">
+                            <div class="imgBox">
+                                <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank"><img src="img/img_ainyan_agent.png" alt=""></a>
+                            </div>
+                            <div class="imgTitle">
+                                <a class="linkbox" href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/?_gl=1*s4dqi8*_gcl_au*MTgwNDUzMjg2Mi4xNzUwMzA1NTIz*_ga*MjA0NTU3ODQyMS4xNzM1MTA3NDY1*_ga_EH48YWQFFH*czE3NTU2NjgxMDAkbzk4JGcxJHQxNzU1NjY4MjU2JGo1NiRsMCRoMA.." target="_blank"></a>
+                                <h4>ainyan</h4>
+                                <p>High-performance stuffed toy robot AI agent</p>
+                                <div class="imgTag">
+                                    <p>AI Agent</p>
+                                    <p>Conversational AI</p>
+                                    <p>STT</p>
+                                    <p>LLM</p>
+                                    <p>RAG</p>
+                                    <p>TTS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </section>
+
+        <section id="section3">
+            <div class="section-inner3">
+                <div class="inner-space">
+                    <div class="sectionTitle">
+                        <h2 class="rubby"></h2>
+                        <h2>LABORATORY</h2>
+                    </div>
+                    <div class="category">
+                        <h3>R&D</h3>
+                        <p>Practical R&D Applications</p>
+                    </div>
+
+                    <div class="container">
+                        <div class="products">
+                            <div class="imgBox">
+                                <img src="img/img_mocap.png" alt="">
+                            </div>
+                            <div class="imgTitle">
+                                <h4>Motion Capture 3D</h4>
+                                <p>3D motion generation from video</p>
+                                <div class="imgTag">
+                                    <p>AI</p>
+                                    <p>3D</p>
+                                    <p>Motion Capture</p>
+                                    <p>Tracking</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products">
+                            <div class="imgBox">
+                                <img src="img/img_ailiasdk_hair.png" alt="">
+                            </div>
+                            <div class="imgTitle">
+                                <h4>ailia SDK:HAIR STYLE & VIDEO GENERATOR</h4>
+                                <p>Freely create hairstyles and hair colors</p>
+                                <div class="imgTag">
+                                    <p>Gen AI</p>
+                                    <p>Simulation</p>
+                                    <p>VTO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4">
+            <div class="section-inner4">
+                <div class="inner-space">
+                    <div class="sectionTitle">
+                        <h2 class="rubby"></h2>
+                        <h2>WORKS</h2>
+                    </div>
+                </div>
+                <div class="lineupslide-area">
+                    <div class="lineupslide-warap">
+                        <ul class="lineupslide">
+                            <li><a href="https://www.axell.co.jp/business/case/detail_08.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb01.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">Partner Mobility x ailia SDK</div>
+                                    <div class="text">Cooperating in the development of "visual recognition AI" and "applications" for autonomous driving and remote control.</div>
+                                </div>
+                            </a></li>
+                            <li><a href="https://www.axell.co.jp/business/case/detail_01.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb02.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">CLIP STUDIO PAINT for Galaxy × ailia SDK</div>
+                                    <div class="text">Greatly reduce the jaggies caused by changing the resolution or enlarging the image.</div>
+                                </div>
+                            </a></li>
+                            <li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_04.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb06.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">Next-generation in-vehicle equipment PoC × AI solution</div>
+                                    <div class="text">Realization of advanced "monitoring function" that detects the driver's state using the latest deep learning technology.</div>
+                                </div>
+                            </a></li>
+                            <li class="mobile-hidden"><a href="https://www.axell.co.jp/business/case/detail_03.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb07.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">DEEP∞ × ailia AI showcase</div>
+                                    <div class="text">Experience AI functions casually with DEEP∞</div>
+                                </div>
+                            </a></li>
+                            <li class="mobile-hidden"><a href="https://www.axell.co.jp/business/case/detail_02.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb08.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">CLIP STUDIO PAINT × ailia SDK.</div>
+                                    <div class="text">Provide a high-speed inference foundation using GPUs on a cross-platform basis.</div>
+                                </div>
+                            </a></li>
+                            <li class="mobile-hidden"><a href="https://ailia.ai/case/blueing/" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb09.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">JFA Soccer Culture Creation Base "blue-ing!"</div>
+                                    <div class="text">AI implementation into next-generation experiential content utilizing the latest technology.</div>
+                                </div>
+                            </a></li>
+                        </ul>
+
+                        <ul class="lineupslide disappear">
+                            <li><a href="https://www.axell.co.jp/business/case/detail_08.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb01.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">Partner Mobility x ailia SDK</div>
+                                    <div class="text">Cooperating in the development of "visual recognition AI" and "applications" for autonomous driving and remote control.</div>
+                                </div>
+                            </a></li>
+                            <li><a href="https://www.axell.co.jp/business/case/detail_01.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb02.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">CLIP STUDIO PAINT for Galaxy × ailia SDK</div>
+                                    <div class="text">Greatly reduce the jaggies caused by changing the resolution or enlarging the image.</div>
+                                </div>
+                            </a></li>
+                            <li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_04.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb06.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">Next-generation in-vehicle equipment PoC × AI solution</div>
+                                    <div class="text">Realization of advanced "monitoring function" that detects the driver's state using the latest deep learning technology.</div>
+                                </div>
+                            </a></li>
+                            <li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_03.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb07.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">DEEP∞ × ailia AI showcase</div>
+                                    <div class="text">Experience AI functions casually with DEEP∞</div>
+                                </div>
+                            </a></li>
+                            <li class="lineupmore"><a href="https://www.axell.co.jp/business/case/detail_02.html" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb08.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">CLIP STUDIO PAINT × ailia SDK.</div>
+                                    <div class="text">Provide a high-speed inference foundation using GPUs on a cross-platform basis.</div>
+                                </div>
+                            </a></li>
+                            <li><a href="https://ailia.ai/case/blueing/" target="_blank">
+                                <div class="thumb"><img src="img/lineup_thumb09.jpg" width="759" height="523" alt=""></div>
+                                <div class="textarea">
+                                    <div class="label">JFA Soccer Culture Creation Base "blue-ing!"</div>
+                                    <div class="text">AI implementation into next-generation experiential content utilizing the latest technology.</div>
+                                </div>
+                            </a></li>
+                        </ul>
+                        <a href="#" class="load-more-btn">MORE<span class="plus"></span></a>
+                        <a href="https://www.axell.co.jp/business/case/" target="_blank" class="view-more-link">VIEW MORE<span class="arrow-side"></span></a>
+                        <a href="#" class="load-less-btn">MORE<span class="minus"></span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="track-records">
+            <div class="track-records-title">
+                <h2>Our Clients</h2> 
+            </div>
+            <div class="logo-area">
+                <div class="logo-area-wrap">
+                    <ul class="logo-list">
+                        <li class="logos"><img src="img/img_logo_ask.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_celsys.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_kel.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_konicaminolta.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_radius5.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_randido.png" alt=""></li>
+                    </ul>
+                    <ul class="logo-list">
+                        <li class="logos"><img src="img/img_logo_ask.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_celsys.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_kel.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_konicaminolta.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_radius5.png" alt=""></li>
+                        <li class="logos"><img src="img/img_logo_randido.png" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="section5">
+            <div class="section-inner5">
+                <div class="inner-space">
+                    <div class="sectionTitle">
+                        <h2 class="rubby"></h2>
+                        <h2>CONTACT US</h2>
+                    </div>
+                    <div class="contact-area">
+                        <div class="contact-left">
+                            <div class="contact-text">
+                                <p>Please feel free to contact us with any questions about AI applications, product implementation considerations, or development consultations using the ailia SDK.</p>
+                            </div>
+                            <div class="contact-img">
+                                <!-- <img src="img/img_contact.png" alt=""> -->
+                            </div>
+                        </div>
+                        <div class="contact-right">
+                            <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+                            <script>
+                            hbspt.forms.create({
+                                portalId: "19700338",
+                                formId: "43006080-09e2-4c52-9fb0-181e2225b100",
+                                region: "na2"
+                            });
+                            </script>
+                        </div>
+                    </div>
+                    <div id="page-bottom-sentinel"></div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="cw">
+                <div class="wrap">
+                    <div class="left">
+                        <div class="col">
+                            <a href="/en/">ailia AI series</a>
+                            <a href="/en/dx/">ailia DX Insight</a>
+                            <a href="/en/sdk/">ailia SDK</a>
+                            <a href="https://www.ailia.ai/voice">ailia AI VOICE</a>
+                            <a href="https://www.ailia.ai/speech">ailia AI SPEECH</a>
+                            <a href="/en/embedded/">ailia Embedded AI</a>
+                        </div>
+                        <div class="col">
+                            <a href="/ai-computing/">AI Computing</a>
+                            <a href="/ai-computing/ai-deeplearning-acceleration/">AI Deeplearning Acceleration</a>
+                            <a href="/ai-computing/embedded-acceleration/">Embedded Acceleration</a>
+                            <a href="/ai-computing/image-processing-acceleration/">Image Processing Acceleration</a>
+                            <a href="/ai-computing/gpu-acceleration/">GPU Acceleration</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/">AI Application</a>
+                            <a href="https://blog.ailia.ai/pickup/ailia-ai-agent-01/">AI Agent</a>
+                        </div>
+                        <div class="col">
+                            <a href="/en/company/">Company Profile</a>
+                            <a href="https://www.axell.co.jp/browser/">Terms of Service</a>
+                            <a href="https://www.axell.co.jp/privacy/">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p class="company">ailia Inc.</p>
+                        <p class="address">5F Tosokaikan, 19-22 Uguisudanicho, Shibuya-ku, Tokyo 150-0032 Japan</p>
+                        <p class="btnWrap">
+                            <a class="btn btnContact" href="https://ailia.ai/en/contact/" target="_blank">
+                                <span class="icon"><img src="img/common/icon_contact.svg" alt=""></span>
+                                <span class="label">Contact</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bannerArea">
+                    <a href="https://blog.ailia.ai/" target="_blank">
+                        <img src="img/common/footer_banner_01.webp" alt="AIでしごとするなら「AI専門メディア」">
+                    </a>
+                    <a href="https://ailia.ai/en/sdk/" target="_blank">
+                        <img src="img/common/footer_banner_02.webp" alt="ソフトウェア開発きっとアイリアSDK">
+                    </a>
+
+                </div>
+
+            </div>
+            <p class="copyright">Copyright &copy; ailia Inc. / Axell Co., Ltd</p>
+        </footer>
+
+        <div class="scroll_down">
+            <a href="#">Scroll</a>
+        </div>
+
+        
+       
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        <script src="js/scroll-snap.js"></script> -->
+        <script src="js/side-inn.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const loadMoreBtn = document.querySelector('.load-more-btn');
+                const loadLessBtn = document.querySelector('.load-less-btn'); // 閉じるボタンを取得
+                const slideWrap = document.querySelector('.lineupslide-warap');
+
+                // 「もっと見る」ボタンの処理
+                if (loadMoreBtn && slideWrap) {
+                    loadMoreBtn.addEventListener('click', function(event) {
+                        event.preventDefault(); 
+                        slideWrap.classList.add('is-expanded');
+                    });
+                }
+
+                // 「閉じる」ボタンの処理
+                if (loadLessBtn && slideWrap) {
+                    loadLessBtn.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        slideWrap.classList.remove('is-expanded');
+                    });
+                }
+
+
+                // スクロールダウンの色変更
+
+                const scrollDownElement = document.querySelector('.scroll_down');
+                // 監視対象となる全てのセクションを取得
+                const sections = document.querySelectorAll('main > section');
+
+                if (scrollDownElement && sections.length > 0) {
+                    const observerOptions = {
+                        root: null, // ビューポートを基準にする
+                        // .scroll_down は bottom: 40vh; なので、画面の上から60%の位置にあります。
+                        // このマージン設定で、画面の上から60%の位置を「監視ライン」にします。
+                        rootMargin: '-60% 0px -40% 0px',
+                        threshold: 0 // 監視ラインを少しでも横切ったら発火
+                    };
+
+                    const observerCallback = (entries) => {
+                        entries.forEach(entry => {
+                            // entry.isIntersecting が true の場合、そのセクションが監視ラインを通過したことを意味します
+                            if (entry.isIntersecting) {
+                                // 監視ラインを通過したセクションが #section4 なら色を変える
+                                if (entry.target.id === 'section5') {
+                                    scrollDownElement.classList.add('invert-color');
+                                } else {
+                                    // それ以外のセクションなら色を戻す
+                                    scrollDownElement.classList.remove('invert-color');
+                                }
+                            }
+                        });
+                    };
+
+                    // オブザーバーを作成
+                    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+                    // 全てのセクションを監視対象に追加
+                    sections.forEach(section => {
+                        observer.observe(section);
+                    });
+                }
+            });
+        </script>
+    </main>
+
+</body>
+</html>
