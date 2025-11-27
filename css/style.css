@@ -873,6 +873,7 @@ section {
   }
   .imgTag p {
     font-size: 11px;
+    margin-bottom: 0;
   }
 }
 
