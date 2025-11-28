@@ -1404,6 +1404,11 @@ to {
   padding-left: 2%;
 }
 
+.contact-right-en .form-columns-2 .hs_firstname input {
+  display: block;
+  margin: 0 auto 0 0;
+}
+
 
 /*お問い合わせ内容*/
 .contact-right textarea {
