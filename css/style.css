@@ -786,13 +786,17 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: clamp(24px, 2.5vw, 30px);
-    opacity: 1;
+    opacity: 0;
     transition: 0.4s;
     font-weight: 100;
   }
-  .imgBox.unprepared a {
-  opacity: 0.1;
-}
+  .imgBox.unprepared:active .ComingSoon {
+    opacity: 1;
+    transition: 0.4s;
+  }
+  .imgBox.unprepared:active a {
+    opacity: 0.1;
+  }
 }
 
 /* 画像タグエリア */
