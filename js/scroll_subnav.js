@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // height: 60
     };
     const mobileSettings = {
-        initialTop: 45,
+        initialTop: 48,
         scrollThreshold: 50, // モバイル時のスクロールしきい値 (小さめに設定することも多い)
         // height: 45
     };
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ウィンドウサイズに基づいて設定を更新する関数
     function updateResponsiveSettings() {
-        if (window.innerWidth <= 768) { // モバイルと見なすブレークポイント
+        if (window.innerWidth <= 1023) { // モバイルと見なすブレークポイント
             currentSettings = mobileSettings;
         } else {
             currentSettings = desktopSettings;

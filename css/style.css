@@ -64,7 +64,7 @@ section {
 }
 @media (max-width: 1023px) {
   #subNavArea {
-    top: 45px;
+    top: 48px;
   }
 }
 @media (max-width: 767px) {
@@ -241,6 +241,14 @@ section {
   }
   100% {
     opacity: 0;
+  }
+}
+
+/* タブレット・小型PC用 */
+@media (max-width: 1023px) {
+  .mv-area {
+    /* Header(48px) + SubNav(80px) = 128px */
+    margin-top: 128px; 
   }
 }
 
