@@ -33,7 +33,7 @@ section {
 
 /* -----ナビゲーション---------------------------------------- */
 
-.subNavArea {
+#subNavArea {
   width: 100%;
   height: 80px;
   margin: 0 auto;
@@ -47,7 +47,7 @@ section {
   right: 0;
   padding: 30px 60px 0 60px;
 }
-.subNavArea .subNavTitle {
+#subNavArea .subNavTitle {
   display: block;
   font-size: 21px;
   font-weight: bold;
@@ -63,16 +63,16 @@ section {
   font-weight: bold;
 }
 @media (max-width: 1023px) {
-  .subNavArea {
+  #subNavArea {
     top: 45px;
   }
 }
 @media (max-width: 767px) {
-  .subNavArea {
+  #subNavArea {
     height: 50px;
     padding: 0;
   }
-  .subNavArea .subNavTitle {
+  #subNavArea .subNavTitle {
     font-size: 13px;
     margin-left: 20px;
   }
@@ -84,7 +84,7 @@ section {
     font-size: 11px;
     font-weight: 500;
   }
-  .subNavArea .subNavTitle {
+  #subNavArea .subNavTitle {
     width: auto;
   }
 }
