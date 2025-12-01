@@ -197,7 +197,7 @@
                             
                             <div class="imgTitle">
                                 <a class="linkbox" href="https://sp-2025.com/mbradio_download" target="_blank"></a>
-                                <h4>Mirrored Body Radio</h4>
+                                <h4>Mirrored Body&#0174; Radio</h4>
                                 <p>An app that lets you enjoy conversations between AI avatars</p>
                                 <div class="imgTag">
                                     <p>AI</p>
@@ -625,6 +625,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
         <script src="js/scroll-snap.js"></script> -->
         <script src="js/side-inn.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/scroll_subnav.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const loadMoreBtn = document.querySelector('.load-more-btn');
@@ -686,6 +688,14 @@
                         observer.observe(section);
                     });
                 }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $(".unprepared").click(function() {
+                    $(".unprepared").toggleClass("unprepared_active");
+                });
             });
         </script>
     </main>
