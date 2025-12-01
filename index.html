@@ -650,6 +650,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
         <script src="js/scroll-snap.js"></script> -->
         <script src="js/side-inn.js"></script>
+        <script src="js/main.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const loadMoreBtn = document.querySelector('.load-more-btn');
@@ -711,6 +712,14 @@
                         observer.observe(section);
                     });
                 }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $(".unprepared").click(function() {
+                    $(".unprepared").toggleClass("unprepared_active");
+                });
             });
         </script>
     </main>

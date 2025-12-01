@@ -787,14 +787,17 @@ section {
     transform: translate(-50%, -50%);
     font-size: clamp(24px, 2.5vw, 30px);
     opacity: 0;
-    transition: 0.4s;
+    transition: 1s;
     font-weight: 100;
   }
-  .imgBox.unprepared:active .ComingSoon {
-    opacity: 1;
-    transition: 0.4s;
+  .imgBox.unprepared {
+    transition: 1s;
   }
-  .imgBox.unprepared:active a {
+  .imgBox.unprepared_active .ComingSoon {
+    opacity: 1;
+    transition: 1s;
+  }
+  .imgBox.unprepared_active a {
     opacity: 0.1;
   }
 }
