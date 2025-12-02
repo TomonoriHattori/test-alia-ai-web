@@ -1336,7 +1336,6 @@ to {
 .contact-left p {
   margin-top: 20px;
   margin-bottom: 70px;
-  font-size: 1.5vw;
   font-size: clamp(11px, 1.5vw, 18px);
 }
 
@@ -1362,15 +1361,16 @@ to {
   margin-top: 10px;
   color: black;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0 10px;
   margin-right: 0 !important;
 }
+
 
 .contact-right .form-columns-1 label,
 .contact-right .form-columns-2 label {
   display: block;
   margin-bottom: min(18px,0.8vw);
-  margin-top: min(35px,2.5vw);
+  margin-top: min(35px,6vw);
 }
 
 .section-inner5 textarea {
@@ -1573,16 +1573,16 @@ footer {
     font-size: 14px;
   }
 
-  .contact-right input {
+  .contact-right input,
+  .contact-right select {
     height: 40px;
   }
-  .contact-right .form-columns-1 input {
+  .contact-right .form-columns-1 input,
+  .contact-right .form-columns-2 input,
+  .contact-right .form-columns-1 select {
     aspect-ratio: auto !important;
   }
-  .contact-right .form-columns-1 input,
-  .contact-right .form-columns-2 input {
-    margin-bottom: 40px;
-  }
+  
 
 
   .contact-right .form-columns-1 label,
@@ -1628,7 +1628,11 @@ footer {
     max-width: 85% !important;
   }
   
-  
+  .contact-right .form-columns-1 label,
+  .contact-right .form-columns-2 label {
+    margin-bottom: 17px;
+    margin-top: 48px;
+  }
 
   footer {
     margin-top: 50px;
