@@ -1355,10 +1355,11 @@ to {
 }
 
 /* インプット欄 */
-.contact-right input {
+.contact-right input,
+.contact-right textarea,
+.contact-right select {
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 40px;
   color: black;
   border-radius: 5px;
   padding: 10px;
@@ -1369,6 +1370,7 @@ to {
 .contact-right .form-columns-2 label {
   display: block;
   margin-bottom: min(18px,0.8vw);
+  margin-top: min(35px,2.5vw);
 }
 
 .section-inner5 textarea {
@@ -1389,7 +1391,7 @@ to {
   aspect-ratio: 11 / 1 !important;
   border-radius: 3px;
   width: 100% !important;
-  margin-bottom: min(35px,2.5vw);
+  margin-bottom: 0;
 }
 
 /* 名前 */
@@ -1406,7 +1408,7 @@ to {
   max-width: none;
   aspect-ratio: 5.3 / 1 !important;
   border-radius: 3px;
-  margin-bottom: min(35px,2.5vw);
+  margin-bottom: 0;
 }
 .hs_firstname {
   text-align: left;
@@ -1424,24 +1426,45 @@ to {
   margin: 0 auto 0 0;
 }
 
+/*お問い合わせ項目*/
+.contact-right .form-columns-1 select {
+  width: 100% !important;
+  max-width: 100% !important;
+  color: black;
+}
+.contact-right .form-columns-1 select {
+  margin: 0;
+  max-width: none;
+  aspect-ratio: 11 / 1 !important;
+  border-radius: 3px;
+  width: 100% !important;
+  margin-bottom: 0;
+}
+
+
 
 /*お問い合わせ内容*/
 .contact-right textarea {
   border-radius: 3px;
   height: 100px;
-  margin-bottom: min(35px,2.5vw);
+  margin-bottom: 0;
   width: 100% !important;
 }
 .contact-right .form-columns-1 .hs-richtext {
   margin-bottom: min(35px,2.5vw);
+  margin-top: min(35px,2.5vw);
 }
-.contact-right .hs_message label,
-.contact-right .hs_email label {
+
+.contact-right .form-columns-1 label,
+.contact-right .form-columns-2 label {
   display: flex;
   align-items: center;
 }
-.contact-right .hs_message label::after,
-.contact-right .hs_email label::after {
+
+
+/* 必須表記 */
+.contact-right .form-columns-1 label::after,
+.contact-right .form-columns-2 label::after {
   content: "必須";
   font-size: 10px;
   padding: auto;
@@ -1452,8 +1475,21 @@ to {
   text-align: center;
   border-radius: 3px;
 }
+
+.contact-right-en .form-columns-1 label::after,
+.contact-right-en .form-columns-2 label::after {
+  content: "Required";
+  width: 65px;
+}
+.contact-right .hs-error-msg {
+  margin-top: 5px !important;
+  font-size: 11px;
+}
 .hs-form-required {
   opacity: 0;
+}
+.contact-right .form-columns-1 .hs_solution label::after {
+  margin-left: 8px;
 }
 
 /*送信ボタン*/
