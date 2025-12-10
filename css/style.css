@@ -1743,3 +1743,44 @@ footer {
 .scroll_down.invert-color:after {
   background: #ffffff;
 }
+
+.Poppins h3,
+.Poppins h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.category.Poppins p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.imgTitle.Poppins p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.taglineArea.Poppins,
+.ctaBtn.Poppins {
+  font-family: "Poppins", sans-serif;
+}
+.taglineArea.Poppins h1 {
+  font-weight: 500;
+}
+.taglineArea.Poppins p {
+  font-weight: 500;
+}
+
+.Poppins .imgTag p {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.track-records-title.Poppins h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.contact-text.Poppins {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
