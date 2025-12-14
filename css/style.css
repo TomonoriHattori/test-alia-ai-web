@@ -1750,7 +1750,8 @@ footer {
   font-weight: 600;
 }
 
-.category.Poppins p {
+.category.Poppins p,
+.category.Poppins h3 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
